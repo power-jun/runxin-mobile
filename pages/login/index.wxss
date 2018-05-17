@@ -1,0 +1,81 @@
+page {
+  height: 100%;
+}
+
+.body {
+  height: 100%;
+  padding: 30px;
+  background: url('http://172.16.72.153:3000/img/sign-bg.jpg') 50% 50% no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.welcome {
+  font-size: 14px;
+  color: #646d74;
+}
+
+.tip {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #646d74;
+}
+
+.form-box {
+  padding: 50px 0;
+}
+
+.text-box {
+  display: flex;
+  align-items: center;
+  margin: 10px 0 20px;
+  border-bottom: 1px solid #646d74;
+}
+
+.text-box .text {
+  flex: 1;
+  padding: 15px 0;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.text-box .placeholder {
+  color: #646d74;
+}
+
+.text-box .icon {
+  margin-right: 10px;
+}
+
+.text-box .clear {
+  margin-left: 10px;
+}
+
+.text-box .code {
+  margin-left: 10px;
+  width: 6em;
+  font-size: 14px;
+  color: #cf4141;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.text-box .code.disable {
+  color: #646d74;
+}
+
+.submit {
+  padding: 15px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #cf4141;
+}
+
+.submit.disable {
+  color: rgba(255, 255, 255, 0.5);
+  background-color: #f35b5b;
+}

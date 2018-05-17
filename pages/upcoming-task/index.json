@@ -1,3 +1,8 @@
 {
-  "navigationBarTitleText": "签发"
+  "navigationBarTitleText": "待办业务",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#cf4141",
+  "usingComponents": {
+    "iconfont": "../../components/iconfont/index"
+  }
 }

@@ -1,3 +1,11 @@
-<view class="container">
-  <text>待办任务</text>
+<view class='body'>
+  <view class='navigator-box'>
+    <navigator class='items' wx:for='{{navigatorArray}}' wx:key='item'>
+      <view class='icon-box'>
+        <image class='icon' src='{{item.icon}}' mode='aspectFit' />
+        <view class='tip' wx:if='{{item.tip}}'>{{item.tip}}</view>
+      </view>
+      <view class='text'>{{item.text}}</view>
+    </navigator>
+  </view>
 </view>
