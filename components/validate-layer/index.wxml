@@ -1,0 +1,16 @@
+<view class='validate-layer' wx:if='{{isShow}}'>
+  <view class='validate-box'>
+    <view class='title'>请在下方输入图片验证码</view>
+    <view class='content'>
+      <view class='text-box'>
+        <input class='text' type='number' maxlength='4' value='{{code}}' bindinput='inputCode' />
+        <icon class='clear' type='clear' size='20' color='#aaa' wx:if='{{code}}' bindtap='clearCode' />
+        <image class='pic' src='{{picture}}' mode='aspectFit' />
+      </view>
+    </view>
+    <view class='footer'>
+      <view class='items cancel' bindtap='cancel'>取消</view>
+      <view class='items ok' bindtap='ok'>确认</view>
+    </view>
+  </view>
+</view>

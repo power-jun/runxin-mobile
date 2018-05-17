@@ -12,6 +12,7 @@ Page({
     codeText: '获取验证码', // 获取短信文本
     timer: 0, // 计时器
     disable: true, // 禁用
+    showValidateLayer: false, // 显示图片验证层
   },
 
   /**
@@ -182,7 +183,9 @@ Page({
     if (!status) {
       return false;
     }
-    _this.countdown();
+    _this.setData({
+      showValidateLayer: true
+    });
   },
 
   /* 倒数计时 */
@@ -200,6 +203,12 @@ Page({
         clearInterval(intervalObject);
       }
     }, 1000);
+  },
+
+  /* 验证图片（确认） */
+  validateOk: function (e) {
+    console.log(e.detail.code);
+    this.countdown();
   },
 
   /* 提交 */
