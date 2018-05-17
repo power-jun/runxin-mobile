@@ -3,7 +3,8 @@
     "pages/runxin-manage/index",
     "pages/login/index",
     "pages/upcoming-task/index",
-    "pages/manage-center/index"
+    "pages/manage-center/index",
+    "pages/runxin-distribute/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
