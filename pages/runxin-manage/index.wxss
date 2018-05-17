@@ -1,8 +1,9 @@
 .type-navbar {
   white-space: nowrap;
-  height: 88rpx;
+  height: 100rpx;
   width: 100%;
   background-color: #fff;
+  border-top: 1px solid #ededed;
 }
 
 ::-webkit-scrollbar {
@@ -34,7 +35,7 @@
 
 .holding-list {
   font-size: 20rpx;
-  padding: 25rpx 15rpx;
+  padding: 25rpx 20rpx;
   width:760rpx;
   box-sizing:border-box;
 }

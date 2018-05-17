@@ -20,15 +20,14 @@
 }
 
 .item-detail {
-  flex:0 0 650rpx;
+  flex:0 0 640rpx;
   box-sizing: border-box;
   padding: 40rpx 30rpx 25rpx;
   background: #fff;
-  border: 1px solid #e8e8e8;
   border-top: 18rpx solid #41c74a;
   border-radius: 16rpx;
   margin-top: -10rpx;
-  box-shadow: 1px 2px 5px #e8e8e8;
+  box-shadow: 1px 2px 4px #e8e8e8;
 }
 
 .number-date {
@@ -119,12 +118,12 @@
   float: left;
   background: url('http://172.16.72.99:8000/images/bookmarks-left.png') no-repeat 0 0;
   background-size: 25rpx 50rpx;
-  margin-left:-32rpx;
+  margin-left:-30rpx;
 }
 
 .bookmarks-right {
   float: right;
   background: url('http://172.16.72.99:8000/images/bookmarks-right.png') no-repeat 0 0;
   background-size: 25rpx 50rpx;
-  margin-right:-32rpx;
+  margin-right:-30rpx;
 }
