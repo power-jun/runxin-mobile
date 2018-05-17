@@ -1,4 +1,18 @@
-<view class="container">
-  <text>登录页面</text>
-  <view bindtap='goTo'>登录</view>
+<view class='body'>
+  <view class='welcome'>欢迎您来润信！</view>
+  <view class='tip'>管理业务前，还需要验证您在润信的账号和密码。</view>
+  <view class='form-box'>
+    <view class='text-box'>
+      <iconfont class='icon' type='shoujihao' size='20' color='#646d74' />
+      <input class='text' placeholder-class='placeholder' type='number' maxlength='11' value='{{phone}}' placeholder='请输入手机号' bindinput='inputPhone' bindblur='blurPhone' />
+      <icon class='clear' type='clear' size='20' color='#646d74' wx:if='{{phone}}' bindtap='clearPhone' />
+    </view>
+    <view class='text-box'>
+      <iconfont class='icon' type='yanzhengma' size='20' color='#646d74' />
+      <input class='text' placeholder-class='placeholder' type='number' maxlength='6' value='{{note}}' placeholder='验证码' bindinput='inputNote' bindblur='blurNote' />
+      <icon class='clear' type='clear' size='20' color='#646d74' wx:if='{{note}}' bindtap='clearNote' />
+      <view class='code{{timer?" disable":""}}' bindtap='getCode'>{{codeText}}</view>
+    </view>
+  </view>
+  <view class='submit{{disable?" disable":""}}' bindtap='submit'>提交验证</view>
 </view>
