@@ -1,0 +1,38 @@
+    <view class="holding-list-item">
+      <view class="percentage">
+        <text>最低牌价</text>
+        <text>8%</text>
+      </view>
+      <view class="item-detail">
+        <view class='number-date'>
+          <text>润信编号： 0000201805016</text>
+          <text>交易日期：2018-5-15</text>
+        </view>
+        <view class='money-date'>
+          <view>
+            <text class='money'><text>¥</text> 2000.00</text>
+            <text class='date'>(10天)</text>
+          </view>
+          <view class='capital-amount'>人民币贰仟元整</view>
+          <view class='distribute-date'>签发日：2018-5-25</view>
+          <view class='distribute-date'>到期日：2018-5-25</view>
+        </view>
+        <view class='company'>
+          <text>签发</text>
+          深圳地球的地球的地球有限公司
+        </view>
+        <view class='company'>
+          <text>签收</text>
+          深圳地球表面有限公司
+        </view>
+        <view class='bookmarks'>
+          <view class='line'></view>
+          <view class='bookmarks-left'></view>
+          <view class='bookmarks-right'></view>
+        </view>
+        <view class='guarantor'>
+         <text>担保人</text>
+         深圳市宇宙飞起科技有限公司
+        </view>
+      </view>
+    </view>
