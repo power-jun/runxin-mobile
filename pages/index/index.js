@@ -1,4 +1,3 @@
-
 var config = require('../../utils/config.js');
 
 Page({
@@ -9,39 +8,12 @@ Page({
   data: {
     navigatorArray: [
       {
-        icon: config.cdnPrefix + 'img/icon3.png',
-        text: '签发复核',
-        tip: 0
+        icon: config.cdnPrefix + 'img/icon1.png',
+        text: '宇宙有限公司'
       },
       {
-        icon: config.cdnPrefix + 'img/icon4.png',
-        text: '融资复核',
-        tip: 0
-      },
-      {
-        icon: config.cdnPrefix + 'img/icon5.png',
-        text: '转让复核',
-        tip: 5
-      },
-      {
-        icon: config.cdnPrefix + 'img/icon6.png',
-        text: '利率复核',
-        tip: 0
-      },
-      {
-        icon: config.cdnPrefix + 'img/icon7.png',
-        text: '动态兑付复核',
-        tip: 0
-      },
-      {
-        icon: config.cdnPrefix + 'img/icon8.png',
-        text: '利率复核',
-        tip: 99
-      },
-      {
-        icon: config.cdnPrefix + 'img/icon9.png',
-        text: '额度审批',
-        tip: 0
+        icon: config.cdnPrefix + 'img/icon2.png',
+        text: '地球有限公司'
       }
     ]
   },

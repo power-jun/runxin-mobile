@@ -1,0 +1,9 @@
+<scroll-view class='body' scroll-y='true'>
+  <navigator class='items' wx:for='{{navigatorArray}}' wx:key='item'>
+    <image class='icon' src='{{item.icon}}' mode='aspectFit' />
+    <view class='text'>{{item.text}}</view>
+  </navigator>
+  <navigator class='more'>
+    <view class='text'>更多</view>
+  </navigator>
+</scroll-view>
