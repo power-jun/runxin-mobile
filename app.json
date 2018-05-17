@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/runxin-manage/index",
+    "pages/login/index",
+    "pages/upcoming-task/index",
+    "pages/manage-center/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#167efc",
+    "borderStyle": "#eee",
+    "backgroundColor": "#fafafa",
+    "box-shadow": "0 0 6px 0",
+    "list": [
+      {
+        "pagePath": "pages/upcoming-task/index",
+        "text": "待办任务"
+      },
+      {
+        "pagePath": "pages/runxin-manage/index",
+        "text": "润信管理"
+      },
+      {
+        "pagePath": "pages/manage-center/index",
+        "text": "管理中心"
+      }
+    ]
+  }
+}

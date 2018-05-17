@@ -1,0 +1,4 @@
+<view class="container">
+  <text>登录页面</text>
+  <view bindtap='goTo'>登录</view>
+</view>

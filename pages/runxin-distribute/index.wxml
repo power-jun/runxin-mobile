@@ -1,0 +1,23 @@
+<view class="container">
+  <form bindsubmit="bindFormSubmit" class='refund-form'>
+    <view class='refund-line'>
+      <text style='padding: 10px 0;'>授信机构:</text>
+      <input type="digit" value="{{refundAmt}}" placeholder="请填写机构" class="refund-amt" />
+    </view>
+    <view class='refund-line'>
+      <text style='padding: 10px 0;'>上传图片:</text>
+      <view class="{{imgArry.length == 0 ? 'margin-l' : ''}}">
+        <view class="{{(imgArry.length && index ==0) ? 'margin-l': '' }}"  wx:for="{{imgArry}}" wx:key="{{index}}" style='float: left'>
+          <image src='https://dev.pt800.com{{item}}' class='pic-shop'/>
+        </view>
+        <view bindtap="uploadImg" style='float: left'>
+          <view class="upload-img">
+            <view class="upload-icon">+</view>
+          </view>
+          <text class='upload-tips'>(最多上传5张)</text>
+        </view>
+      </view>
+    </view>
+    <button form-type="submit"> 确认融资 </button>
+  </form>
+</view>
