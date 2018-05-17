@@ -3,6 +3,7 @@
   "navigationBarTextStyle": "white",
   "navigationBarBackgroundColor": "#39444d",
   "usingComponents": {
-    "iconfont": "../../components/iconfont/index"
+    "iconfont": "../../components/iconfont/index",
+    "validate-layer": "../../components/validate-layer/index"
   }
 }
