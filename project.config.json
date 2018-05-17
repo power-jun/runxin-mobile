@@ -47,7 +47,20 @@
 				{
 					"id": -1,
 					"name": "润信签发",
-					"pathName": "pages/runxin-distribute/index"
+					"pathName": "pages/runxin-distribute/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "润信签发详情",
+					"pathName": "pages/runxin-distribute-detials/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "润信签发详情",
+					"pathName": "pages/runxin-distribute/index",
+					"query": ""
 				}
 			]
 		}

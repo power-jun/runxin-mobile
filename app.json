@@ -4,7 +4,8 @@
     "pages/login/index",
     "pages/upcoming-task/index",
     "pages/manage-center/index",
-    "pages/runxin-distribute/index"
+    "pages/runxin-distribute/index",
+    "pages/runxin-distribute-detials/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

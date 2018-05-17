@@ -1,0 +1,22 @@
+.container {
+  padding: 25rpx;
+}
+
+.credit-agency {
+  width: 100%;
+  padding: 30rpx;
+  padding-bottom: 0;
+  box-shadow: 2rpx 2rpx 6rpx #ccc;
+}
+
+.agency-company {
+  font-size: 22rpx;
+  color: #7b8389;
+  padding-bottom: 25rpx;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 30rpx;
+}
+
+.no-border {
+  border: none;
+}

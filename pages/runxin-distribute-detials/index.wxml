@@ -1,0 +1,16 @@
+<view class="container">
+  <view class='credit-agency'>
+   <view class='agency-company'>
+    授信机构：深圳市地球最好有限公司
+   </view> 
+   <view class='agency-company no-border'>
+    授信机构：深圳市地球最好有限公司
+   </view> 
+   <view class='agency-company no-border'>
+    授信机构：深圳市地球最好有限公司
+   </view>
+  </view>
+  <view class="holding-list">
+    <bookmarks-item/>
+  </view>
+</view>

@@ -64,7 +64,7 @@ page {
 
 .distribute-line .upload-tips {
   display: inline-block;
-  color: #23303a;
+  color: #7b8389;
   font-size: 20rpx;
   margin-top: 20rpx;
 }
