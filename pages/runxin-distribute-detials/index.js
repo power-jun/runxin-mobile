@@ -1,11 +1,11 @@
+// pages/runxin-distribute-detials/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    activeCategoryId: 0,
-    isShow: true
+  
   },
 
   /**
@@ -20,12 +20,6 @@ Page({
    */
   onReady: function () {
   
-  },
-
-  goto: function() {
-    wx.navigateTo({
-      url: '/pages/runxin-distribute/index',
-    })
   },
 
   /**

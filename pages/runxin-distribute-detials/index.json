@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "润信平台",
+  "navigationBarTitleText": "润信签发",
   "usingComponents": {
     "bookmarks-item": "../../components/bookmarks-item/index"
   }

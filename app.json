@@ -6,7 +6,9 @@
     "pages/upcoming-task/index",
     "pages/manage-center/index",
     "pages/visa-list/index",
-    "pages/visa-detail/index"
+    "pages/visa-detail/index",
+    "pages/runxin-distribute/index",
+    "pages/runxin-distribute-detials/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
