@@ -4,7 +4,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activeCategoryId: 0
+    activeCategoryId: 0,
+    isShow: true
   },
 
   /**

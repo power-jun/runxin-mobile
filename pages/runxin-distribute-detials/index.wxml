@@ -1,16 +1,31 @@
 <view class="container">
   <view class='credit-agency'>
-   <view class='agency-company'>
-    授信机构：深圳市地球最好有限公司
-   </view> 
-   <view class='agency-company no-border'>
-    授信机构：深圳市地球最好有限公司
-   </view> 
-   <view class='agency-company no-border'>
-    授信机构：深圳市地球最好有限公司
-   </view>
+    <view class='agency-company'>
+      授信机构：深圳市地球最好有限公司
+    </view>
+    <view class='agency-company no-border'>
+      授信机构：深圳市地球最好有限公司
+    </view>
+    <view class='agency-company no-border'>
+      授信机构：深圳市地球最好有限公司
+    </view>
   </view>
   <view class="holding-list">
-    <bookmarks-item/>
+    <bookmarks-item type="distribute-details" />
+  </view>
+  <view class='details-img-box'>
+    <view class='details-img-list'>
+      <image src='http://172.16.72.99:8000/images/shop5.png' style='margin-left:0;' />
+      <image src='http://172.16.72.99:8000/images/shop5.png' />
+    </view>
+    <view class='tips'>（点击放大查看资料详情）</view>
+  </view>
+  <view class='protocol'>
+    <input type='checkbox' /> 请您仔细阅读
+    <text>《润信签发协议》</text>
+  </view>
+  <view class='submit-btn-box'>
+    <button form-type="submit" class='submit-btn'> 复核 </button>
+    <button class='cancel-btn'> 驳回 </button>
   </view>
 </view>

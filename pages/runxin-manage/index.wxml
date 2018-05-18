@@ -12,6 +12,6 @@
       </view>
   </scroll-view>
   <view class="holding-list">
-   <bookmarks-item/>
+   <bookmarks-item percentageShow="{{isShow}}"/>
   </view>
 </view>

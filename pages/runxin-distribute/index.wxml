@@ -6,13 +6,14 @@
         <input type="text" value="" placeholder="请填写机构"/>
       </view>
     </view>
-    <view class='distribute-line'>
+    <view class='distribute-line' style='border: none;'>
       <text>可用额度</text>
       <view class='val-input'>
         <input type="text" value="10000.00" class="available-amt" />
         <text class='unit'>元</text>
       </view>
     </view>
+    <view class='distribute-line-gray'></view>
     <view class='distribute-line'>
       <text class='head'>收信企业</text>
       <view class='val-input'>
@@ -49,30 +50,35 @@
         <input type="text" value="" placeholder="请输入时间"/>
       </view>
     </view>
-    <view class='distribute-line'>
+    <view class='distribute-line' style='border: none'>
       <text class='head'>担保人</text>
       <view class='val-input'>
         <input type="text" disabled class='gray' value="深圳市地球月球科技有限公司"/>
       </view>
     </view>
-    <view class='distribute-line' style='border: none'>
-      <view class="{{imgArry.length == 0 ? 'margin-l' : ''}}">
-        <view class="{{(imgArry.length && index ==0) ? 'margin-l': '' }}" wx:for="{{imgArry}}" wx:key="{{index}}" style='float: left'>
-          <image src='https://dev.pt800.com{{item}}' class='pic-shop' />
-        </view>
-        <view bindtap="uploadImg">
-          <view class="upload-img">
-            <view class="upload-icon">+</view>
+    <view class='distribute-bottom-gary'>
+      <view class='distribute-line' style='border: none'>
+        <view class="{{imgArry.length == 0 ? 'margin-l' : ''}}">
+          <view class="{{(imgArry.length && index ==0) ? 'margin-l': '' }}" wx:for="{{imgArry}}" wx:key="{{index}}" style='float: left'>
+            <image src='https://dev.pt800.com{{item}}' class='pic-shop' />
           </view>
-          <text class='upload-tips'>（点击上传合同与发票，最多5张，总计10M）</text>
+          <view bindtap="uploadImg">
+            <view class="upload-img">
+              <view class="upload-icon">
+                <view class='upload-icon-line'></view>
+                <view class='upload-icon-vertical'></view>
+              </view>
+            </view>
+            <text class='upload-tips'>（点击上传合同与发票，最多5张，总计10M）</text>
+          </view>
         </view>
       </view>
+      <view class='protocol'>
+        <input type='checkbox'/>
+        请您仔细阅读
+        <text>《润信签发协议》</text>
+      </view>
+      <button form-type="submit" class='submit-btn'> 确认融资 </button>
     </view>
-    <view class='protocol'>
-      <input type='checkbox'/>
-      请您仔细阅读
-      <text>《润信签发协议》</text>
-    </view>
-    <button form-type="submit" class='submit-btn'> 确认融资 </button>
   </form>
 </view>

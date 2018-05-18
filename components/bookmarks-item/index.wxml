@@ -1,11 +1,11 @@
     <view class="holding-list-item">
-      <view class="percentage">
+      <view class="percentage" wx:if="{{percentageShow}}">
         <text>最低牌价</text>
         <text>8%</text>
       </view>
       <view class="item-detail">
         <view class='number-date'>
-          <text>润信编号： 0000201805016</text>
+          <text>润信编号： 0000201805016 </text>
           <text>交易日期：2018-5-15</text>
         </view>
         <view class='money-date'>
