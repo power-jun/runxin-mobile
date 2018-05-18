@@ -1,0 +1,66 @@
+/* components/ confirm/index.wxss */
+
+.confirm-layer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.confirm-box {
+  width: 600rpx;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+.confirm-box .icon {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.confirm-box .title {
+  padding: 15px;
+  font-size: 14px;
+  color: #000;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.confirm-box .message {
+  padding: 0 15px 15px;
+  font-size: 14px;
+  color: #999;
+  line-height: 1.5;
+}
+
+.confirm-box .btn-box {
+  display: flex;
+  border-top: 1px solid #f0f0f0;
+}
+
+.confirm-box .cancel {
+  flex: 1;
+  padding: 15px;
+  font-size: 14px;
+  color: #999;
+  line-height: 1.2;
+  text-align: center;
+  border-right: 1px solid #f0f0f0;
+}
+
+.confirm-box .ok {
+  flex: 1;
+  padding: 15px;
+  font-size: 14px;
+  color: #cf4141;
+  line-height: 1.2;
+  text-align: center;
+}

@@ -1,0 +1,11 @@
+<view class='confirm-layer' wx:if='{{showConfirm}}'>
+  <view class='confirm-box'>
+    <icon class='icon' type='success' size='30' color='#4fb63e' wx:if='{{showIcon}}' />
+    <view class='title' wx:if='{{title}}'>{{title}}</view>
+    <view class='message'>{{message}}</view>
+    <view class='btn-box'>
+      <view class='cancel' wx:if='{{showCancel}}'>{{cancelText}}</view>
+      <view class='ok'>{{okText}}</view>
+    </view>
+  </view>
+</view>
