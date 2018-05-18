@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "签发复核",
+  "usingComponents": {
+    "check-box": "../../components/check-box/index",
+    "master-mask": "../../components/master-mask/index"
+  }
+}

@@ -1,0 +1,14 @@
+<scroll-view class='body' scroll-y='true'>
+  <view class='article'>
+    <master-mask />
+    <master-mask />
+    <master-mask />
+  </view>
+</scroll-view>
+<view class='footer-fixed'>
+  <view class='check-box'>
+    <check-box label='全选' color='#fff' checked='true' />
+  </view>
+  <view class='ok'>复核</view>
+  <view class='cancel'>驳回</view>
+</view>
