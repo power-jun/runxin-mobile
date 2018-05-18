@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "check-box": "../check-box/index"
+  }
+}

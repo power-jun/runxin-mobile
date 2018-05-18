@@ -1,0 +1,35 @@
+<view class='items'>
+  <view class='status red'></view>
+  <view class='header'>
+    <!-- <view class='checkbox checked'>
+      <icon type='success_no_circle' size='10' color='#fff' />
+    </view> -->
+    <check-box class="checkbox" />
+    <view class='order'>润信编号：0000201805016</view>
+    <view class='date'>交易日期：2018-5-15</view>
+  </view>
+  <view class='content'>
+    <view class='price'>
+      <text class='char'>￥</text>
+      <text class='number'>20,000.00</text>
+      <text class='day'>(10天)</text>
+    </view>
+    <view class='uppercase'>人民币贰仟元整</view>
+    <view class='time'>签发日：2018-5-25</view>
+    <view class='time'>到期日：2018-5-25</view>
+    <view class='visa'>
+      <text class='label'>签发</text>
+      <text class='text'>深圳地球的地球的地球有限公司</text>
+    </view>
+    <view class='visa'>
+      <text class='label'>签收</text>
+      <text class='text'>深圳地球表面有限公司</text>
+    </view>
+  </view>
+  <view class='footer'>
+    <text class='label'>担保人</text>
+    <text class='text'>深圳市宇宙飞起科技有限公司</text>
+    <view class='circle left'></view>
+    <view class='circle right'></view>
+  </view>
+</view>

@@ -1,0 +1,154 @@
+.items {
+  margin: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.status {
+  height: 8px;
+  border-radius: 5px 5px 0 0;
+}
+
+.status.red {
+  background-color: #cf4141;
+}
+
+.status.green {
+  background-color: #41c74a;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  padding: 15px 0 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.header .checkbox {
+  margin-right: 10px;
+}
+
+.header .order {
+  flex: 1;
+  font-size: 12px;
+  color: #95999c;
+  line-height: 1.2;
+}
+
+.header .date {
+  font-size: 12px;
+  color: #95999c;
+  line-height: 1.2;
+}
+
+.content {
+  margin: 0 15px;
+  padding: 15px 0;
+}
+
+.content .price {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-left: 2em;
+}
+
+.content .price .char {
+  padding-bottom: 3px;
+  font-size: 20px;
+  color: #cf4141;
+  line-height: 1.2;
+}
+
+.content .price .number {
+  font-size: 30px;
+  color: #cf4141;
+  line-height: 1.2;
+}
+
+.content .price .day {
+  margin-left: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  color: #95999c;
+  line-height: 1.2;
+}
+
+.content .uppercase {
+  padding: 5px 0;
+  font-size: 16px;
+  color: #cf4141;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.content .time {
+  padding: 5px 0;
+  font-size: 14px;
+  color: #95999c;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.content .visa {
+  padding: 5px 0;
+  font-size: 14px;
+  color: #95999c;
+  line-height: 1.2;
+}
+
+.content .visa:nth-of-type(5) {
+  margin-top: 10px;
+}
+
+.content .visa .label {
+  margin-right: 20px;
+  color: #95999c;
+}
+
+.content .visa .text {
+  color: #23303a;
+}
+
+.footer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  padding: 10px 0 15px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.footer .label {
+  margin-right: 10px;
+  font-size: 14px;
+  color: #95999c;
+  line-height: 1.2;
+}
+
+.footer .text {
+  font-size: 14px;
+  color: #95999c;
+  line-height: 1.2;
+}
+
+.footer .circle {
+  position: absolute;
+  top: -10px;
+  z-index: 10;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(#f8f8f8, #f0f0f0, #ebebeb, #e5e5e5);
+}
+
+.footer .circle.left {
+  left: -25px;
+}
+
+.footer .circle.right {
+  right: -25px;
+}
