@@ -2,8 +2,11 @@
   "pages": [
     "pages/runxin-manage/index",
     "pages/login/index",
+    "pages/index/index",
     "pages/upcoming-task/index",
-    "pages/manage-center/index"
+    "pages/manage-center/index",
+    "pages/visa-list/index",
+    "pages/visa-detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

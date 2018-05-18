@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -41,7 +41,26 @@
 				{
 					"id": -1,
 					"name": "待办业务",
-					"pathName": "pages/upcoming-task/index"
+					"pathName": "pages/upcoming-task/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "签发复核",
+					"pathName": "pages/visa-list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "签发复核详情",
+					"pathName": "pages/visa-detail/index",
+					"query": ""
 				}
 			]
 		}
