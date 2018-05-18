@@ -1,0 +1,111 @@
+page {
+  height: 100%;
+}
+
+.body {
+  height: 100%;
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+}
+
+.article {
+  padding: 1px 0;
+}
+
+.header {
+  margin: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.header .title {
+  margin: 0 15px;
+  padding: 15px 0 12px;
+  font-size: 14px;
+  color: #95999c;
+  line-height: 1.2;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.header .items {
+  margin: 15px;
+  font-size: 14px;
+  color: #95999c;
+  line-height: 1.2;
+}
+
+.picture-box {
+  margin: 15px 10px;
+}
+
+.picture-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.picture-list .pic {
+  width: 120rpx;
+  height: 120rpx;
+  margin: 5px;
+}
+
+.picture-box .tip {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #919598;
+  line-height: 1.2;
+}
+
+.generic {
+  margin: 15px;
+  text-align: right;
+}
+
+.generic .text {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #919598;
+  line-height: 1.2;
+}
+
+.protocol-box {
+  display: flex;
+  justify-content: center;
+  margin: 0 15px;
+  padding-top: 25px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.protocol-box .protocol {
+  font-size: 14px;
+  color: #2990e6;
+  line-height: 1.2;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0 50px;
+}
+
+.footer .ok {
+  margin: 0 30px;
+  padding: 10px 25px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  border-radius: 3px;
+  background-color: #cf4141;
+}
+
+.footer .cancel {
+  margin: 0 30px;
+  padding: 10px 25px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  border-radius: 3px;
+  background-color: #a1a1a1;
+}
