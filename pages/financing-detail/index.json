@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "融资复核详情",
   "usingComponents": {
+    "confirm": "../../components/confirm/index",
     "check-box": "../../components/check-box/index",
     "master-mask": "../../components/master-mask/index"
   }

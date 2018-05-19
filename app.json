@@ -11,6 +11,7 @@
     "pages/runxin-distribute/index",
     "pages/runxin-distribute-detials/index",
     "pages/financing-list/index",
+    "pages/financing-detail/index",
     "pages/advanced-search/index",
     "pages/runxin-transfer/index"
   ],

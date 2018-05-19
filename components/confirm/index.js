@@ -26,11 +26,11 @@ Component({
     },
     cancelText: {
       type: String,
-      value: '取消'
+      value: '不了'
     },
     okText: {
       type: String,
-      value: '确定'
+      value: '好的'
     }
   },
 

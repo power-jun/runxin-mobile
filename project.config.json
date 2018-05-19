@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -96,6 +96,12 @@
 					"id": -1,
 					"name": "高级搜索",
 					"pathName": "pages/advanced-search/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "融资复核详情",
+					"pathName": "pages/financing-detail/index",
 					"query": ""
 				}
 			]
