@@ -1,6 +1,7 @@
 .holding-list-item {
   display: flex;
   font-size:20rpx;
+  margin-bottom: 40rpx;
 }
 
 .percentage {

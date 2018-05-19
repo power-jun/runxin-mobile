@@ -1,5 +1,5 @@
     <view class="holding-list-item">
-      <view class="percentage" wx:if="{{percentageShow}}">
+      <view class="percentage">
         <text>最低牌价</text>
         <text>8%</text>
       </view>

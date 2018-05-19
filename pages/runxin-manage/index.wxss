@@ -4,6 +4,8 @@
   width: 100%;
   background-color: #fff;
   border-top: 1px solid #ededed;
+  position: fixed;
+  top: 0
 }
 
 ::-webkit-scrollbar {
@@ -38,4 +40,72 @@
   padding: 25rpx 20rpx;
   width:760rpx;
   box-sizing:border-box;
+  margin-top: 130rpx;
+}
+
+.transaction-inquiry {
+  margin-top: 130rpx;
+  padding: 0 25rpx 20rpx;
+}
+
+.list-type {
+  display: flex;
+}
+
+.type-item {
+  padding: 10rpx 45rpx;
+  border: 2rpx solid #ebbfbf;
+  color: #cd3a3a;
+  font-size: 24rpx;
+  border-radius: 10rpx;
+  margin-right: 35rpx;
+}
+
+
+.no-margin {
+  margin: 0;
+}
+
+.type-item-cur {
+  border-color: #cd3a3a;
+  color: #fff;
+  background: #cd3a3a;
+}
+
+.advanced-search {
+    width: 100%;
+    margin: 30rpx 0; 
+    font-size: 26rpx;
+    border-bottom: 1px solid #eee;
+    height: 60rpx;
+    color: #cd3a3a;
+    text-align: center;
+    line-height: 60rpx;
+    background: #f4e5e5;
+    border-radius: 10rpx;
+}
+
+.credit-agency {
+  width: 100%;
+  padding: 30rpx;
+  padding-bottom: 0;
+  background: #fff;
+  box-shadow: 0rpx 2rpx 10rpx #ccc;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+}
+
+.agency-company {
+  font-size: 22rpx;
+  color: #7b8389;
+  padding-bottom: 25rpx;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.agency-company.no-border {
+  border: none;
 }
