@@ -1,84 +1,85 @@
-<view class="container">
-  <form bindsubmit="bindFormSubmit" class="distribute-form">
-    <view class='distribute-line'>
-      <text class='head'>授信机构</text>
-      <view class='val-input'>
-        <input type="text" value="" placeholder="请填写机构"/>
-      </view>
-    </view>
-    <view class='distribute-line' style='border: none;'>
-      <text>可用额度</text>
-      <view class='val-input'>
-        <input type="text" value="10000.00" class="available-amt" />
-        <text class='unit'>元</text>
-      </view>
-    </view>
-    <view class='distribute-line-gray'></view>
-    <view class='distribute-line'>
-      <text class='head'>收信企业</text>
-      <view class='val-input'>
-        <input type="text" disabled value="深圳市地球月球科技有限公司"/>
-      </view>
-    </view>
-    <view class='distribute-line'>
-      <text class='head'>账号</text>
-      <view class='val-input'>
-        <input type="text" disabled class='gray' value="6200000000000000000"/>
-      </view>
-    </view>
-    <view class='distribute-line'>
-      <text class='head'>开户行</text>
-      <view class='val-input'>
-        <input type="text" disabled class='gray' value="深圳招商银行南山支行"/>
-      </view>
-    </view>
-    <view class='distribute-line'>
-      <text class='head'>开单日</text>
-      <view class='val-input'>
-        <input type="text" disabled class='gray' value="2018-5-25（已复核日期为准）"/>
-      </view>
-    </view>
-    <view class='distribute-line'>
-      <text class='head'>润信期限</text>
-      <view class='val-input'>
-        <input type="text" value="" placeholder="请输入期限"/>
-      </view>
-    </view>
-     <view class='distribute-line'>
-      <text class='head'>到期日</text>
-      <view class='val-input'>
-        <input type="text" value="" placeholder="请输入时间"/>
-      </view>
-    </view>
-    <view class='distribute-line' style='border: none'>
-      <text class='head'>担保人</text>
-      <view class='val-input'>
-        <input type="text" disabled class='gray' value="深圳市地球月球科技有限公司"/>
-      </view>
-    </view>
-    <view class='distribute-bottom-gary'>
-      <view class='distribute-line' style='border: none'>
-        <view class="{{imgArry.length == 0 ? 'margin-l' : ''}}">
-          <view class="{{(imgArry.length && index ==0) ? 'margin-l': '' }}" wx:for="{{imgArry}}" wx:key="{{index}}" style='float: left'>
-            <image src='https://dev.pt800.com{{item}}' class='pic-shop' />
-          </view>
-          <view bindtap="uploadImg">
-            <view class="upload-img">
-              <view class="upload-icon">
-                <view class='upload-icon-line'></view>
-                <view class='upload-icon-vertical'></view>
-              </view>
-            </view>
-            <text class='upload-tips'>（点击上传合同与发票，最多5张，总计10M）</text>
-          </view>
+<scroll-view class='body' scroll-y='true'>
+  <view class="article">
+    <form bindsubmit="bindFormSubmit" class="distribute-form">
+      <view class='distribute-line'>
+        <text class='head'>授信机构</text>
+        <view class='val-input'>
+          <input type="text" value="" placeholder="请填写机构" />
         </view>
       </view>
-      <view class='protocol'>
-        <input type='checkbox'/>
-        请您仔细阅读
-        <text>《润信签发协议》</text>
+      <view class='distribute-line' style='border: none;'>
+        <text class='head'>可用额度</text>
+        <view class='val-input'>
+          <input type="text" value="10000.00" class="available-amt" />
+          <text class='unit'>元</text>
+        </view>
       </view>
-      <button form-type="submit" class='submit-btn'> 确认融资 </button>
-    </view>
-  </form>
-</view>
+      <!-- <view class='distribute-line-gray'></view> -->
+      <view class='distribute-line'>
+        <text class='head'>收信企业</text>
+        <view class='val-input'>
+          <input type="text" disabled value="深圳市地球月球科技有限公司" />
+        </view>
+      </view>
+      <view class='distribute-line'>
+        <text class='head'>账号</text>
+        <view class='val-input'>
+          <input type="text" disabled class='gray' value="6200000000000000000" />
+        </view>
+      </view>
+      <view class='distribute-line'>
+        <text class='head'>开户行</text>
+        <view class='val-input'>
+          <input type="text" disabled class='gray' value="深圳招商银行南山支行" />
+        </view>
+      </view>
+      <view class='distribute-line'>
+        <text class='head'>开单日</text>
+        <view class='val-input'>
+          <input type="text" disabled class='gray' value="2018-5-25（已复核日期为准）" />
+        </view>
+      </view>
+      <view class='distribute-line'>
+        <text class='head'>润信期限</text>
+        <view class='val-input'>
+          <input type="text" value="" placeholder="请输入期限" />
+        </view>
+      </view>
+      <view class='distribute-line'>
+        <text class='head'>到期日</text>
+        <view class='val-input'>
+          <input type="text" value="" placeholder="请输入时间" />
+        </view>
+      </view>
+      <view class='distribute-line' style='border: none'>
+        <text class='head'>担保人</text>
+        <view class='val-input'>
+          <input type="text" disabled class='gray' value="深圳市地球月球科技有限公司" />
+        </view>
+      </view>
+      <view class='distribute-bottom-gary'>
+        <view class='distribute-pictrue'>
+          <view class="{{imgArry.length == 0 ? 'margin-l' : ''}}">
+            <view class="{{(imgArry.length && index ==0) ? 'margin-l': '' }}" wx:for="{{imgArry}}" wx:key="{{index}}" style='float: left'>
+              <image src='https://dev.pt800.com{{item}}' class='pic-shop' />
+            </view>
+            <view bindtap="uploadImg">
+              <view class="upload-img">
+                <view class="upload-icon">
+                  <view class='upload-icon-line'></view>
+                  <view class='upload-icon-vertical'></view>
+                </view>
+              </view>
+              <text class='upload-tips'>（点击上传合同与发票，最多5张，总计10M）</text>
+            </view>
+          </view>
+        </view>
+        <view class='protocol-box'>
+          <check-box label='请您仔细阅读' color='#23303a' />
+          <text class='protocol'>《润信签发协议》</text>
+        </view>
+        <button form-type="submit" class='submit-btn'> 确认融资 </button>
+      </view>
+    </form>
+  </view>
+</scroll-view>

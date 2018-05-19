@@ -1,37 +1,39 @@
-<view class="container">
-  <view class='credit-agency'>
-    <view class='agency-company'>
-      授信机构：深圳市地球最好有限公司
+<scroll-view class='body' scroll-y='true'>
+  <view class="article">
+    <view class='credit-agency'>
+      <view class='agency-company'>
+        授信机构：深圳市地球最好有限公司
+      </view>
+      <view class='agency-company no-border'>
+        本笔使用额度：200,000.00元
+      </view>
+      <view class='agency-company no-border'>
+        成功后可用额度：15,000.00元
+      </view>
     </view>
-    <view class='agency-company no-border'>
-      本笔使用额度：200,000.00元
+    <master-mask />
+    <view class='picture-box'>
+      <view class='picture-list'>
+        <image class='pic' src='http://172.16.72.153:3000/img/sass.png' mode='aspectFit' />
+        <image class='pic' src='http://172.16.72.153:3000/img/sass.png' mode='aspectFit' />
+        <image class='pic' src='http://172.16.72.153:3000/img/sass.png' mode='aspectFit' />
+        <image class='pic' src='http://172.16.72.153:3000/img/sass.png' mode='aspectFit' />
+      </view>
+      <view class='tip'>（点击放大查看资料详情）</view>
     </view>
-    <view class='agency-company no-border'>
-      成功后可用额度：15,000.00元
-    </view>
-  </view>
-  <view class="holding-list">
-     <master-mask />
-  </view>
-  <view class='details-img-box'>
-    <view class='details-img-list'>
-      <image src='http://172.16.72.99:8000/images/shop5.png' style='margin-left:0;' />
-      <image src='http://172.16.72.99:8000/images/shop5.png' />
-    </view>
-    <view class='tips'>（点击放大查看资料详情）</view>
-  </view>
-  <view class='generic'>
+    <view class='generic'>
       <text class='text'>经办人：黄颖</text>
       <text class='text'>2018-5-20 22:00</text>
       <text class='text'>手机端</text>
+    </view>
+    <view class='protocol-box'>
+      <check-box label='请您仔细阅读' color='#23303a' />
+      <text class='protocol'>《润信签发协议》</text>
+    </view>
+    <view class='footer'>
+      <view class='ok'>复核</view>
+      <view class='cancel'>驳回</view>
+    </view>
   </view>
-  <view class='protocol'>
-    <input type='checkbox' /> 请您仔细阅读
-    <text>《润信签发协议》</text>
-  </view>
-  <view class='submit-btn-box'>
-    <button form-type="submit" class='submit-btn'> 复核 </button>
-    <button class='cancel-btn'> 驳回 </button>
-  </view>
-</view>
+</scroll-view>
 <confirm showIcon='true' title="复核成功" message='将复核成功的消息转发给收信人，让他快点签收润信！' cancelText='不了' okText='好的' />

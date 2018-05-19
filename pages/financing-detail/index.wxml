@@ -1,0 +1,9 @@
+<scroll-view class='body' scroll-y='true'>
+  <view class='article'>
+    <view class=''>
+      <text>融资前</text>
+    </view>
+    <master-mask />
+    <master-mask />
+  </view>
+</scroll-view>
