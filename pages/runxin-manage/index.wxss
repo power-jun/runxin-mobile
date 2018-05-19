@@ -37,11 +37,11 @@
 }
 
 .holding-list {
-  font-size: 20rpx;
-  padding: 25rpx 20rpx;
-  width:750rpx;
-  box-sizing:border-box;
-  margin-top: 130rpx;
+  display: block;
+}
+
+.article {
+  padding: 51px 0 1px;
 }
 
 .transaction-inquiry {
@@ -97,9 +97,9 @@
 }
 
 .agency-company {
-  font-size: 22rpx;
-  color: #23303a;
-  padding-bottom: 25rpx;
+  padding: 15px 0;
+  font-size: 14px;
+  color: #7b8389;
   border-bottom: 1px solid #e5e5e5;
   display: flex;
   justify-content: space-between;
