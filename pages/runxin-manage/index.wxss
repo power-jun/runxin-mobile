@@ -37,11 +37,11 @@
 }
 
 .holding-list {
-  display: block;
-}
-
-.article {
-  padding: 51px 0 0;
+  font-size: 20rpx;
+  padding: 25rpx 20rpx;
+  width:750rpx;
+  box-sizing:border-box;
+  margin-top: 130rpx;
 }
 
 .transaction-inquiry {
@@ -97,9 +97,9 @@
 }
 
 .agency-company {
-  padding: 15px 0;
-  font-size: 14px;
-  color: #7b8389;
+  font-size: 22rpx;
+  color: #23303a;
+  padding-bottom: 25rpx;
   border-bottom: 1px solid #e5e5e5;
   display: flex;
   justify-content: space-between;
@@ -107,4 +107,12 @@
 
 .agency-company:last-child {
   border: 0;
+}
+
+.agency-company text:first-child {
+  color: #7b8389;
+}
+
+.container {
+  overflow: hidden;
 }

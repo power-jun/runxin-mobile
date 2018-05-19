@@ -1,0 +1,78 @@
+page {
+  
+}
+
+.article {
+  margin-top: 35rpx;
+  background: #f8f8f8;
+}
+
+.article-item {
+  padding-left: 35rpx;
+  background: #fff;
+}
+
+.item-head {
+  padding-top: 25rpx;
+  margin-bottom: 40rpx;
+  font-size: 14px;
+  color: #858b8f;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.list-item {
+  width: 145rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #cd3a3a;
+  font-size: 13px;
+  border: 1px solid #f0c4c4;
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+  margin-bottom: 25rpx;
+}
+
+.list-item-on {
+  background: #cd3a3a;
+  color: #fff;
+}
+
+.list-agency {
+  padding-right: 35rpx;
+}
+
+.list-agency .agency {
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0 50px;
+}
+
+.footer .ok {
+  margin: 0 30px;
+  padding: 10px 30px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  border-radius: 3px;
+  background-color: #cf4141;
+}
+
+.footer .cancel {
+  margin: 0 30px;
+  padding: 10px 30px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  border-radius: 3px;
+  background-color: #a1a1a1;
+}
