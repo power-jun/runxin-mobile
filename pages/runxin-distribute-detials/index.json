@@ -1,6 +1,8 @@
 {
   "navigationBarTitleText": "润信签发",
   "usingComponents": {
-    "bookmarks-item": "../../components/bookmarks-item/index"
+    "confirm": "../../components/confirm/index",
+    "check-box": "../../components/check-box/index",
+    "master-mask": "../../components/master-mask/index"
   }
 }

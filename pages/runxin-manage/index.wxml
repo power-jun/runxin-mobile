@@ -1,17 +1,67 @@
 <view class="container">
   <scroll-view class="type-navbar" scroll-x="true">
-      <view class="type-box">
-        <view class="type-navbar-item {{activeCategoryId == 0 ? 'type-item-on' : ''}}" bindtap="tabClick">
-          持有列表
-        </view>
+    <view class="type-box">
+      <view data-id='0' class="type-navbar-item {{activeCategoryId == 0 ? 'type-item-on' : ''}}" bindtap="tabClick">
+        持有列表
       </view>
-      <view class="type-box">
-        <view class="type-navbar-item {{activeCategoryId == 1 ? 'type-item-on' : ''}}" bindtap="tabClick">
-          交易查询
-        </view>
+    </view>
+    <view class="type-box">
+      <view data-id='1' class="type-navbar-item {{activeCategoryId == 1 ? 'type-item-on' : ''}}" bindtap="tabClick">
+        交易查询
       </view>
+    </view>
   </scroll-view>
-  <view class="holding-list">
-   <bookmarks-item percentageShow="{{isShow}}"/>
+  <view class="holding-list" hidden="{{!isShowList}}">
+    <bookmarks-item/>
+    <bookmarks-item/>
+  </view>
+  <view class='transaction-inquiry-box' hidden="{{isShowList}}">
+    <view class='transaction-inquiry'>
+      <view class='list-type'>
+        <view data-id='0' class="type-item {{typeId == 0 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">签发</view>
+        <view data-id='1' class="type-item {{typeId == 1 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">转让</view>
+        <view data-id='2' class="type-item {{typeId == 2 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">融资</view>
+        <view data-id='3' class="type-item no-margin {{typeId == 3 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">到期</view>
+      </view>
+    </view>
+    <view class='advanced-search'>
+      <navigator url="/pages/order-list/index" hover-class="navigator-hover">高级查询</navigator>
+    </view>
+    <view class='credit-agency'>
+      <view class='agency-company'>
+        <text>交易对手：</text>
+        <text>陈某某</text>
+      </view>
+      <view class='agency-company'>
+        <text>额度：</text>
+        <text>200,000.00元</text>
+      </view>
+      <view class='agency-company'>
+        <text>签发时间：</text>
+        <text>2018-01-23</text>
+      </view>
+      <view class='agency-company no-border'>
+        <text>到期时间：</text>
+        <text>2018-04-23</text>
+      </view>
+    </view>
+    <view class='credit-agency'>
+      <view class='agency-company'>
+        <text>交易对手：</text>
+        <text>陈某某</text>
+      </view>
+      <view class='agency-company'>
+        <text>额度：</text>
+        <text>200,000.00元</text>
+      </view>
+      <view class='agency-company'>
+        <text>签发时间：</text>
+        <text>2018-01-23</text>
+      </view>
+      <view class='agency-company no-border'>
+        <text>到期时间：</text>
+        <text>2018-04-23</text>
+      </view>
+    </view>
   </view>
 </view>

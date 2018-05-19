@@ -30,10 +30,6 @@
   width: 100%;
 }
 
-.holding-list .item-detail {
-  width: 100%;
-}
-
 .details-img-box {
   width: 100%;
   margin-top: 25rpx;
@@ -84,9 +80,22 @@
 
 .submit-btn {
   background: #cf4141;
-  margin-right: 125rpx;      
+  margin-right: 125rpx;
 }
 
 .cancel-btn {
   background: #a1a1a1;
+}
+
+.generic {
+  width:100%;
+  margin: 15px;
+  text-align: right;
+}
+
+.generic .text {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #919598;
+  line-height: 1.2;
 }

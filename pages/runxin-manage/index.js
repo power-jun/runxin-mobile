@@ -5,7 +5,8 @@ Page({
    */
   data: {
     activeCategoryId: 0,
-    isShow: true
+    typeId: 0,
+    isShowList: false
   },
 
   /**
@@ -25,6 +26,26 @@ Page({
   goto: function() {
     wx.navigateTo({
       url: '/pages/runxin-distribute/index',
+    })
+  },
+
+  tabClick: function(e) {
+    let id = e.currentTarget.dataset.id;
+    let flag = false;
+    if (id == 0) {
+      flag = true;
+    }
+
+    this.setData({
+      activeCategoryId: id,
+      isShowList: flag
+    })
+  },
+
+  tabTypeClick: function(e) {
+    let id = e.currentTarget.dataset.id;
+    this.setData({
+      typeId: id
     })
   },
 
