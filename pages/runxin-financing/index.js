@@ -1,11 +1,11 @@
+// pages/runxin-financing/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    activeCategoryId: 0,
-    typeId: 0
+  
   },
 
   /**
@@ -20,26 +20,6 @@ Page({
    */
   onReady: function () {
   
-  },
-
-  goto: function() {
-    wx.navigateTo({
-      url: '/pages/runxin-distribute/index',
-    })
-  },
-
-  tabClick: function(e) {
-    let id = e.currentTarget.dataset.id;
-    this.setData({
-      activeCategoryId: id
-    })
-  },
-
-  tabTypeClick: function(e) {
-    let id = e.currentTarget.dataset.id;
-    this.setData({
-      typeId: id
-    })
   },
 
   /**

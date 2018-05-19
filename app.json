@@ -13,7 +13,8 @@
     "pages/financing-list/index",
     "pages/financing-detail/index",
     "pages/advanced-search/index",
-    "pages/runxin-transfer/index"
+    "pages/runxin-transfer-detail/index",
+    "pages/runxin-financing/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

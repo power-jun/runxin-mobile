@@ -44,6 +44,10 @@
   padding: 51px 0 1px;
 }
 
+.transaction-inquiry-box {
+  margin-bottom: 250rpx;
+}
+
 .transaction-inquiry {
   margin: 15px;
 }
@@ -75,6 +79,8 @@
 }
 
 .advanced-search {
+  display: flex;
+  align-items: center;
   margin: 15px;
   padding: 10px;
   font-size: 14px;
@@ -84,6 +90,31 @@
   text-align: center;
   background: #f4e5e5;
   border-radius: 5px;
+  justify-content: center;
+}
+
+.advanced-search .icon {
+  position: relative;
+  left: 275rpx;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  justify-content: flex-end;
+}
+
+.advanced-search .icon::before {
+  position: absolute;
+  top: 5px;
+  left: 2px;
+  z-index: 10;
+  display: block;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-width: 2px 2px 0 0;
+  border-style: solid;
+  border-color: #cd3a3a;
+  transform: rotate(45deg);
 }
 
 .credit-agency {
@@ -115,4 +146,29 @@
 
 .container {
   overflow: hidden;
+}
+
+.footer-fixed {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 500;
+  padding: 10px 15px;
+  color: #fff;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.footer-fixed .head {
+  margin-bottom: 30rpx;
+}
+
+.footer-fixed .amount-detail {
+  margin-bottom: 30rpx;
+}
+
+.amount-detail text {
+  display: inline-block;
+  min-width: 220rpx;
 }

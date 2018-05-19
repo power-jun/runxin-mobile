@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    activeCategoryId: 0
   },
 
   /**
@@ -13,6 +13,19 @@ Page({
    */
   onLoad: function (options) {
   
+  },
+
+  tabClick: function (e) {
+    let id = e.currentTarget.dataset.id;
+    let flag = false;
+    if (id == 1) {
+      flag = true;
+    }
+
+    this.setData({
+      activeCategoryId: id,
+      isShowList: flag
+    })
   },
 
   /**

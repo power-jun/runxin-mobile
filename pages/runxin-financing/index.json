@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "润信平台",
+  "navigationBarTitleText": "润信融资",
   "usingComponents": {
     "bookmarks-item": "../../components/bookmarks-item/index",
     "master-mask": "../../components/master-mask/index"

@@ -9,14 +9,20 @@
       交易查询
     </view>
   </view>
+     <view class="type-box">
+    <view data-id='2' class="type-navbar-item {{activeCategoryId == 2 ? 'type-item-on' : ''}}" bindtap="tabClick">
+      签发交易
+    </view>
+  </view>
 </view>
 <scroll-view class='body' scroll-y='true'>
   <view class='article'>
-    <view class="holding-list" hidden="{{isShowList}}">
+    <view class="holding-list" wx:if="{{activeCategoryId==0}}">
       <bookmarks-item/>
       <bookmarks-item/>
     </view>
-    <view class='transaction-inquiry-box' hidden="{{!isShowList}}">
+
+    <view class='transaction-inquiry-box' wx:elif="{{activeCategoryId==1}}">
       <view class='transaction-inquiry'>
         <view class='list-type'>
           <view data-id='0' class="type-item {{typeId == 0 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">签发</view>
@@ -25,7 +31,10 @@
           <view data-id='3' class="type-item no-margin {{typeId == 3 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">到期</view>
         </view>
       </view>
-      <navigator class='advanced-search' url="/pages/order-list/index">高级查询</navigator>
+      <navigator class='advanced-search' url="/pages/advanced-search/index">
+        <view>高级查询</view>
+        <view class='icon'></view>
+      </navigator>
       <view class='credit-agency'>
         <view class='agency-company'>
           <text>交易对手：</text>
@@ -62,6 +71,23 @@
           <text>2018-04-23</text>
         </view>
       </view>
+      <view class='footer-fixed'>
+        <view class='head'>累计</view>
+        <view class='amount-detail'>
+          <text>签发：100</text>
+          <text>转让：454,301</text>
+          <text>融资：300,33</text>
+        </view>
+        <view class='amount-detail'>
+          <text>润信增加：100</text>
+          <text>润信减少：454,301</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:elif="{{activeCategoryId==2}}">
+      <master-mask/>
+      <master-mask/>
     </view>
   </view>
 </scroll-view>

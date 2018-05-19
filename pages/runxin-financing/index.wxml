@@ -1,0 +1,25 @@
+<scroll-view class='body' scroll-y='true'>
+  <view class="article">
+    <master-mask/>
+    <view class='financing-list'>
+      <view class='distribute-line'>
+        <text class='head'>保理商</text>
+        <view class='val-input'>
+          <input type="text" disabled value="深圳市地球月球科技有限公司" />
+        </view>
+      </view>
+      <view class='distribute-line'>
+        <text class='head'>利率</text>
+        <view class='val-input'>
+          <input type="text" disabled value="6%" />
+        </view>
+      </view>
+      <view class='distribute-line'>
+        <text class='head'>申请金额</text>
+        <view class='val-input'>
+          <input type="text" value="" />
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

@@ -1,0 +1,36 @@
+.financing-list {
+  background-color: #fff;
+}
+
+.distribute-line {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  padding-right: 15rpx;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.distribute-line:last-child {
+  border: 0;
+}
+
+.distribute-line .head {
+  font-size: 14px;
+  color: #676767;
+  line-height: 1.2;
+}
+
+.distribute-line .val-input {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.distribute-line .val-input input {
+  flex: 1;
+  padding: 15px 0;
+  font-size: 14px;
+  color: #676767;
+  line-height: 1.2;
+  text-align: right;
+}
