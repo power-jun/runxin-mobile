@@ -11,6 +11,6 @@
   </view>
 </scroll-view>
 <view class='footer-fixed'>
-  <view class='ok'>复核</view>
+  <view class='ok'>签收</view>
   <view class='cancel'>驳回</view>
 </view>

@@ -9,7 +9,8 @@
     "pages/visa-detail/index",
     "pages/visa-harvest/index",
     "pages/runxin-distribute/index",
-    "pages/runxin-distribute-detials/index"
+    "pages/runxin-distribute-detials/index",
+    "pages/financing-list/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
