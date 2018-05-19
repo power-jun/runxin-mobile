@@ -94,13 +94,8 @@
 				},
 				{
 					"id": -1,
-<<<<<<< HEAD
-					"name": "融资复核详情",
-					"pathName": "pages/financing-detail/index",
-=======
 					"name": "高级搜索",
 					"pathName": "pages/advanced-search/index",
->>>>>>> 高级搜索页
 					"query": ""
 				}
 			]
