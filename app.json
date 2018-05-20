@@ -19,7 +19,8 @@
     "pages/runxin-financing-detail/index",
     "pages/assignment-list/index",
     "pages/assignment-detail/index",
-    "pages/assignment-harvest/index"
+    "pages/assignment-harvest/index",
+    "pages/interest-rate-list/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

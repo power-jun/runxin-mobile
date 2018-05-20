@@ -1,0 +1,44 @@
+.article {
+  padding: 1px 0 56px;
+}
+
+.footer-fixed {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 500;
+  display: flex;
+  padding: 10px 15px;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.footer-fixed .check-box {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.footer-fixed .ok {
+  width: 90px;
+  margin: 0 15px;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #cf4141;
+}
+
+.footer-fixed .cancel {
+  width: 90px;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #a1a1a1;
+}

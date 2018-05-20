@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 19,
 			"list": [
 				{
 					"id": -1,
@@ -144,6 +144,12 @@
 					"id": -1,
 					"name": "转让签收",
 					"pathName": "pages/assignment-harvest/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "利率审核",
+					"pathName": "pages/interest-rate-list/index",
 					"query": ""
 				}
 			]

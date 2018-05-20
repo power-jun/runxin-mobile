@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "利率审核",
+  "usingComponents": {
+    "check-box": "../../components/check-box/index",
+    "rate-mask": "../../components/rate-mask/index"
+  }
+}

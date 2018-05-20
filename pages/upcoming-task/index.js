@@ -28,7 +28,7 @@ Page({
       },
       {
         icon: config.cdnPrefix + 'img/icon6.png',
-        url: '../visa-list/index',
+        url: '../interest-rate-list/index',
         text: '利率复核',
         tip: 0
       },
