@@ -1,6 +1,6 @@
 <view class='body'>
   <view class='navigator-box'>
-    <navigator class='items' wx:for='{{navigatorArray}}' wx:key='item'>
+    <navigator class='items' wx:for='{{navigatorArray}}' wx:key='item' url='{{item.url}}'>
       <view class='icon-box'>
         <image class='icon' src='{{item.icon}}' mode='aspectFit' />
         <view class='tip' wx:if='{{item.tip}}'>{{item.tip}}</view>

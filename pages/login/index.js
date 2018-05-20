@@ -1,3 +1,4 @@
+var config = require('../../utils/config.js');
 var validate = require('../../utils/validate.js');
 var app = getApp();
 
@@ -207,8 +208,19 @@ Page({
 
   /* 验证图片（确认） */
   validateOk: function (e) {
-    console.log(e.detail.code);
-    this.countdown();
+    var _this = this;
+    wx.request({
+      url: config.prefix,
+      data: {
+        serviceCode: 'BASE0002',
+        mobilePhone: _this.data.phone,
+        imgKey: '',
+        imgCode: e.detail.code
+      },
+      success: function (res) {
+        _this.countdown();
+      }
+    });
   },
 
   /* 提交 */
@@ -222,7 +234,39 @@ Page({
     if (!phoneStatus || !noteStatus) {
       return false;
     }
-    console.log('登录成功')
+    wx.request({
+      url: config.prefix,
+      data: {
+        serviceCode: 'BASE0001',
+        mobilePhone: _this.data.phone,
+        smsCode: _this.data.note,
+      },
+      success: function (res) {
+        if (res.statusCode === 200 && res.data.respCode !== '0000') {
+          var status = app.setUserInfo({
+            phone: _this.data.phone
+          });
+          if (status) {
+            wx.redirectTo({
+              url: '../index/index',
+            });
+          }
+        } else {
+          wx.showToast({
+            title: '手机或密码错误',
+            icon: 'none',
+            mask: true
+          });
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '手机或密码错误',
+          icon: 'none',
+          mask: true
+        });
+      }
+    });
   }
 
 });

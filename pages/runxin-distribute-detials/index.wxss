@@ -75,21 +75,25 @@
 }
 
 .footer .ok {
+  width: 90px;
   margin: 0 30px;
-  padding: 10px 30px;
+  padding: 10px 0;
   font-size: 14px;
   color: #fff;
   line-height: 1.2;
+  text-align: center;
   border-radius: 3px;
   background-color: #cf4141;
 }
 
 .footer .cancel {
+  width: 90px;
   margin: 0 30px;
-  padding: 10px 30px;
+  padding: 10px 0;
   font-size: 14px;
   color: #fff;
   line-height: 1.2;
+  text-align: center;
   border-radius: 3px;
   background-color: #a1a1a1;
 }

@@ -24,5 +24,15 @@ Component({
    */
   methods: {
 
+    /* 选择复选框 */
+    selectCheckBox: function (e) {
+      this.setData({
+        checked: !this.data.checked
+      });
+      var details = {
+        checked: this.data.checked
+      };
+      this.triggerEvent('change', details, {});
+    }
   }
 })

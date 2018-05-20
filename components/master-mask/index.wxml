@@ -1,10 +1,7 @@
 <view class='items'>
-  <view class='status red'></view>
+  <view class='status {{status}}'></view>
   <view class='header'>
-    <!-- <view class='checkbox checked'>
-      <icon type='success_no_circle' size='10' color='#fff' />
-    </view> -->
-    <check-box class="checkbox" />
+    <check-box class="checkbox" wx:if='{{checked}}' />
     <view class='order'>润信编号：0000201805016</view>
     <view class='date'>交易日期：2018-5-15</view>
   </view>

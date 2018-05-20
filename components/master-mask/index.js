@@ -4,7 +4,16 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    maskData: Object
+    status: {
+      type: String,
+      value: 'red'
+    },
+    checked: {
+      type: Boolean,
+      value: false
+    },
+    maskData: Object,
+
   },
 
   /**
