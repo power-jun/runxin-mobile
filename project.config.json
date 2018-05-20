@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 19,
+			"current": 20,
 			"list": [
 				{
 					"id": -1,
@@ -151,6 +151,11 @@
 					"name": "利率审核",
 					"pathName": "pages/interest-rate-list/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "额度审核",
+					"pathName": "pages/quota-list/index"
 				}
 			]
 		}

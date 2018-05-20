@@ -1,0 +1,19 @@
+<view class='tabs-box'>
+  <view class='items current'>分配</view>
+  <view class='items'>调整</view>
+  <view class='items'>新增</view>
+</view>
+<scroll-view class='body' scroll-y='true'>
+  <view class='article'>
+    <quota-mask />
+    <quota-mask />
+    <quota-mask />
+  </view>
+</scroll-view>
+<view class='footer-fixed'>
+  <view class='check-box'>
+    <check-box label='全选' color='#fff' checked='true' />
+  </view>
+  <view class='ok'>确定</view>
+  <view class='cancel'>驳回</view>
+</view>

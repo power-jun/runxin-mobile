@@ -46,7 +46,7 @@ Page({
       },
       {
         icon: config.cdnPrefix + 'img/icon9.png',
-        url: '../visa-list/index',
+        url: '../quota-list/index',
         text: '额度审批',
         tip: 0
       }

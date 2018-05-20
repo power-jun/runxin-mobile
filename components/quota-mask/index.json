@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "iconfont": "../iconfont/index",
+    "check-box": "../check-box/index"
+  }
+}

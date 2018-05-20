@@ -20,7 +20,8 @@
     "pages/assignment-list/index",
     "pages/assignment-detail/index",
     "pages/assignment-harvest/index",
-    "pages/interest-rate-list/index"
+    "pages/interest-rate-list/index",
+    "pages/quota-list/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
