@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "润信平台",
-  "usingComponents": {
-    "bookmarks-item": "../../components/bookmarks-item/index"
-  }
-}

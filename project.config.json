@@ -100,8 +100,20 @@
 				},
 				{
 					"id": -1,
-					"name": "融资复核详情",
-					"pathName": "pages/financing-detail/index",
+					"name": "润信管理",
+					"pathName": "pages/financing-list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "润信转让详情",
+					"pathName": "pages/runxin-transfer-detail/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "润信融资",
+					"pathName": "pages/runxin-financing/index",
 					"query": ""
 				}
 			]
