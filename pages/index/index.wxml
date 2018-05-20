@@ -9,3 +9,5 @@
     </view>
   </view>
 </scroll-view>
+
+<confirm icon='info' title='{{confirmTitle}}' showCancel='{{false}}' showConfirm='{{showConfirm}}' bindsubmit='gotoLoginPage' />

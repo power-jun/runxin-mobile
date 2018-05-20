@@ -7,7 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navigatorArray: []
+    navigatorArray: [],
+    showConfirm: false,
+    confirmTitle: '登录超时，请重新登录！'
   },
 
   /**
@@ -76,10 +78,17 @@ Page({
   isLogin: function () {
     var userInfo = app.getUserInfo();
     if (!userInfo.phone) {
-      wx.redirectTo({
-        url: '../login/index',
+      this.setData({
+        showConfirm: true
       });
     }
+  },
+
+  /* 进入登录页面 */
+  gotoLoginPage: function () {
+    wx.redirectTo({
+      url: '../login/index',
+    });
   },
 
   /* 获取公司数据 */
@@ -96,7 +105,7 @@ Page({
             _this.data.navigatorArray.push({
               id: v.entNo,
               name: v.entName,
-              icon: config.cdnPrefix + 'img/icon' + (i + 1) + '.png'
+              icon: config.cdnPrefix + 'img/icon' + (i % 2 + 1) + '.png'
             });
           });
           _this.setData(_this.data);

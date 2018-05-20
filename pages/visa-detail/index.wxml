@@ -31,4 +31,4 @@
   </view>
 </scroll-view>
 
-<confirm showIcon='true' title="复核成功" message='将复核成功的消息转发给收信人，让他快点签收润信！' cancelText='不了' okText='好的' />
+<confirm icon='success' title="复核成功" message='将复核成功的消息转发给收信人，让他快点签收润信！' showConfirm='{{true}}' />

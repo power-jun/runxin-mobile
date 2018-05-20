@@ -3,6 +3,6 @@
   "navigationBarTextStyle": "white",
   "navigationBarBackgroundColor": "#39444d",
   "usingComponents": {
-
+    "confirm": "../../components/confirm/index"
   }
 }
