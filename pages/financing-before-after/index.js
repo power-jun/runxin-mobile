@@ -1,4 +1,4 @@
-// pages/runxin-financing/index.js
+// pages/financing-before-after/index.js
 Page({
 
   /**
@@ -13,12 +13,6 @@ Page({
    */
   onLoad: function (options) {
   
-  },
-
-  selectFactoring: function() {
-    wx.navigateTo({
-      url: '/pages/runxin-factoring/index'
-    })
   },
 
   /**

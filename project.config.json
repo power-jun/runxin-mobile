@@ -115,6 +115,18 @@
 					"name": "润信融资",
 					"pathName": "pages/runxin-financing/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "其他保理商牌价",
+					"pathName": "pages/factoring/index",
+					"query": ""
+				},
+				{
+					"id": 15,
+					"name": "润信融资详情",
+					"pathName": "pages/runxin-financing-detail/index",
+					"query": ""
 				}
 			]
 		}

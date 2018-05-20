@@ -34,3 +34,73 @@
   line-height: 1.2;
   text-align: right;
 }
+
+.distribute-line.amount {
+  display: block;
+}
+
+.distribute-line.amount input {
+  font-size: 30px;
+  text-align: left;
+  margin-left: 10rpx;
+  color: #23303a;
+}
+
+.protocol-box {
+  display: flex;
+  justify-content: center;
+  margin: 0 15px;
+  padding-top: 25px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.protocol-box .protocol {
+  font-size: 14px;
+  color: #2990e6;
+  line-height: 1.2;
+}
+
+.submit-btn {
+  width: 300rpx;
+  margin-top: 30px;
+  padding: 10px 30px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  border-radius: 3px;
+  background-color: #cf4141;
+  margin-bottom: 70rpx;
+}
+
+.upload-icon {
+  position: relative;
+  width: 38rpx;
+  height: 35rpx;
+  background: #cf4141;
+  border-radius: 50%;
+} 
+
+.upload-icon-line, .upload-icon-vertical {
+  position: absolute;
+  width: 25rpx;
+  height: 2px;
+  background: #fff;
+}
+
+.upload-icon-line {
+  left: 39rpx;
+  top: 16rpx;
+  margin-left: -30rpx;
+}
+
+.upload-icon-vertical {
+  left: 39rpx;
+  top: 16rpx;
+  margin-left: -30rpx;
+  transform: rotate(-90deg);
+}
+
+.distribute-line .val-input.company input {
+  flex: 8;
+  margin-right:25rpx;
+}
