@@ -16,7 +16,10 @@
     "pages/runxin-transfer-detail/index",
     "pages/runxin-factoring/index",
     "pages/runxin-financing/index",
-    "pages/runxin-financing-detail/index"
+    "pages/runxin-financing-detail/index",
+    "pages/assignment-list/index",
+    "pages/assignment-detail/index",
+    "pages/assignment-harvest/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

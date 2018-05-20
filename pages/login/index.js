@@ -242,7 +242,7 @@ Page({
         smsCode: _this.data.note,
       },
       success: function (res) {
-        if (res.statusCode === 200 && res.data.respCode !== '0000') {
+        if (res.statusCode === 200 && res.data.respCode === '0000') {
           var status = app.setUserInfo({
             phone: _this.data.phone
           });

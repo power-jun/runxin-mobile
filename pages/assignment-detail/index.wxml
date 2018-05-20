@@ -2,15 +2,15 @@
   <view class='article'>
     <view class='financing-status'>
       <view class='icon green'></view>
-      <text class='name'>融资前</text>
+      <text class='name'>转让前</text>
     </view>
     <view class='master-box'>
       <master-mask />
     </view>
     <view class='financing-status'>
       <view class='icon red'></view>
-      <text class='name'>融资后</text>
-      <text class='tip'>(黄颖于2018-5-15  22:00手机经办)</text>
+      <text class='name'>转让后</text>
+      <text class='tip'>(经办人：黄莹 2018-05-08 10点 手机端)</text>
     </view>
     <view class='master-box'>
       <master-mask />
@@ -35,7 +35,7 @@
     </view>
     <view class='protocol-box'>
       <check-box label='请您仔细阅读' color='#23303a' />
-      <text class='protocol'>《润信转让协议》</text>
+      <text class='protocol'>《润信签发协议》</text>
     </view>
     <view class='warn-tip'>保理商承诺在当天将资金打入账户</view>
     <view class='footer'>

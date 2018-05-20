@@ -22,7 +22,7 @@ Page({
       },
       {
         icon: config.cdnPrefix + 'img/icon5.png',
-        url: '../visa-list/index',
+        url: '../assignment-list/index',
         text: '转让复核',
         tip: 0
       },
