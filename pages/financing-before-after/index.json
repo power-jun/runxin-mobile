@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "润信融资",
+  "usingComponents": {
+    "check-box": "../../components/check-box/index"
+  }
+}

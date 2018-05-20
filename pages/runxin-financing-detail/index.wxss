@@ -1,0 +1,68 @@
+.article-head {
+  margin-left: 25rpx;
+  margin-top: 40rpx;
+  color: #23303a;
+  font-size: 16px;
+}
+
+.article-head .dot {
+  display: inline-block;
+  width: 18rpx;
+  height: 18rpx;
+  background: #41c74a;
+  border-radius: 50%;
+  margin-right: 15rpx;
+}
+
+.article-head .dot.red {
+  background: #cf4141;
+}
+
+.money-detail {
+  background: #fff;
+  margin: 30rpx 25rpx 80rpx;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.money-detail .item {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  padding: 30rpx 15rpx 30rpx 0;
+  border-bottom: 1px solid #ebebeb;
+  color: #676767;
+  font-size: 14px;
+  justify-content: space-between
+}
+
+.money-detail .item .select {
+  display: flex;
+  align-items:center;
+}
+
+.money-detail .item .company {
+  margin-left: 10rpx;
+}
+
+.money-detail .item:last-child {
+  border: 0;
+}
+
+
+.money-detail .item .price {
+  justify-content: flex-end;
+}
+
+.submit-btn {
+  width: 300rpx;
+  margin-top: 30px;
+  padding: 10px 30px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  border-radius: 3px;
+  background-color: #cf4141;
+  margin-bottom: 70rpx;
+}

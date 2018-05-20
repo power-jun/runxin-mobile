@@ -1,4 +1,4 @@
-// pages/runxin-financing/index.js
+// pages/factoring/index.js
 Page({
 
   /**
@@ -15,10 +15,10 @@ Page({
   
   },
 
-  selectFactoring: function() {
-    wx.navigateTo({
-      url: '/pages/runxin-factoring/index'
-    })
+  goback: function() {
+    wx.navigateBack({
+      
+    });
   },
 
   /**

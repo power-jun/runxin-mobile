@@ -1,0 +1,50 @@
+<scroll-view class='body' scroll-y='true'>
+  <view class="article">
+    <view class='article-head'>
+      <text class='dot'></text>
+      <text>融资前</text>
+    </view>
+    <master-mask/>
+    <view class='article-head'>
+      <text class='dot red'></text>
+      <text>融资后</text>
+    </view>
+    <master-mask/>
+
+    <view class='money-detail'>
+      <view class='item'>
+        <view class='select'>
+          <text class='company'>该笔融资利率</text>
+        </view>
+        <view>
+          <text>6%</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='select'>
+          <text class='company'>申请融资金额</text>
+        </view>
+        <view>
+          <text>10,000元</text>
+        </view>
+      </view>
+       <view class='item'>
+        <view class='select'>
+          <text class='company'>支付利息</text>
+        </view>
+        <view>
+          <text>100元</text>
+        </view>
+      </view>
+      <view class='item'>
+        <view class='select'>
+          <text class='company'>实际到账金额</text>
+        </view>
+        <view>
+          <text>100元</text>
+        </view>
+      </view>
+    </view>
+    <button form-type="submit" class='submit-btn'> 确认无误</button>
+  </view>
+</scroll-view>

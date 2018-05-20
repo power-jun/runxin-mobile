@@ -14,7 +14,9 @@
     "pages/financing-detail/index",
     "pages/advanced-search/index",
     "pages/runxin-transfer-detail/index",
-    "pages/runxin-financing/index"
+    "pages/runxin-factoring/index",
+    "pages/runxin-financing/index",
+    "pages/runxin-financing-detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

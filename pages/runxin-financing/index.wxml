@@ -4,8 +4,12 @@
     <view class='financing-list'>
       <view class='distribute-line'>
         <text class='head'>保理商</text>
-        <view class='val-input'>
+        <view class='val-input company'>
           <input type="text" disabled value="深圳市地球月球科技有限公司" />
+          <view class="upload-icon" bindtap='selectFactoring'>
+            <view class='upload-icon-line'></view>
+            <view class='upload-icon-vertical'></view>
+          </view>
         </view>
       </view>
       <view class='distribute-line'>
@@ -14,12 +18,42 @@
           <input type="text" disabled value="6%" />
         </view>
       </view>
-      <view class='distribute-line'>
+      <view class='distribute-line amount'>
         <text class='head'>申请金额</text>
         <view class='val-input'>
-          <input type="text" value="" />
+          <text class='char'>￥</text>
+          <input type="digit" value="10,000.00" />
+        </view>
+      </view>
+      <view class='distribute-line'>
+        <text class='head'>交易日期</text>
+        <view class='val-input'>
+          <input type="text" disabled value="2018-5-15(已复核日期为准)" />
+        </view>
+      </view>
+      <view class='distribute-line'>
+        <text class='head'>融资天数</text>
+        <view class='val-input'>
+          <input type="text" disabled value="10天" />
+        </view>
+      </view>
+      <view class='distribute-line'>
+        <text class='head'>利息</text>
+        <view class='val-input'>
+          <input type="text" disabled value="100元" />
+        </view>
+      </view>
+      <view class='distribute-line'>
+        <text class='head'>时间到账金额</text>
+        <view class='val-input'>
+          <input type="text" disabled value="9,900元" />
         </view>
       </view>
     </view>
+    <view class='protocol-box'>
+      <check-box label='请您仔细阅读' color='#23303a' />
+      <text class='protocol'>《润信签发协议》</text>
+    </view>
+    <button form-type="submit" class='submit-btn'> 确认融资 </button>
   </view>
 </scroll-view>

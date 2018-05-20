@@ -1,0 +1,5 @@
+<scroll-view class='body' scroll-y='true'>
+  <view class='article'>
+    
+  </view>
+</scroll-view>
