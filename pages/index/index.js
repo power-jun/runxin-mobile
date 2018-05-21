@@ -70,7 +70,7 @@ Page({
 
   /* 初始化 */
   init: function () {
-    this.isLogin();
+    // this.isLogin();
     this.requestCompanyData();
   },
 
@@ -105,7 +105,7 @@ Page({
             _this.data.navigatorArray.push({
               id: v.entNo,
               name: v.entName,
-              icon: config.cdnPrefix + 'img/icon' + (i % 2 + 1) + '.png'
+              icon: config.cdnPrefix + 'img/icon-index' + (i % 2 + 1) + '.png'
             });
           });
           _this.setData(_this.data);

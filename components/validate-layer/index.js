@@ -1,4 +1,4 @@
-var cdnPrefix = 'http://172.16.72.153:3000/';
+var config = require('../../utils/config.js');
 
 Component({
   /**
@@ -18,7 +18,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    picture: cdnPrefix + 'img/validate.jpg',
+    picture: config.cdnPrefix + 'img/validate.jpg',
     code: '',
   },
 

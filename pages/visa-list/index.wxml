@@ -1,8 +1,8 @@
 <scroll-view class='body' scroll-y='true'>
   <view class='article'>
-    <master-mask />
-    <master-mask />
-    <master-mask />
+    <master-mask checked='{{true}}' />
+    <master-mask checked='{{true}}' />
+    <master-mask checked='{{true}}' />
   </view>
 </scroll-view>
 <view class='footer-fixed'>

@@ -1,6 +1,6 @@
 .body {
   padding: 30px;
-  background: url('http://172.16.72.153:3000/img/sign-bg.jpg') 50% 50% no-repeat;
+  background: url('http://img.runxinpingtai.com/img/sign-bg.jpg') 50% 50% no-repeat;
   background-size: cover;
 }
 

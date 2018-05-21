@@ -8,10 +8,10 @@
     <master-mask />
     <view class='picture-box'>
       <view class='picture-list'>
-        <image class='pic' src='http://172.16.72.153:3000/img/sass.png' mode='aspectFit' />
-        <image class='pic' src='http://172.16.72.153:3000/img/sass.png' mode='aspectFit' />
-        <image class='pic' src='http://172.16.72.153:3000/img/sass.png' mode='aspectFit' />
-        <image class='pic' src='http://172.16.72.153:3000/img/sass.png' mode='aspectFit' />
+        <image class='pic' src='http://img.runxinpingtai.com/img/sass.png' mode='aspectFit' />
+        <image class='pic' src='http://img.runxinpingtai.com/img/sass.png' mode='aspectFit' />
+        <image class='pic' src='http://img.runxinpingtai.com/img/sass.png' mode='aspectFit' />
+        <image class='pic' src='http://img.runxinpingtai.com/img/sass.png' mode='aspectFit' />
       </view>
       <view class='tip'>（点击放大查看资料详情）</view>
     </view>

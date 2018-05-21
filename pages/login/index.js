@@ -234,39 +234,42 @@ Page({
     if (!phoneStatus || !noteStatus) {
       return false;
     }
-    wx.request({
-      url: config.prefix,
-      data: {
-        serviceCode: 'BASE0001',
-        mobilePhone: _this.data.phone,
-        smsCode: _this.data.note,
-      },
-      success: function (res) {
-        if (res.statusCode === 200 && res.data.respCode === '0000') {
-          var status = app.setUserInfo({
-            phone: _this.data.phone
-          });
-          if (status) {
-            wx.redirectTo({
-              url: '../index/index',
-            });
-          }
-        } else {
-          wx.showToast({
-            title: '手机或密码错误',
-            icon: 'none',
-            mask: true
-          });
-        }
-      },
-      fail: function () {
-        wx.showToast({
-          title: '手机或密码错误',
-          icon: 'none',
-          mask: true
-        });
-      }
+    wx.redirectTo({
+      url: '../index/index',
     });
+    // wx.request({
+    //   url: config.prefix,
+    //   data: {
+    //     serviceCode: 'BASE0001',
+    //     mobilePhone: _this.data.phone,
+    //     smsCode: _this.data.note,
+    //   },
+    //   success: function (res) {
+    //     if (res.statusCode === 200 && res.data.respCode === '0000') {
+    //       var status = app.setUserInfo({
+    //         phone: _this.data.phone
+    //       });
+    //       if (status) {
+    //         wx.redirectTo({
+    //           url: '../index/index',
+    //         });
+    //       }
+    //     } else {
+    //       wx.showToast({
+    //         title: '手机或密码错误',
+    //         icon: 'none',
+    //         mask: true
+    //       });
+    //     }
+    //   },
+    //   fail: function () {
+    //     wx.showToast({
+    //       title: '手机或密码错误',
+    //       icon: 'none',
+    //       mask: true
+    //     });
+    //   }
+    // });
   }
 
 });
