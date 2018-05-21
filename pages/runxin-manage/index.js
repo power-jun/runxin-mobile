@@ -1,3 +1,6 @@
+var config = require('../../utils/config.js');
+var app = getApp();
+
 Page({
 
   /**
@@ -25,13 +28,23 @@ Page({
   goto: function() {
     wx.navigateTo({
       url: '/pages/runxin-distribute/index',
-    })
+    });
   },
 
   tabClick: function(e) {
     let id = e.currentTarget.dataset.id;
     this.setData({
       activeCategoryId: id
+    });
+
+    wx.request({
+      url: config.prefix,
+      data: {
+        serviceCode: 'BILL0001'
+      },
+      success: function(res){
+        console.log(res);
+      }
     })
   },
 

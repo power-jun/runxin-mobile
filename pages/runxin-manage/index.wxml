@@ -18,8 +18,8 @@
 <scroll-view class='body' scroll-y='true'>
   <view class='article'>
     <view class="holding-list" wx:if="{{activeCategoryId==0}}">
-      <bookmarks-item/>
-      <bookmarks-item/>
+      <navigator url="/pages/runxin-transfer-detail/index"><bookmarks-item/></navigator>
+      <navigator url="/pages/runxin-transfer-detail/index"><bookmarks-item/></navigator>
     </view>
 
     <view class='transaction-inquiry-box' wx:elif="{{activeCategoryId==1}}">
@@ -86,8 +86,8 @@
     </view>
 
     <view wx:elif="{{activeCategoryId==2}}">
-      <master-mask/>
-      <master-mask/>
+      <navigator url="/pages/runxin-distribute-detials/index"><master-mask/></navigator>
+      <navigator url="/pages/runxin-distribute-detials/index"><master-mask/></navigator>
     </view>
   </view>
 </scroll-view>

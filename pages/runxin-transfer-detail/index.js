@@ -28,6 +28,18 @@ Page({
     })
   },
 
+  gotoFinancing: function() {
+    wx.navigateTo({
+      url: '/pages/runxin-financing/index'
+    });
+  },
+
+  gotoTransfer: function () {
+    // wx.navigateTo({
+    //   url: '/pages/runxin-financing/index'
+    // });
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
