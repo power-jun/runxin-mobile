@@ -10,7 +10,7 @@
   width: 16px;
   height: 16px;
   border-radius: 3px;
-  border: 1px solid #e5e5e5;
+  border: 1rpx solid #e5e5e5;
   background-color: #fff;
   box-sizing: border-box;
   overflow: hidden;

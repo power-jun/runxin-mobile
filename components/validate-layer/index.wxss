@@ -31,13 +31,13 @@
 
 .validate-layer .footer {
   display: flex;
-  border-top: 1px solid #f0f0f0;
+  border-top: 1rpx solid #f0f0f0;
 }
 
 .validate-layer .text-box {
   display: flex;
   align-items: center;
-  border: 1px solid #f0f0f0;
+  border: 1rpx solid #f0f0f0;
 }
 
 .validate-layer .text {
@@ -64,7 +64,7 @@
 
 .validate-layer .footer .cancel {
   color: #666;
-  border-right: 1px solid #f0f0f0;
+  border-right: 1rpx solid #f0f0f0;
 }
 
 .validate-layer .footer .ok {

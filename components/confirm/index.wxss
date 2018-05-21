@@ -43,7 +43,7 @@
 
 .confirm-box .btn-box {
   display: flex;
-  border-top: 1px solid #f0f0f0;
+  border-top: 1rpx solid #f0f0f0;
 }
 
 .confirm-box .cancel {
@@ -53,7 +53,7 @@
   color: #999;
   line-height: 1.2;
   text-align: center;
-  border-right: 1px solid #f0f0f0;
+  border-right: 1rpx solid #f0f0f0;
 }
 
 .confirm-box .ok {

@@ -31,7 +31,7 @@
   align-items: center;
   margin-left: 15px;
   padding: 30rpx 15rpx 30rpx 0;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1rpx solid #ebebeb;
   color: #676767;
   font-size: 14px;
   justify-content: space-between

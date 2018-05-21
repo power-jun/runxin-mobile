@@ -49,7 +49,7 @@
   align-items: center;
   margin: 0 15px;
   padding: 15px 0 10px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
 }
 
 .header .checkbox {
@@ -144,7 +144,7 @@
   align-items: center;
   margin: 0 15px;
   padding: 10px 0 15px;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1rpx solid #e5e5e5;
 }
 
 .footer .label {

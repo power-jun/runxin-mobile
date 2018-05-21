@@ -23,7 +23,7 @@
   display: flex;
   align-items: center;
   margin: 10px 0 20px;
-  border-bottom: 1px solid #646d74;
+  border-bottom: 1rpx solid #646d74;
 }
 
 .text-box .text {

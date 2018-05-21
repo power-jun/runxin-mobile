@@ -17,7 +17,7 @@
 
 .agency-company:first-child {
   margin-bottom: 15px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
 }
 
 .picture-box {
@@ -59,7 +59,7 @@
   justify-content: center;
   margin: 0 15px;
   padding-top: 25px;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1rpx solid #e5e5e5;
 }
 
 .protocol-box .protocol {
