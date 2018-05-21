@@ -27,8 +27,8 @@
   </view>
   <view class='footer-fixed'>
     <view class='footer'>
-      <button class='ok'>融资</button>
-      <button class='cancel'>转让</button>
+      <button class='ok' bindtap='gotoFinancing'>融资</button>
+      <button class='cancel' bindtap='gotoTransfer'>转让</button>
     </view>
   </view>
 </scroll-view>
