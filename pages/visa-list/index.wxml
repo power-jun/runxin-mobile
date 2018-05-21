@@ -1,8 +1,14 @@
 <scroll-view class='body' scroll-y='true'>
   <view class='article'>
-    <master-mask checked='{{true}}' />
-    <master-mask checked='{{true}}' />
-    <master-mask checked='{{true}}' />
+    <navigator url='../visa-detail/index'>
+      <master-mask checked='{{true}}' />
+    </navigator>
+    <navigator url='../visa-detail/index'>
+      <master-mask checked='{{true}}' />
+    </navigator>
+    <navigator url='../visa-detail/index'>
+      <master-mask checked='{{true}}' />
+    </navigator>
   </view>
 </scroll-view>
 <view class='footer-fixed'>

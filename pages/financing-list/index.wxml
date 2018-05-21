@@ -1,8 +1,14 @@
 <scroll-view class='body' scroll-y='true'>
   <view class='article'>
-    <financing-mask />
-    <financing-mask />
-    <financing-mask />
+    <navigator url='../financing-detail/index'>
+      <financing-mask />
+    </navigator>
+    <navigator url='../financing-detail/index'>
+      <financing-mask />
+    </navigator>
+    <navigator url='../financing-detail/index'>
+      <financing-mask />
+    </navigator>
   </view>
 </scroll-view>
 <view class='footer-fixed'>

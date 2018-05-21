@@ -1,9 +1,15 @@
 <scroll-view class='body' scroll-y='true'>
   <view class='article'>
     <view class='tip'>转让交易日期以复核日期为准</view>
-    <master-mask />
-    <master-mask />
-    <master-mask />
+    <navigator url='../assignment-detail/index'>
+      <master-mask checked='{{true}}' />
+    </navigator>
+    <navigator url='../assignment-detail/index'>
+      <master-mask checked='{{true}}' />
+    </navigator>
+    <navigator url='../assignment-detail/index'>
+      <master-mask checked='{{true}}' />
+    </navigator>
   </view>
 </scroll-view>
 <view class='footer-fixed'>
