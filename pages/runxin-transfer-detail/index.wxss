@@ -47,8 +47,8 @@
 }
 
 .footer .ok {
-  margin: 0 30px;
-  padding: 10px 30px;
+  margin: 0 60rpx;
+  padding: 20rpx 60rpx;
   font-size: 14px;
   color: #fff;
   line-height: 1.2;
@@ -57,8 +57,8 @@
 }
 
 .footer .cancel {
-  margin: 0 30px;
-  padding: 10px 30px;
+  margin: 0 60rpx;
+  padding: 20rpx 60rpx;
   font-size: 14px;
   color: #fff;
   line-height: 1.2;

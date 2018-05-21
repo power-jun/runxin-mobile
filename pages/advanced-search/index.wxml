@@ -31,11 +31,11 @@
     <view class='article-item'>
       <view class='item-head'>交易金额</view>
       <view class='list'>
-        <view data-id='0' bindtap='transactionClick' class="list-item {{ transactionId == 0 ? 'list-item-on' : ''}}" style='font-size: 11px'>50万内</view>
-        <view data-id='1' bindtap='transactionClick' class="list-item {{ transactionId == 1 ? 'list-item-on' : ''}}" style='font-size: 11px'>50万-100万</view>
-        <view data-id='2' bindtap='transactionClick' class="list-item {{ transactionId == 2 ? 'list-item-on' : ''}}" style='font-size: 11px'>100万-500万</view>
-        <view data-id='3' bindtap='transactionClick' class="list-item {{ transactionId == 3 ? 'list-item-on' : ''}}" style='font-size: 10px'>500万-1000万</view>
-        <view data-id='3' bindtap='transactionClick' class="list-item {{ transactionId == 3 ? 'list-item-on' : ''}}">1000万以上</view>
+        <view data-id='0' bindtap='transactionClick' class="list-item {{ transactionId == 0 ? 'list-item-on' : ''}}" style='font-size: 10px'>50万内</view>
+        <view data-id='1' bindtap='transactionClick' class="list-item {{ transactionId == 1 ? 'list-item-on' : ''}}" style='font-size: 10px'>50万-100万</view>
+        <view data-id='2' bindtap='transactionClick' class="list-item {{ transactionId == 2 ? 'list-item-on' : ''}}" style='font-size: 10px'>100万-500万</view>
+        <view data-id='3' bindtap='transactionClick' class="list-item {{ transactionId == 3 ? 'list-item-on' : ''}}" style='font-size: 9px'>500万-1000万</view>
+        <view data-id='3' style='font-size: 9px' bindtap='transactionClick' class="list-item {{ transactionId == 3 ? 'list-item-on' : ''}}">1000万以上</view>
          <view data-id='3' bindtap='transactionClick' class="list-item {{ transactionId == 3 ? 'list-item-on' : ''}}">全部</view>
       </view>
     </view>
