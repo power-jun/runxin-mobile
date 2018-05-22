@@ -21,7 +21,9 @@
     "pages/assignment-detail/index",
     "pages/assignment-harvest/index",
     "pages/interest-rate-list/index",
-    "pages/quota-list/index"
+    "pages/quota-list/index",
+    "pages/dynamic-cash-list/index",
+    "pages/dynamic-cash-detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

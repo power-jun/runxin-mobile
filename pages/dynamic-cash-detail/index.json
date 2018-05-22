@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "动态兑付详情",
+  "usingComponents": {
+    "confirm": "../../components/confirm/index",
+    "check-box": "../../components/check-box/index",
+    "master-mask": "../../components/master-mask/index"
+  }
+}

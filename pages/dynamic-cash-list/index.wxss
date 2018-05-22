@@ -1,0 +1,67 @@
+.article {
+  padding: 1px 0 120px;
+}
+
+.footer-fixed {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 500;
+  padding: 10px 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.footer-fixed .protocol-box {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.footer-fixed .protocol-box .protocol {
+  font-size: 14px;
+  color: #2990e6;
+  line-height: 1.2;
+}
+
+.footer-fixed .tip {
+  font-size: 12px;
+  color: #fff;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.footer-fixed .bottom-box {
+  display: flex;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.footer-fixed .bottom-box .check-box {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.footer-fixed .bottom-box .ok {
+  width: 90px;
+  margin: 0 15px;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #cf4141;
+}
+
+.footer-fixed .bottom-box .cancel {
+  width: 90px;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #a1a1a1;
+}

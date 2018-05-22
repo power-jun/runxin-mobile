@@ -1,0 +1,27 @@
+<scroll-view class='body' scroll-y='true'>
+  <view class='article'>
+    <navigator url='../dynamic-cash-detail/index'>
+      <financing-mask />
+    </navigator>
+    <navigator url='../dynamic-cash-detail/index'>
+      <financing-mask />
+    </navigator>
+    <navigator url='../dynamic-cash-detail/index'>
+      <financing-mask />
+    </navigator>
+  </view>
+</scroll-view>
+<view class='footer-fixed'>
+  <view class='protocol-box'>
+    <check-box label='请您仔细阅读' color='#fff' />
+    <text class='protocol'>《润信保理融资协议》</text>
+  </view>
+  <view class='tip'>(当天超过保理商规定的复核时间，未复核单据将作废)</view>
+  <view class='bottom-box'>
+    <view class='check-box'>
+      <check-box label='全选' color='#fff' checked='true' />
+    </view>
+    <view class='ok'>复核</view>
+    <view class='cancel'>驳回</view>
+  </view>
+</view>

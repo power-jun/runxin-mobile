@@ -1,164 +1,164 @@
 {
-  "description": "项目配置文件。",
-  "setting": {
-    "urlCheck": false,
-    "es6": true,
-    "postcss": true,
-    "minified": true,
-    "newFeature": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "1.9.1",
-  "appid": "wx637932ae6d01b514",
-  "projectname": "runxin-wx",
-  "isGameTourist": false,
-  "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
-    "plugin": {
-      "current": -1,
-      "list": []
-    },
-    "game": {
-      "currentL": -1,
-      "list": []
-    },
-    "miniprogram": {
-      "current": 1,
-      "list": [
-        {
-          "id": -1,
-          "name": "login",
-          "pathName": "pages/login/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "待办业务",
-          "pathName": "pages/upcoming-task/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "index",
-          "pathName": "pages/index/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "润信签发",
-          "pathName": "pages/runxin-distribute/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "签发复核",
-          "pathName": "pages/visa-list/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "润信签发详情",
-          "pathName": "pages/runxin-distribute-detials/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "签发复核详情",
-          "pathName": "pages/visa-detail/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "润信管理",
-          "pathName": "pages/runxin-manage/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "签收",
-          "pathName": "pages/visa-harvest/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "融资复核",
-          "pathName": "pages/financing-list/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "融资复核详情",
-          "pathName": "pages/financing-detail/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "高级搜索",
-          "pathName": "pages/advanced-search/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "润信管理",
-          "pathName": "pages/financing-list/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "润信转让详情",
-          "pathName": "pages/runxin-transfer-detail/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "润信融资",
-          "pathName": "pages/runxin-financing/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "其他保理商牌价",
-          "pathName": "pages/factoring/index",
-          "query": ""
-        },
-        {
-          "id": 15,
-          "name": "润信融资详情",
-          "pathName": "pages/runxin-financing-detail/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "转让复核详情",
-          "pathName": "pages/assignment-detail/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "转让签收",
-          "pathName": "pages/assignment-harvest/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "利率审核",
-          "pathName": "pages/interest-rate-list/index",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "额度审核",
-          "pathName": "pages/quota-list/index",
-          "query": ""
-        }
-      ]
-    }
-  }
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.1",
+	"appid": "wx637932ae6d01b514",
+	"projectname": "runxin-wx",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "待办业务",
+					"pathName": "pages/upcoming-task/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "润信签发",
+					"pathName": "pages/runxin-distribute/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "签发复核",
+					"pathName": "pages/visa-list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "润信签发详情",
+					"pathName": "pages/runxin-distribute-detials/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "签发复核详情",
+					"pathName": "pages/visa-detail/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "润信管理",
+					"pathName": "pages/runxin-manage/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "签收",
+					"pathName": "pages/visa-harvest/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "融资复核",
+					"pathName": "pages/financing-list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "融资复核详情",
+					"pathName": "pages/financing-detail/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "高级搜索",
+					"pathName": "pages/advanced-search/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "润信管理",
+					"pathName": "pages/financing-list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "润信转让详情",
+					"pathName": "pages/runxin-transfer-detail/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "润信融资",
+					"pathName": "pages/runxin-financing/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "其他保理商牌价",
+					"pathName": "pages/factoring/index",
+					"query": ""
+				},
+				{
+					"id": 15,
+					"name": "润信融资详情",
+					"pathName": "pages/runxin-financing-detail/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "转让复核详情",
+					"pathName": "pages/assignment-detail/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "转让签收",
+					"pathName": "pages/assignment-harvest/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "利率审核",
+					"pathName": "pages/interest-rate-list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "额度审核",
+					"pathName": "pages/quota-list/index",
+					"query": ""
+				}
+			]
+		}
+	}
 }

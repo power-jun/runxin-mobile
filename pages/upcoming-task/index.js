@@ -34,7 +34,7 @@ Page({
       },
       {
         icon: config.cdnPrefix + 'img/icon-menu5.png',
-        url: '../visa-list/index',
+        url: '../dynamic-cash-list/index',
         text: '动态兑付复核',
         tip: 0
       },
