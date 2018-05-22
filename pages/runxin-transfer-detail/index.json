@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "润信转让详情",
+  "navigationBarTitleText": "润信详情",
   "usingComponents": {
     "master-mask": "../../components/master-mask/index"
   }

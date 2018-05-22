@@ -31,8 +31,8 @@ page {
   text-align: center;
   line-height: 60rpx;
   color: #cd3a3a;
-  font-size: 13px;
-  border: 1rpx solid #f0c4c4;
+  font-size: 12px;
+  border: 1px solid #f0c4c4;
   border-radius: 10rpx;
   margin-right: 30rpx;
   margin-bottom: 25rpx;
