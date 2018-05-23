@@ -14,6 +14,7 @@ Page({
     timer: 0, // 计时器
     disable: true, // 禁用
     showValidateLayer: false, // 显示图片验证层
+    validatePicture: null, // 验证图片
   },
 
   /**
@@ -184,8 +185,34 @@ Page({
     if (!status) {
       return false;
     }
+    // wx.request({
+    //   url: config.prefix,
+    //   method: 'POST',
+    //   data: {
+    //     serviceCode: 'BASE0002',
+    //     mobilePhone: _this.data.phone,
+    //     imgKey: '56565',
+    //     imgCode: e.detail.code
+    //   },
+    //   success: function (res) {
+    //     if (res.statusCode === 200 && res.data.respCode === '0000') {
+    //       _this.setData({
+    //         showValidateLayer: true,
+    //         validatePicture: res.data.picture
+    //       });
+    //     }
+    //   },
+    //   fail: function () {
+    //     wx.showToast({
+    //       title: '网络异常，请检查网络是否连接',
+    //       icon: 'none',
+    //       mask: true
+    //     });
+    //   }
+    // });
     _this.setData({
-      showValidateLayer: true
+      showValidateLayer: true,
+      validatePicture: config.cdnPrefix + 'img/validate.jpg'
     });
   },
 
@@ -211,14 +238,30 @@ Page({
     var _this = this;
     wx.request({
       url: config.prefix,
+      method: 'POST',
       data: {
         serviceCode: 'BASE0002',
         mobilePhone: _this.data.phone,
-        imgKey: '',
+        imgKey: '56565',
         imgCode: e.detail.code
       },
       success: function (res) {
-        _this.countdown();
+        if (res.statusCode === 200 && res.data.respCode === '0000') {
+          _this.countdown();
+        } else {
+          wx.showToast({
+            title: '短信发送失败',
+            icon: 'none',
+            mask: true
+          });
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '网络异常，请检查网络是否连接',
+          icon: 'none',
+          mask: true
+        });
       }
     });
   },
@@ -230,15 +273,16 @@ Page({
       return false;
     }
     var phoneStatus = _this.validatePhone(_this.data.phone);
-    var noteStatus = _this.validateNote(_this.data.note);
-    if (!phoneStatus || !noteStatus) {
+    if (!phoneStatus) {
       return false;
     }
-    // wx.redirectTo({
-    //   url: '../index/index',
-    // });
+    var noteStatus = _this.validateNote(_this.data.note);
+    if (!noteStatus) {
+      return false;
+    }
     wx.request({
       url: config.prefix,
+      method: 'POST',
       data: {
         serviceCode: 'BASE0001',
         mobilePhone: _this.data.phone,
@@ -247,7 +291,10 @@ Page({
       success: function (res) {
         if (res.statusCode === 200 && res.data.respCode === '0000') {
           var status = app.setUserInfo({
-            phone: _this.data.phone
+            phone: _this.data.phone,
+            name: res.data.userName,
+            loginToken: res.data.loginToken,
+            sessionToken: res.data.sessionToken,
           });
           if (status) {
             wx.redirectTo({
@@ -264,7 +311,7 @@ Page({
       },
       fail: function () {
         wx.showToast({
-          title: '手机或密码错误',
+          title: '网络异常，请检查网络是否连接',
           icon: 'none',
           mask: true
         });

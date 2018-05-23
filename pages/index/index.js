@@ -8,8 +8,8 @@ Page({
    */
   data: {
     navigatorArray: [],
-    showConfirm: false,
-    confirmTitle: '登录超时，请重新登录！'
+    showConfirm: false, // 显示提示层
+    confirmTitle: '登录超时，请重新登录！', // 提示文本
   },
 
   /**
@@ -68,23 +68,31 @@ Page({
 
   },
 
+  /* 用户信息 */
+  userInfo: null,
+
   /* 初始化 */
   init: function () {
-    // this.isLogin();
-    this.requestCompanyData();
+    this.userInfo = app.getUserInfo();
+    var loginStatus = this.isLogin();
+    if (loginStatus) {
+      this.requestCompanyData();
+    }
   },
 
   /* 是否已登录 */
   isLogin: function () {
-    var userInfo = app.getUserInfo();
-    if (!userInfo.phone) {
+    if (this.userInfo.phone) {
+      return true;
+    } else {
       this.setData({
         showConfirm: true
       });
+      return false;
     }
   },
 
-  /* 进入登录页面 */
+  /* 返回登录页面 */
   gotoLoginPage: function () {
     wx.redirectTo({
       url: '../login/index',
@@ -96,8 +104,10 @@ Page({
     var _this = this;
     wx.request({
       url: config.prefix,
+      method: 'POST',
       data: {
-        serviceCode: 'BASE0004'
+        serviceCode: 'BASE0004',
+        sessionToken: _this.userInfo.sessionToken
       },
       success: function (res) {
         if (res.statusCode === 200 && res.data.respCode === '0000') {
@@ -110,6 +120,13 @@ Page({
           });
           _this.setData(_this.data);
         }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '网络异常，请检查网络是否连接',
+          icon: 'none',
+          mask: true
+        });
       }
     });
   },

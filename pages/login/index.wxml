@@ -16,4 +16,4 @@
   </view>
   <view class='submit{{disable?" disable":""}}' bindtap='submit'>提交验证</view>
 </view>
-<validate-layer isShow='{{showValidateLayer}}' bindok='validateOk' />
+<validate-layer isShow='{{showValidateLayer}}' picture='{{validatePicture}}' bindok='validateOk' />

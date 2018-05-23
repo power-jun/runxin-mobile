@@ -50,7 +50,9 @@ Page({
         text: '额度审批',
         tip: 0
       }
-    ]
+    ],
+    showConfirm: false, // 显示提示层
+    confirmTitle: '登录超时，请重新登录！', // 提示文本
   },
 
   /**
@@ -109,34 +111,79 @@ Page({
 
   },
 
+  /* 用户信息 */
+  userInfo: null,
+
+  /* 公司信息 */
+  companyInfo: null,
+
   /* 初始化 */
   init: function () {
-    this.requestCountData();
+    this.userInfo = app.getUserInfo();
+    this.companyInfo = app.getCompanyInfo();
+    var loginStatus = this.isLogin();
+    var companyStatus = this.isCompany();
+    if (loginStatus && companyStatus) {
+      this.requestCountData();
+    }
   },
 
+  /* 是否已登录 */
+  isLogin: function () {
+    if (this.userInfo.phone) {
+      return true;
+    } else {
+      this.setData({
+        showConfirm: true
+      });
+      return false;
+    }
+  },
+
+  /* 是否选好了公司 */
+  isCompany: function () {
+    if (this.companyInfo.id) {
+      return true;
+    } else {
+      wx.redirectTo({
+        url: '../index/index'
+      });
+      return false;
+    }
+  },
+
+  /* 返回登录页面 */
+  gotoLoginPage: function () {
+    wx.redirectTo({
+      url: '../login/index',
+    });
+  },
 
   /* 获取待办事项的记录数据 */
   requestCountData: function () {
     var _this = this;
-    // var companyID = app.getCompanyInfo().id;
-    // if (!companyID) {
-    //   wx.redirectTo({
-    //     url: '../index/index'
-    //   });
-    //   return false;
-    // }
-    // wx.request({
-    //   url: config.prefix,
-    //   data: {
-    //     serviceCode: 'BASE0007',
-    //     entNo: companyID
-    //   },
-    //   success: function (res) {
-    //     if (res.statusCode === 200 && res.data.respCode === '0000') {
-    //       console.log(res.data)
-    //     }
-    //   }
-    // });
+    wx.request({
+      url: config.prefix,
+      method: 'POST',
+      data: {
+        serviceCode: 'BASE0007',
+        sessionToken: _this.userInfo.sessionToken,
+        entNo: _this.companyInfo.id,
+      },
+      success: function (res) {
+        if (res.statusCode === 200 && res.data.respCode === '0000') {
+          console.log(res.data)
+          // navigatorArray[0].tip = res.data.signReviewCount
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '网络异常，请检查网络是否连接',
+          icon: 'none',
+          mask: true
+        });
+      }
+    });
   }
 
 })

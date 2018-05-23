@@ -1,20 +1,16 @@
 <scroll-view class='body' scroll-y='true'>
   <view class='article'>
-    <navigator url='../visa-detail/index'>
-      <master-mask checked='{{true}}' />
-    </navigator>
-    <navigator url='../visa-detail/index'>
-      <master-mask checked='{{true}}' />
-    </navigator>
-    <navigator url='../visa-detail/index'>
-      <master-mask checked='{{true}}' />
-    </navigator>
+    <block wx:for='{{listData}}' wx:key='item'>
+      <master-mask showCheckBox='{{true}}' maskData='{{item}}' bindselect='selectListItem' link='../visa-detail/index?id={{item.xdNo}}' />
+    </block>
   </view>
 </scroll-view>
 <view class='footer-fixed'>
   <view class='check-box'>
-    <check-box label='全选' color='#fff' checked='true' />
+    <check-box label='全选' color='#fff' checked='{{false}}' />
   </view>
   <view class='ok'>复核</view>
   <view class='cancel'>驳回</view>
 </view>
+
+<confirm icon='info' title='{{confirmTitle}}' showCancel='{{false}}' showConfirm='{{showConfirm}}' bindsubmit='gotoLoginPage' />

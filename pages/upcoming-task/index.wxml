@@ -9,3 +9,5 @@
     </navigator>
   </view>
 </view>
+
+<confirm icon='info' title='{{confirmTitle}}' showCancel='{{false}}' showConfirm='{{showConfirm}}' bindsubmit='gotoLoginPage' />
