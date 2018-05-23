@@ -172,3 +172,17 @@
   display: inline-block;
   min-width: 220rpx;
 }
+
+.no-more-goods {
+  width: 100%;
+  text-align: center;
+  font-size: 22rpx;
+  padding-bottom: 48rpx;
+  padding-top: 20rpx;
+  color: #7d7d7d;
+  background: #f4f4f4;
+}
+
+.no-datas {
+  background: #fff;
+}

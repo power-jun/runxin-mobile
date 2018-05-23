@@ -1,4 +1,6 @@
-// pages/runxin-distribute-detials/index.js
+var config = require('../../utils/config.js');
+var app = getApp();
+
 Page({
 
   /**
@@ -12,54 +14,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.requestData(options.id)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
+  requestData: function (id) {
+    let that = this;
+    wx.showLoading();
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
+    wx.request({
+      url: config.prefix,
+      method: 'POST',
+      data: {
+        serviceCode: 'BILL0002', //润信签发详情
+        xdNo: id
+      },
+      success: function (res) {
+        wx.hideLoading();
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+        if (res.data.respCode == '0000') {
+          that.setData({
+            detailsData: res.data
+          })
+        }
+      }
+    })
   }
 })

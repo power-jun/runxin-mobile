@@ -1,16 +1,6 @@
 <scroll-view class='body' scroll-y='true'>
   <view class='article'>
     <view class='article-item'>
-      <view class='item-head'>交易类型</view>
-      <view class='list'>
-        <view data-id='0' bindtap='transactionClick' class="list-item {{ transactionId == 0 ? 'list-item-on' : ''}}">签发</view>
-        <view data-id='1' bindtap='transactionClick' class="list-item {{ transactionId == 1 ? 'list-item-on' : ''}}">转让</view>
-        <view data-id='2' bindtap='transactionClick' class="list-item {{ transactionId == 2 ? 'list-item-on' : ''}}">融资</view>
-        <view data-id='3' bindtap='transactionClick' class="list-item {{ transactionId == 3 ? 'list-item-on' : ''}}">动态兑换</view>
-        <view data-id='4' bindtap='transactionClick' class="list-item {{ transactionId == 4 ? 'list-item-on' : ''}}">全部</view>
-      </view>
-    </view>
-    <view class='article-item'>
       <view class='item-head'>客户名称</view>
       <view class='list'>
         <view data-id='0' bindtap='transactionClick' class="list-item {{ transactionId == 0 ? 'list-item-on' : ''}}">最近十天</view>
@@ -22,13 +12,13 @@
     <view class='article-item'>
       <view class='item-head'>交易日期</view>
       <view class='list'>
-        <view data-id='0' bindtap='transactionClick' class="list-item {{ transactionId == 0 ? 'list-item-on' : ''}}">最近十天</view>
-        <view data-id='1' bindtap='transactionClick' class="list-item {{ transactionId == 1 ? 'list-item-on' : ''}}">最近一个月</view>
-        <view data-id='2' bindtap='transactionClick' class="list-item {{ transactionId == 2 ? 'list-item-on' : ''}}">最近三个月</view>
-        <view data-id='3' bindtap='transactionClick' class="list-item {{ transactionId == 3 ? 'list-item-on' : ''}}">全部</view>
+        <view data-type='date' data-datev='{{dateV}}' bindtap='dateSelect' class="list-item {{ dateType == 'date' ? 'list-item-on' : ''}}">最近十天</view>
+        <view data-type='month' data-datev='{{monthV}}' bindtap='dateSelect' class="list-item {{ dateType == 'month' ? 'list-item-on' : ''}}">最近一个月</view>
+        <view data-type='march' data-datev='{{marchV}}' bindtap='dateSelect' class="list-item {{ dateType == 'march' ? 'list-item-on' : ''}}">最近三个月</view>
+        <view data-type='all' bindtap='dateSelect' class="list-item {{ dateType == 'all' ? 'list-item-on' : ''}}">全部</view>
       </view>
     </view>
-    <view class='article-item'>
+    <!-- <view class='article-item'>
       <view class='item-head'>交易金额</view>
       <view class='list'>
         <view data-id='0' bindtap='transactionClick' class="list-item {{ transactionId == 0 ? 'list-item-on' : ''}}" style='font-size: 10px'>50万内</view>
@@ -38,7 +28,7 @@
         <view data-id='3' style='font-size: 9px' bindtap='transactionClick' class="list-item {{ transactionId == 3 ? 'list-item-on' : ''}}">1000万以上</view>
          <view data-id='3' bindtap='transactionClick' class="list-item {{ transactionId == 3 ? 'list-item-on' : ''}}">全部</view>
       </view>
-    </view>
+    </view> -->
     <view class='article-item'>
       <view class='item-head'>交易状态</view>
       <view class='list'>
@@ -53,14 +43,12 @@
     <view class='article-item'>
       <view class='item-head'>授信机构</view>
       <view class='list-agency'>
-        <view class='list-item agency'>深圳市宇宙最好有限公司</view>
-        <view class='list-item agency'>深圳市宇宙最好有限公司</view>
-        <view class='list-item agency'>深圳市宇宙最好有限公司</view>
+        <view class="list-item agency {{ entno == item.entNo ? 'list-item-on' : ''}}" bindtap='entNoSelect' wx:for="{{authEntList}}" wx:key="{{index}}" data-entno="{{item.entNo}}">{{item.entName}}</view>
       </view>
     </view>
     <view class='footer'>
-      <button class='ok'>确定</button>
-      <button class='cancel'>重置</button>
+      <button class='ok' bindtap='confirm'>确定</button>
+      <button class='cancel' bindtap='reset'>重置</button>
     </view>
   </view>
 </scroll-view>

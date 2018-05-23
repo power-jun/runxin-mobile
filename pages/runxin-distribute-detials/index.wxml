@@ -11,7 +11,7 @@
         成功后可用额度：15,000.00元
       </view>
     </view>
-    <master-mask />
+    <master-mask maskData="{{detailsData}}"/>
     <view class='picture-box'>
       <view class='picture-list'>
         <image class='pic' src='http://img.runxinpingtai.com/img/sass.png' mode='aspectFit' />

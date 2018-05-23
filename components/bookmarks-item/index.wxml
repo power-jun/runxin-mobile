@@ -1,4 +1,4 @@
-<view class="holding-list-item">
+<view class="holding-list-item" bindtap='goItemDetails' data-id='{{itemData.xdNo}}'>
   <view class="percentage">
     <text>最低牌价</text>
     <text>8%</text>
@@ -6,30 +6,30 @@
   <view class='items'>
     <view class='status green'></view>
     <view class='header'>
-      <view class='order'>润信编号：0000201805016</view>
-      <view class='date'>交易日期：2018-5-15</view>
+      <view class='order'>润信编号：{{itemData.xdNo}}</view>
+      <view class='date'>交易日期：{{itemData.tradeDate}}</view>
     </view>
     <view class='content'>
       <view class='price'>
         <text class='char'>￥</text>
-        <text class='number'>20,000.00</text>
-        <text class='day'>(10天)</text>
+        <text class='number'>{{itemData.xdAmount}}</text>
+        <text class='day'>({{itemData.xdDay || ''}}天)</text>
       </view>
-      <view class='uppercase'>人民币贰仟元整</view>
-      <view class='time'>签发日：2018-5-25</view>
-      <view class='time'>到期日：2018-5-25</view>
+      <view class='uppercase'>人民币{{itemData.caseAmount}}</view>
+      <view class='time'>签发日：{{itemData.openDate}}</view>
+      <view class='time'>到期日：{{itemData.expireDate}}</view>
       <view class='visa'>
         <text class='label'>签发</text>
-        <text class='text'>深圳地球的地球的地球有限公司</text>
+        <text class='text'>{{itemData.openEntName}}</text>
       </view>
       <view class='visa'>
         <text class='label'>签收</text>
-        <text class='text'>深圳地球表面有限公司</text>
+        <text class='text'>{{itemData.receEntName}}</text>
       </view>
     </view>
     <view class='footer'>
       <text class='label'>担保人</text>
-      <text class='text'>深圳市宇宙飞起科技有限公司</text>
+      <text class='text'>{{itemData.guaranteeEntName}}</text>
       <view class='circle left'></view>
       <view class='circle right'></view>
     </view>

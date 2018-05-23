@@ -1,4 +1,5 @@
 var config = require('../../utils/config.js');
+var util = require('../../utils/util.js');
 var app = getApp();
 
 Page({
@@ -8,52 +9,116 @@ Page({
    */
   data: {
     activeCategoryId: 0,
-    typeId: 0
+    typeId: 0,
+    holdingList: [], // 持有列表数据
+    distributeData: [], // 签发交易
+    transactionData: [], // 交易查询
+    loadingMoreHidden: true,
+    noDataHidden: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.page = 1;
+    this.totalPage = 1;
+    this.serviceCode = 'BILL0017';
+    this.requestData(this.serviceCode);
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onTabItemTap: function() {
+    debugger
   },
 
-  goto: function () {
-    wx.navigateTo({
-      url: '/pages/runxin-distribute/index',
-    });
-  },
 
   tabClick: function (e) {
     let id = e.currentTarget.dataset.id;
+    
     this.setData({
       activeCategoryId: id
     });
 
+    if (id === '2') {
+      wx.navigateTo({
+        url: '/pages/runxin-distribute/index',
+      });
+    } else {
+      this.page = 1;
+      this.totalPage = 1;
+      this.serviceCode = e.currentTarget.dataset.servicecode;
+      this.requestData(this.serviceCode); 
+    }
+  },
+
+  requestData(serviceCode) {
+    let that = this;
+    wx.showLoading();
+
     wx.request({
       url: config.prefix,
-      header: { 'Content-Type': 'application/json' },
+      method: 'POST',
       data: {
-        serviceCode: 'BILL0001'
+        serviceCode: serviceCode,
+        row: 10,
+        page: that.page
       },
       success: function (res) {
-        console.log(res);
+        wx.hideLoading();
+        
+        if (res.data.respCode == '0000') {
+          let dataType = null;
+          let billList = res.data.billList;
+
+          if (serviceCode == 'BILL0017') {
+            dataType = 'holdingList';
+          } else if (serviceCode == 'BILL0001' || serviceCode == 'BILL0008' || serviceCode == 'BILL0012') {
+            dataType = 'transactionData';
+            for (var i = 0, len = billList.length; i < billList.length;i++) {
+              billList[i].xdAmount = util.formatNumberRgx(billList[i].xdAmount);
+            }
+          } else if (serviceCode) {
+            dataType = 'distributeData';
+          }
+
+          that.totalPage = res.data.totalPage;
+
+          that.setData({
+            loadingMoreHidden: true,
+            noDataHidden: true,
+            [dataType]: billList
+          });
+        } else {
+          that.setData({
+            loadingMoreHidden: true,
+            noDataHidden: false
+          });
+
+          wx.showModal({
+            content: res.data.respDesc,
+            showCancel: false
+          });
+        }
       }
-    })
+    });
   },
 
   tabTypeClick: function (e) {
     let id = e.currentTarget.dataset.id;
     this.setData({
       typeId: id
-    })
+    });
+
+    this.page = 1;
+    this.totalPage = 1;
+    this.serviceCode = e.currentTarget.dataset.servicecode;
+    this.requestData(this.serviceCode);
+  },
+
+  goDetail: function(data) {
+    wx.navigateTo({
+      url: '/pages/runxin-distribute-detials/index?id=' + data.detail.id
+    });
   },
 
   /**
@@ -88,13 +153,16 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    if (this.page && (this.page >= this.totalPage) && this.totalPage != 0) {
+      this.setData({
+        loadingMoreHidden: false,
+        noDataHidden: true
+      })
+      return;
+    }
 
-  },
+    this.page++;
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    this.requestData(this.serviceCode);
   }
 })

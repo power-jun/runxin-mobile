@@ -1,74 +1,57 @@
 <view class="type-navbar">
   <view class="type-box">
-    <view data-id='0' class="type-navbar-item {{activeCategoryId == 0 ? 'type-item-on' : ''}}" bindtap="tabClick">
+    <view data-id='0' data-servicecode='BILL0017'  class="type-navbar-item {{activeCategoryId == 0 ? 'type-item-on' : ''}}"  bindtap="tabClick">
       持有列表
     </view>
   </view>
   <view class="type-box">
-    <view data-id='1' class="type-navbar-item {{activeCategoryId == 1 ? 'type-item-on' : ''}}" bindtap="tabClick">
+    <view data-id='1' data-servicecode='BILL0001' class="type-navbar-item {{activeCategoryId == 1 ? 'type-item-on' : ''}}" bindtap="tabClick">
       交易查询
     </view>
   </view>
      <view class="type-box">
-    <view data-id='2' class="type-navbar-item {{activeCategoryId == 2 ? 'type-item-on' : ''}}" bindtap="tabClick">
-      签发交易
+    <view data-id='2' data-servicecode='BILL0001' class="type-navbar-item {{activeCategoryId == 2 ? 'type-item-on' : ''}}" bindtap="tabClick">
+      润信签发
     </view>
   </view>
 </view>
-<scroll-view class='body' scroll-y='true'>
+<scroll-view class='body' scroll-y='true' bindscrolltolower="onReachBottom">
   <view class='article'>
     <view class="holding-list" wx:if="{{activeCategoryId==0}}">
-      <navigator url="/pages/runxin-transfer-detail/index"><bookmarks-item/></navigator>
-      <navigator url="/pages/runxin-transfer-detail/index"><bookmarks-item/></navigator>
+      <bookmarks-item wx:for="{{holdingList}}" wx:key="index" itemData="{{item}}" bindchange="goDetail"/>
+      <!-- <navigator url="/pages/runxin-transfer-detail/index"><bookmarks-item/></navigator> -->
     </view>
 
     <view class='transaction-inquiry-box' wx:elif="{{activeCategoryId==1}}">
       <view class='transaction-inquiry'>
         <view class='list-type'>
-          <view data-id='0' class="type-item {{typeId == 0 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">签发</view>
-          <view data-id='1' class="type-item {{typeId == 1 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">转让</view>
-          <view data-id='2' class="type-item {{typeId == 2 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">融资</view>
-          <view data-id='3' class="type-item no-margin {{typeId == 3 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">到期</view>
+          <view data-id='0' data-servicecode='BILL0001' class="type-item {{typeId == 0 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">签发</view>
+          <view data-id='1' data-servicecode='BILL0008' class="type-item {{typeId == 1 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">转让</view>
+          <view data-id='2' data-servicecode='BILL0012' class="type-item {{typeId == 2 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">融资</view>
+          <view data-id='3' data-servicecode='BILL0012' class="type-item no-margin {{typeId == 3 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">兑付</view>
         </view>
       </view>
       <navigator class='advanced-search' url="/pages/advanced-search/index">
         <view>高级查询</view>
         <view class='icon'></view>
       </navigator>
-      <view class='credit-agency'>
+
+      <view class='credit-agency' wx:for="{{transactionData}}" wx:key="{{key}}">
         <view class='agency-company'>
           <text>交易对手：</text>
-          <text>陈某某</text>
+          <text>{{item.receEntName}}</text>
         </view>
         <view class='agency-company'>
           <text>额度：</text>
-          <text>200,000.00元</text>
+          <text>{{item.xdAmount}}元</text>
         </view>
         <view class='agency-company'>
           <text>签发时间：</text>
-          <text>2018-01-23</text>
+          <text>{{item.openDate}}</text>
         </view>
         <view class='agency-company no-border'>
           <text>到期时间：</text>
-          <text>2018-04-23</text>
-        </view>
-      </view>
-      <view class='credit-agency'>
-        <view class='agency-company'>
-          <text>交易对手：</text>
-          <text>陈某某</text>
-        </view>
-        <view class='agency-company'>
-          <text>额度：</text>
-          <text>200,000.00元</text>
-        </view>
-        <view class='agency-company'>
-          <text>签发时间：</text>
-          <text>2018-01-23</text>
-        </view>
-        <view class='agency-company no-border'>
-          <text>到期时间：</text>
-          <text>2018-04-23</text>
+          <text>{{item.expireDate}}</text>
         </view>
       </view>
       <view class='footer-fixed'>
@@ -90,4 +73,6 @@
       <navigator url="/pages/runxin-distribute-detials/index"><master-mask/></navigator>
     </view>
   </view>
+  <view class="no-more-goods" hidden='{{loadingMoreHidden}}'>更多记录,敬请期待</view>
+  <view class="no-more-goods no-datas" hidden='{{noDataHidden}}'>暂无记录</view>
 </scroll-view>

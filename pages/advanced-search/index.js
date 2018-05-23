@@ -1,4 +1,7 @@
-// pages/advanced-search/index.js
+var config = require('../../utils/config.js');
+var util = require('../../utils/util.js');
+var app = getApp();
+
 Page({
 
   /**
@@ -6,69 +9,124 @@ Page({
    */
   data: {
     transactionId: 0,
-    clientName: ''
+    clientName: '',
+    dateType: 'date',
+    dateV: '',
+    monthV: '',
+    marchV: '',
+    startDate: '',
+    authEntList: [], // 授信机构
+    entno: '',//授信机构ID
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.requestData();
+
+    this.setData({
+      dateV: this.setDate('date'),
+      monthV: this.setDate('month'),
+      marchV: this.setDate('march')
+    })
   },
 
-  transactionClick: function(e) {
+  setDate: function (type) {
+    let newDate = new Date();
+
+    this.endOpenDate = util.formatTime(newDate); // 交易的开始时间
+
+    let month = newDate.getMonth();
+    let year = newDate.getFullYear();
+    let day = newDate.getDate();
+
+    if (type === 'date') {
+      let dateV = newDate.setDate(day - 10);
+      return util.formatTime(newDate);
+    }
+
+    if (type === 'month') {
+      let dateV = newDate.setMonth(month - 1); //最近一个月
+      return util.formatTime(newDate);
+    }
+
+    if (type === 'march') {
+      let dateV = newDate.setMonth(month - 3); //最近十天
+      return util.formatTime(newDate);
+    }
+  },
+
+  requestData: function () {
+    let that = this;
+    wx.showLoading();
+
+    wx.request({
+      url: config.prefix,
+      method: 'POST',
+      data: {
+        serviceCode: 'BASE0005' // 授信机构
+      },
+      success: function (res) {
+        wx.hideLoading();
+        if (res.data.respCode == '0000') {
+          that.setData({
+            authEntList: res.data.authEntList,
+            entno: res.data.authEntList[0].entNo
+          });
+        }
+      }
+    });
+  },
+
+  entNoSelect: function (e) {
+    this.setData({
+      entno: e.currentTarget.dataset.entno
+    });
+  },
+
+  dateSelect: function (e) {
+    this.setData({
+      dateType: e.currentTarget.dataset.type,
+      startDate: e.currentTarget.dataset.datev
+    });
+  },
+
+  transactionClick: function (e) {
     let id = e.currentTarget.dataset.id;
     this.setData({
       transactionId: id
     });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  confirm: function () {
+    let params = JSON.stringify({
+      entno: this.data.entno,
+      startDate: this.data.startDate,
+      endOpenDate: this.endOpenDate,
+    });
+
+    wx.setStorage({
+      key: 'advanceParams',
+      data: params,
+    })
+
+    wx.switchTab({
+      url: '/pages/runxin-manage/index'
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
+  reset: function () {
+    this.setData({
+      transactionId: '',
+      clientName: '',
+      dateType: '',
+      entno: '',
+      startDate: ''
+    });
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    wx.removeStorage({
+      key: 'advanceParams'
+    });
   }
-})
+});
