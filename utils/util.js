@@ -17,6 +17,7 @@ function formatNumber(n) {
 }
 
 function formatNumberRgx(num) {
+  num = Number(num).toFixed(2);
   var parts = num.toString().split(".");
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return parts.join(".");
