@@ -105,5 +105,5 @@ function convertCurrency(money) {
 module.exports = {
   formatTime: formatTime,
   convertCurrency: convertCurrency,
-  formatNumberRgx
+  formatNumberRgx: formatNumberRgx
 }
