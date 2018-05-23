@@ -1,19 +1,38 @@
-// components/master-mask/index.js
+var util = require('../../utils/util.js');
+
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
+
+    /* 状态 */
     status: {
       type: String,
       value: 'red'
     },
-    checked: {
+
+    /* 显示复选框 */
+    showCheckBox: {
       type: Boolean,
       value: false
     },
+
+    /* 链接 */
+    link: {
+      type: String,
+      value: null
+    },
+
+    /* 数据 */
     maskData: Object,
 
+  },
+
+  ready: function () {
+    this.data.maskData.uppercase = util.convertCurrency(this.data.maskData.xdAmount);
+    this.data.maskData.xdAmount = util.formatNumberRgx(this.data.maskData.xdAmount);
+    this.setData(this.data);
   },
 
   /**
@@ -27,6 +46,24 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
+    /* 打开链接 */
+    openLink: function (e) {
+      if (this.data.link) {
+        wx.navigateTo({
+          url: this.data.link,
+        });
+      }
+    },
+
+    /* 选择复选框 */
+    selectCheckBox: function (e) {
+      var details = {
+        id: this.data.maskData.xdNo,
+        checked: e.detail.checked
+      };
+      this.triggerEvent('select', details, {});
+    },
 
   }
 })

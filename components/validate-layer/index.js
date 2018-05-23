@@ -10,7 +10,10 @@ Component({
     isShow: {
       type: Boolean,
       value: false
-    }
+    },
+
+    /* 验证图片 */
+    picture: String,
 
   },
 
@@ -18,7 +21,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    picture: config.cdnPrefix + 'img/validate.jpg',
     code: '',
   },
 

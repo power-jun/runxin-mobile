@@ -1,31 +1,31 @@
 <view class='items'>
-  <view class='status {{status}}'></view>
+  <view class='status {{maskData.xdStatus}}'></view>
   <view class='header'>
-    <check-box class="checkbox" wx:if='{{checked}}' />
-    <view class='order'>润信编号：0000201805016</view>
-    <view class='date'>交易日期：2018-5-15</view>
+    <check-box class="checkbox" bindchange='selectCheckBox' wx:if='{{showCheckBox}}' />
+    <view class='order'>润信编号：{{maskData.xdNo}}</view>
+    <view class='date'>交易日期：{{maskData.openDate}}</view>
   </view>
-  <view class='content'>
+  <view class='content' bindtap='openLink'>
     <view class='price'>
       <text class='char'>￥</text>
-      <text class='number'>20,000.00</text>
-      <text class='day'>(10天)</text>
+      <text class='number'>{{maskData.xdAmount}}</text>
+      <text class='day'>({{maskData.xdDay}}天)</text>
     </view>
-    <view class='uppercase'>人民币贰仟元整</view>
-    <view class='time'>签发日：2018-5-25</view>
-    <view class='time'>到期日：2018-5-25</view>
+    <view class='uppercase'>人民币{{maskData.uppercase}}</view>
+    <view class='time'>签发日：{{maskData.openDate}}</view>
+    <view class='time'>到期日：{{maskData.expireDate}}</view>
     <view class='visa'>
       <text class='label'>签发</text>
-      <text class='text'>深圳地球的地球的地球有限公司</text>
+      <text class='text'>{{maskData.openEntName}}</text>
     </view>
     <view class='visa'>
       <text class='label'>签收</text>
-      <text class='text'>深圳地球表面有限公司</text>
+      <text class='text'>{{maskData.receEntName}}</text>
     </view>
   </view>
   <view class='footer'>
     <text class='label'>担保人</text>
-    <text class='text'>深圳市宇宙飞起科技有限公司</text>
+    <text class='text'>{{maskData.guaranteeEntName}}</text>
     <view class='circle left'></view>
     <view class='circle right'></view>
   </view>
