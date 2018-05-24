@@ -142,3 +142,13 @@
   height: auto;
   margin-top: 30rpx;
 }
+
+.distribute-line .val-input picker {
+  font-size: 14px;
+  color: #676767;
+  text-align: right;
+  width: 100%;
+  flex: 1;
+  padding: 15px 0;
+  line-height: 1.2;
+}

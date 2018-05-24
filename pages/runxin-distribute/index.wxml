@@ -10,7 +10,7 @@
       <view class='distribute-line' style='border: none;'>
         <text class='head'>可用额度</text>
         <view class='val-input'>
-          <input type="text" value="10000.00" class="available-amt" />
+          <input type="text" value="" placeholder='请输入额度' class="available-amt" />
           <text class='unit'>元</text>
         </view>
       </view>
@@ -18,37 +18,45 @@
       <view class='distribute-line'>
         <text class='head'>收信企业</text>
         <view class='val-input'>
-          <input type="text" disabled value="深圳市地球月球科技有限公司" />
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{receivingNameArry}}">
+            <view class="picker {{receivingName=='请选择'?'hui':''}}">
+              {{receivingName}}
+            </view>
+          </picker>
         </view>
       </view>
       <view class='distribute-line'>
         <text class='head'>账号</text>
         <view class='val-input'>
-          <input type="text" disabled class='gray' value="6200000000000000000" />
+          <input type="text" disabled class='gray' value="{{accNo}}" />
         </view>
       </view>
       <view class='distribute-line'>
         <text class='head'>开户行</text>
         <view class='val-input'>
-          <input type="text" disabled class='gray' value="深圳招商银行南山支行" />
+          <input type="text" disabled class='gray' value="{{bankName}}{{branchName}}" />
         </view>
       </view>
       <view class='distribute-line'>
         <text class='head'>开单日</text>
         <view class='val-input'>
-          <input type="text" disabled class='gray' value="2018-5-25（已复核日期为准）" />
+          <input type="text" disabled class='gray' value="{{openDate}}（已复核日期为准）" />
         </view>
       </view>
       <view class='distribute-line'>
         <text class='head'>润信期限</text>
         <view class='val-input'>
-          <input type="text" value="" placeholder="请输入期限" />
+          <input type="text" disabled value="" />
         </view>
       </view>
       <view class='distribute-line'>
         <text class='head'>到期日</text>
         <view class='val-input'>
-          <input type="text" value="" placeholder="请输入时间" />
+          <picker bindchange="bindDateChange"  mode="date" fields="day" start="{{openDate}}" value="{{index}}">
+            <view class="picker {{dateSelectV=='请选择'?'hui':''}}">
+              {{dateSelectV}}
+            </view>
+          </picker>
         </view>
       </view>
       <view class='distribute-line' style='border: none'>

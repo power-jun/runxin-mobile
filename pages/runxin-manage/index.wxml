@@ -28,7 +28,7 @@
           <view data-id='0' data-servicecode='BILL0001' class="type-item {{typeId == 0 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">签发</view>
           <view data-id='1' data-servicecode='BILL0008' class="type-item {{typeId == 1 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">转让</view>
           <view data-id='2' data-servicecode='BILL0012' class="type-item {{typeId == 2 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">融资</view>
-          <view data-id='3' data-servicecode='BILL0012' class="type-item no-margin {{typeId == 3 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">兑付</view>
+          <view data-id='3' data-servicecode='BILL0019' class="type-item no-margin {{typeId == 3 ? 'type-item-cur' : ''}}" bindtap="tabTypeClick">兑付</view>
         </view>
       </view>
       <navigator class='advanced-search' url="/pages/advanced-search/index">
@@ -68,10 +68,10 @@
       </view>
     </view>
 
-    <view wx:elif="{{activeCategoryId==2}}">
+    <!-- <view wx:elif="{{activeCategoryId==2}}">
       <navigator url="/pages/runxin-distribute-detials/index"><master-mask/></navigator>
       <navigator url="/pages/runxin-distribute-detials/index"><master-mask/></navigator>
-    </view>
+    </view> -->
   </view>
   <view class="no-more-goods" hidden='{{loadingMoreHidden}}'>更多记录,敬请期待</view>
   <view class="no-more-goods no-datas" hidden='{{noDataHidden}}'>暂无记录</view>
