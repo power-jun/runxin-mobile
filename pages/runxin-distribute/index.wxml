@@ -3,8 +3,12 @@
     <form bindsubmit="bindFormSubmit" class="distribute-form">
       <view class='distribute-line'>
         <text class='head'>授信机构</text>
-        <view class='val-input'>
-          <input type="text" value="" placeholder="请填写机构" />
+         <view class='val-input'>
+          <picker bindchange="bindCreditChange" value="{{index}}" range="{{creditagencyNameArry}}">
+            <view class="picker {{creditagencyName=='请选择'?'hui':''}}">
+              {{creditagencyName}}
+            </view>
+          </picker>
         </view>
       </view>
       <view class='distribute-line' style='border: none;'>
@@ -46,7 +50,7 @@
       <view class='distribute-line'>
         <text class='head'>润信期限</text>
         <view class='val-input'>
-          <input type="text" disabled value="" />
+          <input type="text" disabled value="{{deadlineDate}}天" />
         </view>
       </view>
       <view class='distribute-line'>
