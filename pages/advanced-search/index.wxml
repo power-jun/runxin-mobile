@@ -32,12 +32,12 @@
     <view class='article-item'>
       <view class='item-head'>交易状态</view>
       <view class='list'>
-        <view data-id='0' bindtap='transactionClick' class="list-item {{ transactionId == 0 ? 'list-item-on' : ''}}">正常持有</view>
-        <view data-id='1' bindtap='transactionClick' class="list-item {{ transactionId == 1 ? 'list-item-on' : ''}}">待复核</view>
-        <view data-id='2' bindtap='transactionClick' class="list-item {{ transactionId == 2 ? 'list-item-on' : ''}}">到期已付款</view>
-        <view data-id='2' bindtap='transactionClick' class="list-item {{ transactionId == 2 ? 'list-item-on' : ''}}">到期未付款</view>
-        <view data-id='2' bindtap='transactionClick' class="list-item {{ transactionId == 2 ? 'list-item-on' : ''}}">提前到期</view>
-        <view data-id='3' bindtap='transactionClick' class="list-item {{ transactionId == 3 ? 'list-item-on' : ''}}">全部</view>
+        <view data-id='1' bindtap='transactionClick' class="list-item {{ xdStatus == 1 ? 'list-item-on' : ''}}">正常持有</view>
+        <view data-id='2' bindtap='transactionClick' class="list-item {{ xdStatus == 2 ? 'list-item-on' : ''}}">待复核</view>
+        <view data-id='3' bindtap='transactionClick' class="list-item {{ xdStatus == 3 ? 'list-item-on' : ''}}">到期已付款</view>
+        <view data-id='4' bindtap='transactionClick' class="list-item {{ xdStatus == 4 ? 'list-item-on' : ''}}">到期未付款</view>
+        <view data-id='5' bindtap='transactionClick' class="list-item {{ xdStatus == 5 ? 'list-item-on' : ''}}">提前到期</view>
+        <view data-id='0' bindtap='transactionClick' class="list-item {{ xdStatus === 0 ? 'list-item-on' : ''}}">全部</view>
       </view>
     </view>
     <view class='article-item'>

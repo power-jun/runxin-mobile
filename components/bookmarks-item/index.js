@@ -26,11 +26,6 @@ Component({
   },
 
   ready: function() {
-    let itemData = this.data.itemData;
-    itemData.xdAmount = util.formatNumberRgx(itemData.xdAmount);
-    itemData.caseAmount = util.convertCurrency(itemData.xdAmount);
-    this.setData({
-      itemData: itemData
-    });
+    
   }
 })

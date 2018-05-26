@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    transactionId: 0,
+    xdStatus: 1,
     clientName: '',
     dateType: 'date',
     dateV: '',
@@ -95,7 +95,7 @@ Page({
   transactionClick: function (e) {
     let id = e.currentTarget.dataset.id;
     this.setData({
-      transactionId: id
+      xdStatus: id
     });
   },
 
@@ -122,7 +122,8 @@ Page({
       clientName: '',
       dateType: '',
       entno: '',
-      startDate: ''
+      startDate: '',
+      xdStatus:''
     });
 
     wx.removeStorage({

@@ -72,13 +72,13 @@ Page({
 
           if (serviceCode == 'BILL0017') {
             dataType = 'holdingList';
-          } else if (serviceCode == 'BILL0001' || serviceCode == 'BILL0008' || serviceCode == 'BILL0012') {
+          } else if (serviceCode == 'BILL0001' || serviceCode == 'BILL0008' || serviceCode == 'BILL0012' || serviceCode == 'BILL0019') {
             dataType = 'transactionData';
-            for (var i = 0, len = billList.length; i < billList.length;i++) {
-              billList[i].xdAmount = util.formatNumberRgx(billList[i].xdAmount);
-            }
-          } else if (serviceCode) {
-            dataType = 'distributeData';
+          }
+
+          for (var i = 0, len = billList.length; i < billList.length; i++) {
+            billList[i].xdAmount = util.formatNumberRgx(billList[i].xdAmount);
+            billList[i].caseAmount = util.convertCurrency(billList[i].xdAmount);
           }
 
           that.totalPage = res.data.totalPage;
