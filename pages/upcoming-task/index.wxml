@@ -3,7 +3,7 @@
     <navigator class='items' wx:for='{{navigatorArray}}' wx:key='item' url='{{item.url}}'>
       <view class='icon-box'>
         <image class='icon' src='{{item.icon}}' mode='aspectFit' />
-        <view class='tip' wx:if='{{item.tip}}'>{{item.tip}}</view>
+        <view class='tip' wx:if='{{item.tip!=0}}'>{{item.tip}}</view>
       </view>
       <view class='text'>{{item.text}}</view>
     </navigator>

@@ -39,6 +39,7 @@
   width: 120rpx;
   height: 120rpx;
   margin: 5px;
+  overflow: hidden;
 }
 
 .picture-box .tip {

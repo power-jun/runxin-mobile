@@ -1,17 +1,17 @@
 <scroll-view class='body' scroll-y='true'>
   <view class='article'>
     <view class='header'>
-      <view class='title'>授信机构：深圳市地球最好有限公司</view>
-      <view class='items'>本笔使用额度：200,000.00元</view>
+      <view class='title'>授信机构：{{pageData.credEntName}}</view>
+      <view class='items'>本笔使用额度：{{pageData.xdAmount}}元</view>
       <view class='items'>成功后可用额度：15,000.00元</view>
     </view>
-    <master-mask />
+    <master-mask maskData='{{pageData.maskData}}' />
     <view class='picture-box'>
       <view class='picture-list'>
-        <image class='pic' src='http://img.runxinpingtai.com/img/sass.png' mode='aspectFit' />
-        <image class='pic' src='http://img.runxinpingtai.com/img/sass.png' mode='aspectFit' />
-        <image class='pic' src='http://img.runxinpingtai.com/img/sass.png' mode='aspectFit' />
-        <image class='pic' src='http://img.runxinpingtai.com/img/sass.png' mode='aspectFit' />
+        <block wx:for='{{pageData.contractFsskey}}' wx:key='item'>
+          <!-- <image class='pic' src='{{item.img}}' mode='aspectFit' /> -->
+          <image class='pic' src='http://img.runxinpingtai.com/img/sass.png' mode='aspectFit' />
+        </block>
       </view>
       <view class='tip'>（点击放大查看资料详情）</view>
     </view>
@@ -21,14 +21,16 @@
       <text class='text'>手机端</text>
     </view>
     <view class='protocol-box'>
-      <check-box label='请您仔细阅读' color='#23303a' />
+      <check-box label='请您仔细阅读' color='#23303a' checked='{{protocolChecked}}' bindchange='agreeProtocol' />
       <text class='protocol'>《润信签发协议》</text>
     </view>
     <view class='footer'>
-      <view class='ok'>复核</view>
-      <view class='cancel'>驳回</view>
+      <view class='ok' bindtap='submitOk'>复核</view>
+      <view class='cancel' bindtap='submitCancel'>驳回</view>
     </view>
   </view>
 </scroll-view>
 
-<confirm icon='success' title="复核成功" message='将复核成功的消息转发给收信人，让他快点签收润信！' showConfirm='{{true}}' />
+<confirm icon='info' title='{{confirmTitle}}' showCancel='{{false}}' showConfirm='{{showConfirm}}' bindsubmit='gotoLoginPage' />
+
+<confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />

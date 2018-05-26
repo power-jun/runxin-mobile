@@ -1,7 +1,7 @@
 <view class='items'>
-  <view class='status {{maskData.xdStatus}}'></view>
+  <view class='status green {{maskData.xdStatus}}'></view>
   <view class='header'>
-    <check-box class="checkbox" bindchange='selectCheckBox' wx:if='{{showCheckBox}}' />
+    <check-box class="checkbox" checked='{{maskData.checked}}' bindchange='selectCheckBox' wx:if='{{showCheckBox}}' />
     <view class='order'>润信编号：{{maskData.xdNo}}</view>
     <view class='date'>交易日期：{{maskData.openDate}}</view>
   </view>

@@ -1,5 +1,3 @@
-var util = require('../../utils/util.js');
-
 Component({
   /**
    * 组件的属性列表
@@ -27,12 +25,6 @@ Component({
     /* 数据 */
     maskData: Object,
 
-  },
-
-  ready: function () {
-    this.data.maskData.uppercase = util.convertCurrency(this.data.maskData.xdAmount);
-    this.data.maskData.xdAmount = util.formatNumberRgx(this.data.maskData.xdAmount);
-    this.setData(this.data);
   },
 
   /**

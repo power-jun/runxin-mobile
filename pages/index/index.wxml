@@ -4,9 +4,9 @@
       <image class='icon' src='{{item.icon}}' mode='aspectFit' />
       <view class='text'>{{item.name}}</view>
     </view>
-    <view class='more'>
+    <!-- <view class='more'>
       <view class='text'>更多</view>
-    </view>
+    </view> -->
   </view>
 </scroll-view>
 

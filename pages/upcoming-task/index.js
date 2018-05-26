@@ -42,7 +42,7 @@ Page({
         icon: config.cdnPrefix + 'img/icon-menu6.png',
         url: '../visa-harvest/index',
         text: '润信签收',
-        tip: 99
+        tip: 0
       },
       {
         icon: config.cdnPrefix + 'img/icon-menu7.png',
@@ -172,8 +172,14 @@ Page({
       },
       success: function (res) {
         if (res.statusCode === 200 && res.data.respCode === '0000') {
-          console.log(res.data)
-          // navigatorArray[0].tip = res.data.signReviewCount
+          _this.data.navigatorArray[0].tip = res.data.signReviewCount;
+          _this.data.navigatorArray[1].tip = res.data.financeReviewCount;
+          _this.data.navigatorArray[2].tip = res.data.transferReviewCount;
+          _this.data.navigatorArray[3].tip = res.data.rateReviewCount;
+          _this.data.navigatorArray[4].tip = res.data.discountReviewCount;
+          _this.data.navigatorArray[5].tip = res.data.signConfirmCount;
+          _this.data.navigatorArray[6].tip = res.data.limitReviewCount;
+          _this.setData(_this.data);
         }
       },
       fail: function () {

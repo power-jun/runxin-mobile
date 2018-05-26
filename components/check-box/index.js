@@ -33,6 +33,14 @@ Component({
         checked: this.data.checked
       };
       this.triggerEvent('change', details, {});
-    }
+    },
+
+    /* 选中（外部调用） */
+    select: function (status) {
+      this.setData({
+        checked: status
+      });
+    },
+
   }
 })
