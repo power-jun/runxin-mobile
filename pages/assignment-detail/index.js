@@ -160,14 +160,17 @@ Page({
 
   /* 处理列表数据 */
   dealPageData: function (data) {
-    var uppercase = util.convertCurrency(data.xdAmount);
-    var xdAmount = util.formatNumberRgx(data.xdAmount);
+    var uppercase1 = util.convertCurrency(data.xdAmount);
+    var uppercase2 = util.convertCurrency(data.xdAmount - data.transAmount);
+    var xdAmount1 = util.formatNumberRgx(data.xdAmount);
+    var xdAmount2 = util.formatNumberRgx(data.xdAmount - data.transAmount);
     return {
-      credEntNo: data.credEntNo,
-      credEntName: data.credEntName,
-      contractFsskey: data.contractFsskey,
-      xdAmount: xdAmount,
-      maskData: {
+      status1: 'green',
+      status2: 'red',
+      xdDesc: data.xdDesc,
+      auditName: data.auditName,
+      openDate: data.openDate,
+      maskData1: {
         receEntNo: data.receEntNo,
         receEntName: data.receEntName,
         credEntNo: data.credEntNo,
@@ -182,8 +185,28 @@ Page({
         expireDate: data.expireDate,
         guaranteeEntNo: data.guaranteeEntNo,
         openDate: data.openDate,
-        uppercase: uppercase,
-        xdAmount: xdAmount,
+        uppercase: uppercase1,
+        xdAmount: xdAmount1,
+        transDate: data.transDate,
+      },
+      maskData2: {
+        receEntNo: data.receEntNo,
+        receEntName: data.receEntName,
+        credEntNo: data.credEntNo,
+        tradeDate: data.tradeDate,
+        credEntName: data.credEntName,
+        xdStatus: data.xdStatus,
+        xdNo: data.xdNo,
+        openEntNo: data.openEntNo,
+        guaranteeEntName: data.guaranteeEntName,
+        xdDay: data.xdDay,
+        openEntName: data.openEntName,
+        expireDate: data.expireDate,
+        guaranteeEntNo: data.guaranteeEntNo,
+        openDate: data.openDate,
+        uppercase: uppercase2,
+        xdAmount: xdAmount2,
+        transDate: data.transDate,
       }
     };
   },

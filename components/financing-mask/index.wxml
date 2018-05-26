@@ -1,31 +1,31 @@
 <view class='financing-mask'>
   <view class='title'>
-    <check-box class="checkbox" />
-    <navigator class='link'>
+    <check-box class="checkbox" checked='{{maskData.checked}}' bindchange='selectCheckBox' />
+    <view class='link' bindtap='openLink' wx:if='{{showLink}}'>
       <text class='text'>查看复核</text>
       <view class='icon'></view>
-    </navigator>
+    </view>
     <view class='circle left'></view>
     <view class='circle right'></view>
   </view>
   <view class='items'>
     <view class='label'>金额</view>
-    <view class='text'>20,000.00元</view>
+    <view class='text'>{{maskData.xdAmount}}元</view>
   </view>
   <view class='items'>
     <view class='label'>签发人</view>
-    <view class='text'>陈某某</view>
+    <view class='text'>{{maskData.openEntName}}</view>
   </view>
   <view class='items'>
     <view class='label'>提前兑付人</view>
-    <view class='text'>什么都好有限公司</view>
+    <view class='text'>{{maskData.receEntName}}</view>
   </view>
   <view class='items'>
     <view class='label'>提前天数</view>
-    <view class='text'>180天</view>
+    <view class='text'>{{maskData.xdDay}}天</view>
   </view>
   <view class='items'>
     <view class='label'>利率</view>
-    <view class='text'>6%</view>
+    <view class='text'>{{maskData.financeRate}}%</view>
   </view>
 </view>

@@ -4,7 +4,7 @@
     <view class='article'>
       <view class='tip'>转让交易日期以复核日期为准</view>
       <block wx:for='{{listData}}' wx:key='item'>
-        <master-mask showCheckBox='{{true}}' maskData='{{item}}' bindselect='selectListItem' link='../assignment-detail/index?id={{item.xdNo}}' />
+        <master-mask status='{{item.status}}' showCheckBox='{{true}}' maskData='{{item}}' bindselect='selectListItem' link='../assignment-detail/index?id={{item.xdNo}}' />
       </block>
       <view class='loading-list' wx:if='{{showPagesLoading}}'>{{pagesLoadingText}}</view>
     </view>

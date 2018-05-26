@@ -190,6 +190,7 @@ Page({
   dealListData: function (data) {
     data && data.map(function (v, i) {
       var xdAmount = v.xdAmount;
+      v.status = (i % 2) ? 'red' : 'green';
       v.uppercase = util.convertCurrency(xdAmount);
       v.xdAmount = util.formatNumberRgx(xdAmount);
     });

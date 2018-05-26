@@ -1,5 +1,5 @@
 <view class='items'>
-  <view class='status green {{maskData.xdStatus}}'></view>
+  <view class='status {{status}}'></view>
   <view class='header'>
     <check-box class="checkbox" checked='{{maskData.checked}}' bindchange='selectCheckBox' wx:if='{{showCheckBox}}' />
     <view class='order'>润信编号：{{maskData.xdNo}}</view>

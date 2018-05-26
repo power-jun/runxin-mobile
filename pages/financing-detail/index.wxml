@@ -5,43 +5,46 @@
       <text class='name'>融资前</text>
     </view>
     <view class='master-box'>
-      <master-mask />
+      <master-mask status='{{pageData.status1}}' maskData='{{pageData.maskData1}}' />
     </view>
     <view class='financing-status'>
       <view class='icon red'></view>
       <text class='name'>融资后</text>
-      <text class='tip'>(黄颖于2018-5-15  22:00手机经办)</text>
+      <text class='tip'>(经办人：{{pageData.auditName}} {{pageData.openDate}} {{pageData.xdDesc}})</text>
     </view>
     <view class='master-box'>
-      <master-mask />
+      <master-mask status='{{pageData.status2}}' maskData='{{pageData.maskData2}}' />
     </view>
     <view class='play-container'>
       <view class='items'>
         <text class='label'>该笔融资利率</text>
-        <text class='text'>6%</text>
+        <text class='text'>{{pageData.financeRate}}%</text>
       </view>
       <view class='items'>
         <text class='label'>申请融资金额</text>
-        <text class='text'>10,000元</text>
+        <text class='text'>{{pageData.financeAmount}}元</text>
       </view>
       <view class='items'>
         <text class='label'>支付利息</text>
-        <text class='text'>100元</text>
+        <text class='text'>{{pageData.financeProfit}}元</text>
       </view>
       <view class='items'>
         <text class='label'>实际到账金额</text>
-        <text class='text'>8,000元</text>
+        <text class='text'>{{pageData.actualAmount}}元</text>
       </view>
     </view>
     <view class='protocol-box'>
-      <check-box label='请您仔细阅读' color='#23303a' />
-      <text class='protocol'>《润信转让协议》</text>
+      <check-box label='请您仔细阅读' color='#23303a' checked='{{protocolChecked}}' bindchange='agreeProtocol' />
+      <text class='protocol'>《润信签发协议》</text>
     </view>
     <view class='warn-tip'>保理商承诺在当天将资金打入账户</view>
     <view class='footer'>
-      <view class='ok'>确认融资</view>
-      <view class='cancel'>驳回</view>
+      <view class='ok' bindtap='submitOk'>复核</view>
+      <view class='cancel' bindtap='submitCancel'>驳回</view>
     </view>
   </view>
 </scroll-view>
-<confirm icon='success' title="复核成功" message='请静等资金到账，如有问题请咨询0755-23232323' showCancel='{{false}}' okText='我知道了' showConfirm='{{true}}' />
+
+<confirm icon='info' title='{{confirmTitle}}' showCancel='{{false}}' showConfirm='{{showConfirm}}' bindsubmit='gotoLoginPage' />
+
+<confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />

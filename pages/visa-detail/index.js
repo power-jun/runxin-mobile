@@ -163,10 +163,14 @@ Page({
     var uppercase = util.convertCurrency(data.xdAmount);
     var xdAmount = util.formatNumberRgx(data.xdAmount);
     return {
+      status: 'green',
       credEntNo: data.credEntNo,
       credEntName: data.credEntName,
       contractFsskey: data.contractFsskey,
       xdAmount: xdAmount,
+      xdDesc: data.xdDesc,
+      auditName: data.auditName,
+      openDate: data.openDate,
       maskData: {
         receEntNo: data.receEntNo,
         receEntName: data.receEntName,
