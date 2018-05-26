@@ -10,7 +10,7 @@
       <view class='picture-list'>
         <block wx:for='{{pageData.contractFsskey}}' wx:key='item'>
           <!-- <image class='pic' src='{{item.img}}' mode='aspectFit' /> -->
-          <image class='pic' src='http://img.runxinpingtai.com/img/sass.png' mode='aspectFit' />
+          <image class='pic' src='http://img.runxinpingtai.com/img/sass.png' mode='aspectFit' data-index='{{index}}' />
         </block>
       </view>
       <view class='tip'>（点击放大查看资料详情）</view>

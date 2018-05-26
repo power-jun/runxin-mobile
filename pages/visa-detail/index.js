@@ -129,14 +129,6 @@ Page({
     });
   },
 
-  /* 参数 */
-  params: {
-    serviceCode: 'BILL0002',
-    sessionToken: '',
-    xdNo: 1,
-    row: 10,
-  },
-
   /* 获取页面数据 */
   requestPageData: function () {
     var _this = this;
