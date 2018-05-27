@@ -165,48 +165,38 @@ Page({
     var xdAmount1 = util.formatNumberRgx(data.xdAmount);
     var xdAmount2 = util.formatNumberRgx(data.xdAmount - data.transAmount);
     return {
-      status1: 'green',
-      status2: 'red',
-      xdDesc: data.xdDesc,
-      auditName: data.auditName,
-      openDate: data.openDate,
+      auditName: data.auditName, // 经办人
+      openDate: data.openDate, // 办理时间
+      xdDesc: data.xdDesc, // 描述
       maskData1: {
-        receEntNo: data.receEntNo,
-        receEntName: data.receEntName,
-        credEntNo: data.credEntNo,
-        tradeDate: data.tradeDate,
-        credEntName: data.credEntName,
-        xdStatus: data.xdStatus,
-        xdNo: data.xdNo,
-        openEntNo: data.openEntNo,
-        guaranteeEntName: data.guaranteeEntName,
-        xdDay: data.xdDay,
-        openEntName: data.openEntName,
-        expireDate: data.expireDate,
-        guaranteeEntNo: data.guaranteeEntNo,
-        openDate: data.openDate,
-        uppercase: uppercase1,
-        xdAmount: xdAmount1,
-        transDate: data.transDate,
+        status: 'green', // 状态
+        xdNo: data.xdNo,  // 单号
+        xdAmount: xdAmount1, // 金额
+        uppercase: uppercase1, // 大写金额
+        xdDay: data.xdDay,  // 天数
+        openDate: data.openDate, // 开始时时
+        expireDate: data.expireDate, // 结束时间
+        openEntNo: data.openEntNo, // 签发人id
+        openEntName: data.openEntName, // 签发人
+        receEntNo: data.receEntNo, // 签收人id
+        receEntName: data.receEntName, // 签收人
+        guaranteeEntNo: data.guaranteeEntNo, // 担保人id
+        guaranteeEntName: data.guaranteeEntName, // 担保人
       },
       maskData2: {
-        receEntNo: data.receEntNo,
-        receEntName: data.receEntName,
-        credEntNo: data.credEntNo,
-        tradeDate: data.tradeDate,
-        credEntName: data.credEntName,
-        xdStatus: data.xdStatus,
-        xdNo: data.xdNo,
-        openEntNo: data.openEntNo,
-        guaranteeEntName: data.guaranteeEntName,
-        xdDay: data.xdDay,
-        openEntName: data.openEntName,
-        expireDate: data.expireDate,
-        guaranteeEntNo: data.guaranteeEntNo,
-        openDate: data.openDate,
-        uppercase: uppercase2,
-        xdAmount: xdAmount2,
-        transDate: data.transDate,
+        status: 'red', // 状态
+        xdNo: data.xdNo,  // 单号
+        xdAmount: xdAmount2, // 金额
+        uppercase: uppercase2, // 大写金额
+        xdDay: data.xdDay,  // 天数
+        openDate: data.openDate, // 开始时时
+        expireDate: data.expireDate, // 结束时间
+        openEntNo: data.openEntNo, // 签发人id
+        openEntName: data.openEntName, // 签发人
+        receEntNo: data.receEntNo, // 签收人id
+        receEntName: data.receEntName, // 签收人
+        guaranteeEntNo: data.guaranteeEntNo, // 担保人id
+        guaranteeEntName: data.guaranteeEntName, // 担保人
       }
     };
   },

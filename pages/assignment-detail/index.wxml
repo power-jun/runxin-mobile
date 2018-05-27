@@ -5,7 +5,7 @@
       <text class='name'>转让前</text>
     </view>
     <view class='master-box'>
-      <master-mask status='{{pageData.status1}}' maskData='{{pageData.maskData1}}' />
+      <master-mask maskData='{{pageData.maskData1}}' />
     </view>
     <view class='financing-status'>
       <view class='icon red'></view>
@@ -13,7 +13,7 @@
       <text class='tip'>(经办人：{{pageData.auditName}} {{pageData.openDate}} {{pageData.xdDesc}})</text>
     </view>
     <view class='master-box'>
-      <master-mask status='{{pageData.status2}}' maskData='{{pageData.maskData2}}' />
+      <master-mask maskData='{{pageData.maskData2}}' />
     </view>
     <!-- <view class='play-container'>
       <view class='items'>

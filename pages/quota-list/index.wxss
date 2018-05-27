@@ -72,3 +72,23 @@
   border-radius: 3px;
   background-color: #a1a1a1;
 }
+
+.no-data-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-bottom: 20%;
+  font-size: 20px;
+  color: #333;
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+.loading-list {
+  padding: 15px;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.2;
+  text-align: center;
+}

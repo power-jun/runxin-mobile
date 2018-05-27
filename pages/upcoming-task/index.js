@@ -40,7 +40,7 @@ Page({
       },
       {
         icon: config.cdnPrefix + 'img/icon-menu6.png',
-        url: '../visa-harvest/index',
+        url: '../sign-list/index',
         text: '润信签收',
         tip: 0
       },

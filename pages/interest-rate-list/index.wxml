@@ -1,14 +1,22 @@
-<scroll-view class='body' scroll-y='true'>
-  <view class='article'>
-    <rate-mask />
-    <rate-mask />
-    <rate-mask />
+<view class='no-data-list' wx:if='{{showNoData}}'>暂无数据</view>
+<block wx:else>
+  <scroll-view class='body' scroll-y='true'>
+    <view class='article'>
+      <block wx:for='{{listData}}' wx:key='item'>
+        <rate-mask maskData='{{item}}' bindselect='selectListItem' />
+      </block>
+      <view class='loading-list' wx:if='{{showPagesLoading}}'>{{pagesLoadingText}}</view>
+    </view>
+  </scroll-view>
+  <view class='footer-fixed'>
+    <view class='check-box'>
+      <check-box id='allCheckBox' label='全选' color='#fff' checked='{{false}}' bindchange='checkAll' />
+    </view>
+    <view class='ok' bindtap='submitOk'>复核</view>
+    <view class='cancel' bindtap='submitCancel'>驳回</view>
   </view>
-</scroll-view>
-<view class='footer-fixed'>
-  <view class='check-box'>
-    <check-box label='全选' color='#fff' checked='true' />
-  </view>
-  <view class='ok'>复核</view>
-  <view class='cancel'>驳回</view>
-</view>
+</block>
+
+<confirm icon='info' title='{{confirmTitle}}' showCancel='{{false}}' showConfirm='{{showConfirm}}' bindsubmit='gotoLoginPage' />
+
+<confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />

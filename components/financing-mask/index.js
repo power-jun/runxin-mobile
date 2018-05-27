@@ -32,12 +32,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    
+
     /* 打开链接 */
     openLink: function (e) {
       if (this.data.link) {
         wx.navigateTo({
-          url: this.data.link,
+          url: this.data.link + '?id=' + this.data.maskData.xdNo,
         });
       }
     },

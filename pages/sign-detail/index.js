@@ -8,24 +8,27 @@ Page({
    * 页面的初始数据
    */
   data: {
+    options: null, // 页面参数
     showConfirm: false, // 显示提示层
     confirmTitle: '登录超时，请重新登录！', // 提示文本
     showPrompt: false, // 显示成功提示
     promptTitle: '复核成功',
     promptMessage: '将复核成功的消息转发给收信人，让他快点签收润信！',
-    listData: null, // 列表数据
-    showNoData: false, // 显示没有数据
-    showPagesLoading: false, // 显示分页加载
-    pagesLoadingText: '数据加载中...', // 分页加载文本
+    pageData: null, // 页面数据
+    protocolChecked: false, // 是否同意协议
   },
-
-  /* 全选组件 */
-  allCheckBox: null,
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options && options.id) {
+      this.data.options = options;
+    } else {
+      wx.redirectTo({
+        url: '../visa-list/index',
+      });
+    }
     this.init();
   },
 
@@ -33,7 +36,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.allCheckBox = this.selectComponent('#allCheckBox');
+
   },
 
   /**
@@ -91,7 +94,7 @@ Page({
     var loginStatus = this.isLogin();
     var companyStatus = this.isCompany();
     if (loginStatus && companyStatus) {
-      this.requestListData(false);
+      this.requestPageData();
     }
   },
 
@@ -126,51 +129,20 @@ Page({
     });
   },
 
-  /* 参数 */
-  params: {
-    serviceCode: 'BASE0009',
-    sessionToken: '',
-    page: 1,
-    row: 10,
-  },
-
-  /* 获取列表数据 */
-  requestListData: function (flag) {
+  /* 获取页面数据 */
+  requestPageData: function () {
     var _this = this;
-    if (flag) {
-      _this.params.page++;
-    } else {
-      _this.params.page = 1;
-      _this.params.sessionToken = _this.userInfo.sessionToken;
-    }
     wx.request({
       url: config.prefix,
       method: 'POST',
-      data: _this.params,
+      data: {
+        serviceCode: 'BILL0006',
+        sessionToken: _this.userInfo.sessionToken,
+        xdNo: _this.options.id,
+      },
       success: function (res) {
         if (res.statusCode === 200 && res.data.respCode === '0000') {
-          if (flag) {
-            if (res.data.billList && res.data.billList.length) {
-              _this.data.listData = _this.data.listData.concat(_this.dealListData(res.data.billList));
-              _this.data.showPagesLoading = false;
-            } else {
-              _this.data.showPagesLoading = true;
-              _this.data.pagesLoadingText = '没有更多数据了';
-            }
-          } else {
-            if (res.data.billList && res.data.billList.length) {
-              _this.data.listData = _this.dealListData(res.data.billList);
-              _this.data.showNoData = false;
-            } else {
-              _this.data.showNoData = true;
-            }
-            if (_this.params.page < res.data.totalPage) {
-              _this.data.showPagesLoading = false;
-            } else {
-              _this.data.showPagesLoading = true;
-              _this.data.pagesLoadingText = '没有更多数据了';
-            }
-          }
+          _this.data.pageData = _this.dealPageData(res.data);
         }
       },
       fail: function () {
@@ -187,58 +159,40 @@ Page({
   },
 
   /* 处理列表数据 */
-  dealListData: function (data) {
-    var listData = [];
-    data && data.map(function (v, i) {
-      var status = (i % 2) ? 'red' : 'green';
-      var maskData = {
-        status: status, // 状态
-        seqNo: v.seqNo,  // 流水号
-        operTime: v.operTime, // 经办时间
-        rateType: v.rateType, // 类型
-        drawEntNo: v.drawEntNo, // 企业id
-        drawEntName: v.drawEntName,  // 企业名称
-        rateOld: v.rateOld, // 旧利率
-        rateNew: v.rateNew, // 新利率
-        checked: false, // 是否选中
+  dealPageData: function (data) {
+    var uppercase = util.convertCurrency(data.xdAmount);
+    var xdAmount = util.formatNumberRgx(data.xdAmount);
+    return {
+      credEntNo: data.credEntNo, // 授信机构id
+      credEntName: data.credEntName, // 授信机构
+      contractFsskey: data.contractFsskey, // 图片
+      xdAmount: xdAmount, // 使用额度
+      auditName: data.auditName, // 经办人
+      openDate: data.openDate, // 办理时间
+      xdDesc: data.xdDesc, // 描述
+      maskData: {
+        status: 'green', // 状态
+        xdNo: data.xdNo,  // 单号
+        xdAmount: xdAmount, // 金额
+        uppercase: uppercase, // 大写金额
+        xdDay: data.xdDay,  // 天数
+        openDate: data.openDate, // 开始时时
+        expireDate: data.expireDate, // 结束时间
+        openEntNo: data.openEntNo, // 签发人id
+        openEntName: data.openEntName, // 签发人
+        receEntNo: data.receEntNo, // 签收人id
+        receEntName: data.receEntName, // 签收人
+        guaranteeEntNo: data.guaranteeEntNo, // 担保人id
+        guaranteeEntName: data.guaranteeEntName, // 担保人
       }
-      listData.push(maskData);
-    });
-    return listData;
+    };
   },
 
-  /* 下拉加载更新数据 */
-  scrollToLower: function (e) {
-    if (!this.data.showPagesLoading) {
-      this.setData({
-        showPagesLoading: true,
-        pagesLoadingText: '数据加载中...'
-      });
-      this.requestListData(true);
-    }
-  },
-
-  /* 选择列表项 */
-  selectListItem: function (e) {
-    var status = true;
-    this.data.listData && this.data.listData.map(function (v, i) {
-      if (e.detail.id === v.seqNo) {
-        v.checked = e.detail.checked;
-      }
-      if (!v.checked) {
-        status = false;
-      }
+  /* 同意\取消（协议） */
+  agreeProtocol: function (e) {
+    this.setData({
+      protocolChecked: e.detail.checked
     });
-    this.allCheckBox.select(status);
-    this.setData(this.data);
-  },
-
-  /* 全选 */
-  checkAll: function (e) {
-    this.data.listData && this.data.listData.map(function (v, i) {
-      v.checked = e.detail.checked;
-    });
-    this.setData(this.data);
   },
 
   /* 复核 */
@@ -254,16 +208,9 @@ Page({
   /* 复核数据 */
   submitData: function (status) {
     var _this = this;
-    var seqNo = '';
-    _this.data.listData && _this.data.listData.map(function (v, i) {
-      if (v.checked) {
-        seqNo += v.seqNo + ',';
-      }
-    });
-    seqNo = seqNo.substr(0, seqNo.length - 1);
-    if (seqNo === '') {
+    if (!_this.data.protocolChecked) {
       wx.showToast({
-        title: '请先选择要处理的数据',
+        title: '未同意润信协议',
         icon: 'none',
         mask: true
       });
@@ -273,9 +220,9 @@ Page({
       url: config.prefix,
       method: 'POST',
       data: {
-        serviceCode: 'BASE0011',
+        serviceCode: 'BILL0007',
         sessionToken: _this.userInfo.sessionToken,
-        seqNo: seqNo,
+        xdNo: _this.data.options.id,
         checkStatus: status,
       },
       success: function (res) {
@@ -314,8 +261,7 @@ Page({
 
   /* 刷新页面 */
   reloadPage() {
-    this.requestListData(false);
-    this.allCheckBox.select(false);
+    this.requestPageData();
   },
 
 })

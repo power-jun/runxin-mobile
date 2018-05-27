@@ -1,14 +1,9 @@
 <view class='no-data-list' wx:if='{{showNoData}}'>暂无数据</view>
 <block wx:else>
-  <view class='tabs-box'>
-    <view class='items current'>分配</view>
-    <view class='items'>调整</view>
-    <view class='items'>新增</view>
-  </view>
-  <scroll-view class='body' scroll-y='true'>
+  <scroll-view class='body' scroll-y='true' bindscrolltolower="scrollToLower">
     <view class='article'>
       <block wx:for='{{listData}}' wx:key='item'>
-        <quota-mask maskData='{{item}}' bindselect='selectListItem' />
+        <master-mask showCheckBox='{{true}}' maskData='{{item}}' bindselect='selectListItem' link='../sign-detail/index' />
       </block>
       <view class='loading-list' wx:if='{{showPagesLoading}}'>{{pagesLoadingText}}</view>
     </view>
@@ -17,7 +12,7 @@
     <view class='check-box'>
       <check-box id='allCheckBox' label='全选' color='#fff' checked='{{false}}' bindchange='checkAll' />
     </view>
-    <view class='ok' bindtap='submitOk'>复核</view>
+    <view class='ok' bindtap='submitOk'>签收</view>
     <view class='cancel' bindtap='submitCancel'>驳回</view>
   </view>
 </block>

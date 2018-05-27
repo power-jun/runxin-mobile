@@ -128,7 +128,7 @@ Page({
 
   /* 参数 */
   params: {
-    serviceCode: 'BASE0009',
+    serviceCode: 'BILL0005',
     sessionToken: '',
     page: 1,
     row: 10,
@@ -191,15 +191,22 @@ Page({
     var listData = [];
     data && data.map(function (v, i) {
       var status = (i % 2) ? 'red' : 'green';
+      var uppercase = util.convertCurrency(v.xdAmount);
+      var xdAmount = util.formatNumberRgx(v.xdAmount);
       var maskData = {
         status: status, // 状态
-        seqNo: v.seqNo,  // 流水号
-        operTime: v.operTime, // 经办时间
-        rateType: v.rateType, // 类型
-        drawEntNo: v.drawEntNo, // 企业id
-        drawEntName: v.drawEntName,  // 企业名称
-        rateOld: v.rateOld, // 旧利率
-        rateNew: v.rateNew, // 新利率
+        xdNo: v.xdNo,  // 单号
+        xdAmount: xdAmount, // 金额
+        uppercase: uppercase, // 大写金额
+        xdDay: v.xdDay,  // 天数
+        openDate: v.openDate, // 开始时时
+        expireDate: v.expireDate, // 结束时间
+        openEntNo: v.openEntNo, // 签发人id
+        openEntName: v.openEntName, // 签发人
+        receEntNo: v.receEntNo, // 签收人id
+        receEntName: v.receEntName, // 签收人
+        guaranteeEntNo: v.guaranteeEntNo, // 担保人id
+        guaranteeEntName: v.guaranteeEntName, // 担保人
         checked: false, // 是否选中
       }
       listData.push(maskData);
@@ -222,7 +229,7 @@ Page({
   selectListItem: function (e) {
     var status = true;
     this.data.listData && this.data.listData.map(function (v, i) {
-      if (e.detail.id === v.seqNo) {
+      if (e.detail.id === v.xdNo) {
         v.checked = e.detail.checked;
       }
       if (!v.checked) {
@@ -254,14 +261,14 @@ Page({
   /* 复核数据 */
   submitData: function (status) {
     var _this = this;
-    var seqNo = '';
+    var xdNo = '';
     _this.data.listData && _this.data.listData.map(function (v, i) {
       if (v.checked) {
-        seqNo += v.seqNo + ',';
+        xdNo += v.xdNo + ',';
       }
     });
-    seqNo = seqNo.substr(0, seqNo.length - 1);
-    if (seqNo === '') {
+    xdNo = xdNo.substr(0, xdNo.length - 1);
+    if (xdNo === '') {
       wx.showToast({
         title: '请先选择要处理的数据',
         icon: 'none',
@@ -273,9 +280,9 @@ Page({
       url: config.prefix,
       method: 'POST',
       data: {
-        serviceCode: 'BASE0011',
+        serviceCode: 'BILL0007',
         sessionToken: _this.userInfo.sessionToken,
-        seqNo: seqNo,
+        xdNo: xdNo,
         checkStatus: status,
       },
       success: function (res) {

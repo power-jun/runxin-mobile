@@ -1,0 +1,20 @@
+<scroll-view class='body' scroll-y='true'>
+  <view class='article'>
+    <view class='header'>
+      <view class='text'>哈哈哈哈公司 于 2018年5月5日 10点 签发一笔润信，点击即可入账</view>
+    </view>
+    <master-mask maskData='{{pageData.maskData}}' />
+    <view class='protocol-box'>
+      <check-box label='请您仔细阅读' color='#23303a' checked='{{protocolChecked}}' bindchange='agreeProtocol' />
+      <text class='protocol'>《润信协议》</text>
+    </view>
+  </view>
+</scroll-view>
+<view class='footer-fixed'>
+  <view class='ok' bindtap='submitOk'>签收</view>
+  <view class='cancel' bindtap='submitCancel'>驳回</view>
+</view>
+
+<confirm icon='info' title='{{confirmTitle}}' showCancel='{{false}}' showConfirm='{{showConfirm}}' bindsubmit='gotoLoginPage' />
+
+<confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />

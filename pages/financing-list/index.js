@@ -188,12 +188,23 @@ Page({
 
   /* 处理列表数据 */
   dealListData: function (data) {
+    var listData = [];
     data && data.map(function (v, i) {
-      var xdAmount = v.xdAmount;
-      v.uppercase = util.convertCurrency(xdAmount);
-      v.xdAmount = util.formatNumberRgx(xdAmount);
+      var xdAmount = util.formatNumberRgx(v.xdAmount);
+      var maskData = {
+        xdNo: v.xdNo,  // 单号
+        xdAmount: xdAmount, // 金额
+        xdDay: v.xdDay,  // 天数
+        openEntNo: v.openEntNo, // 签发人id
+        openEntName: v.openEntName, // 签发人
+        receEntNo: v.receEntNo, // 签收人id
+        receEntName: v.receEntName, // 签收人
+        financeRate: v.financeRate, // 利率
+        checked: false, // 是否选中
+      }
+      listData.push(maskData);
     });
-    return data;
+    return listData;
   },
 
   /* 下拉加载更新数据 */

@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "动态兑付复核",
   "usingComponents": {
+    "confirm": "../../components/confirm/index",
     "check-box": "../../components/check-box/index",
     "financing-mask": "../../components/financing-mask/index"
   }

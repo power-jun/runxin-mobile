@@ -1,41 +1,43 @@
 <view class='rate-mask'>
   <view class='title'>
-    <check-box class="checkbox" />
-    <navigator class='link'>
-      <text class='text'>查看复核</text>
+    <check-box class="checkbox" checked='{{maskData.checked}}' bindchange='selectCheckBox' />
+    <view class='link' bindtap='openLink' wx:if='{{showLink}}'>
+      <!-- <text class='text'>查看复核</text> -->
       <view class='icon'></view>
-    </navigator>
+    </view>
     <view class='circle left'></view>
     <view class='circle right'></view>
   </view>
-  <view class='items'>
-    <view class='label'>经办日期</view>
-    <view class='text'>2018-05-17</view>
-  </view>
-  <view class='items'>
-    <view class='label'>类型</view>
-    <view class='text red'>客户</view>
-  </view>
-  <view class='items'>
-    <view class='label'>管理</view>
-    <view class='text'>新增</view>
-  </view>
-  <view class='items'>
-    <view class='label'>企业名称</view>
-    <view class='text'>深圳地球月球有限公司</view>
-  </view>
-  <view class='items'>
-    <view class='label'>额度</view>
-    <view class='text'>200</view>
-  </view>
-  <view class='items'>
-    <view class='label'>到期日</view>
-    <view class='text'>2018-05-17</view>
-  </view>
-  <view class='items'>
-    <view class='label'>附件</view>
-    <view class='text'>
-      <iconfont type='runxinlogo' color='#95999c' size='20' />
+  <view bindtap='openLink'>
+    <view class='items'>
+      <view class='label'>经办日期</view>
+      <view class='text'>{{maskData.auditTime}}</view>
+    </view>
+    <view class='items'>
+      <view class='label'>类型</view>
+      <view class='text {{maskData.status}}'>{{maskData.limitType}}</view>
+    </view>
+    <view class='items'>
+      <view class='label'>管理</view>
+      <view class='text'>{{maskData.manageStatus}}</view>
+    </view>
+    <view class='items'>
+      <view class='label'>企业名称</view>
+      <view class='text'>{{maskData.limitEntName}}</view>
+    </view>
+    <view class='items'>
+      <view class='label'>额度</view>
+      <view class='text'>{{maskData.limitAmountNew}}</view>
+    </view>
+    <view class='items'>
+      <view class='label'>到期日</view>
+      <view class='text'>{{maskData.expireDateNew}}</view>
+    </view>
+    <view class='items'>
+      <view class='label'>附件</view>
+      <view class='text'>
+        <iconfont type='runxinlogo' color='#95999c' size='20' />
+      </view>
     </view>
   </view>
 </view>

@@ -163,31 +163,27 @@ Page({
     var uppercase = util.convertCurrency(data.xdAmount);
     var xdAmount = util.formatNumberRgx(data.xdAmount);
     return {
-      status: 'green',
-      credEntNo: data.credEntNo,
-      credEntName: data.credEntName,
-      contractFsskey: data.contractFsskey,
-      xdAmount: xdAmount,
-      xdDesc: data.xdDesc,
-      auditName: data.auditName,
-      openDate: data.openDate,
+      credEntNo: data.credEntNo, // 授信机构id
+      credEntName: data.credEntName, // 授信机构
+      contractFsskey: data.contractFsskey, // 图片
+      xdAmount: xdAmount, // 使用额度
+      auditName: data.auditName, // 经办人
+      openDate: data.openDate, // 办理时间
+      xdDesc: data.xdDesc, // 描述
       maskData: {
-        receEntNo: data.receEntNo,
-        receEntName: data.receEntName,
-        credEntNo: data.credEntNo,
-        tradeDate: data.tradeDate,
-        credEntName: data.credEntName,
-        xdStatus: data.xdStatus,
-        xdNo: data.xdNo,
-        openEntNo: data.openEntNo,
-        guaranteeEntName: data.guaranteeEntName,
-        xdDay: data.xdDay,
-        openEntName: data.openEntName,
-        expireDate: data.expireDate,
-        guaranteeEntNo: data.guaranteeEntNo,
-        openDate: data.openDate,
-        uppercase: uppercase,
-        xdAmount: xdAmount,
+        status: 'green', // 状态
+        xdNo: data.xdNo,  // 单号
+        xdAmount: xdAmount, // 金额
+        uppercase: uppercase, // 大写金额
+        xdDay: data.xdDay,  // 天数
+        openDate: data.openDate, // 开始时时
+        expireDate: data.expireDate, // 结束时间
+        openEntNo: data.openEntNo, // 签发人id
+        openEntName: data.openEntName, // 签发人
+        receEntNo: data.receEntNo, // 签收人id
+        receEntName: data.receEntName, // 签收人
+        guaranteeEntNo: data.guaranteeEntNo, // 担保人id
+        guaranteeEntName: data.guaranteeEntName, // 担保人
       }
     };
   },

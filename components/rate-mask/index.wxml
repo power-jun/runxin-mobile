@@ -1,31 +1,33 @@
 <view class='rate-mask'>
   <view class='title'>
-    <check-box class="checkbox" />
-    <navigator class='link'>
-      <text class='text'>查看复核</text>
+    <check-box class="checkbox" checked='{{maskData.checked}}' bindchange='selectCheckBox' />
+    <view class='link' bindtap='openLink' wx:if='{{showLink}}'>
+      <!-- <text class='text'>查看复核</text> -->
       <view class='icon'></view>
-    </navigator>
+    </view>
     <view class='circle left'></view>
     <view class='circle right'></view>
   </view>
-  <view class='items'>
-    <view class='label'>经办日期</view>
-    <view class='text'>2018-05-17</view>
-  </view>
-  <view class='items'>
-    <view class='label'>类型</view>
-    <view class='text red'>客户</view>
-  </view>
-  <view class='items'>
-    <view class='label'>企业名称</view>
-    <view class='text'>深圳地球月球有限公司</view>
-  </view>
-  <view class='items'>
-    <view class='label'>原利率</view>
-    <view class='text'>8%</view>
-  </view>
-  <view class='items'>
-    <view class='label'>新利率</view>
-    <view class='text'>6%</view>
+  <view bindtap='openLink'>
+    <view class='items'>
+      <view class='label'>经办日期</view>
+      <view class='text'>{{maskData.operTime}}</view>
+    </view>
+    <view class='items'>
+      <view class='label'>类型</view>
+      <view class='text {{maskData.status}}'>{{maskData.rateType}}</view>
+    </view>
+    <view class='items'>
+      <view class='label'>企业名称</view>
+      <view class='text'>{{maskData.limitEntName}}</view>
+    </view>
+    <view class='items'>
+      <view class='label'>原利率</view>
+      <view class='text'>{{maskData.rateOld}}%</view>
+    </view>
+    <view class='items'>
+      <view class='label'>新利率</view>
+      <view class='text'>{{maskData.rateNew}}%</view>
+    </view>
   </view>
 </view>

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "签收",
+  "navigationBarTitleText": "签收复核详情",
   "usingComponents": {
     "confirm": "../../components/confirm/index",
     "check-box": "../../components/check-box/index",

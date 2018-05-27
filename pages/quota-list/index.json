@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "额度审批",
   "usingComponents": {
+    "confirm": "../../components/confirm/index",
     "check-box": "../../components/check-box/index",
     "quota-mask": "../../components/quota-mask/index"
   }

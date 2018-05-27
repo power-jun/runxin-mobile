@@ -1,27 +1,27 @@
-<scroll-view class='body' scroll-y='true'>
-  <view class='article'>
-    <navigator url='../dynamic-cash-detail/index'>
-      <financing-mask />
-    </navigator>
-    <navigator url='../dynamic-cash-detail/index'>
-      <financing-mask />
-    </navigator>
-    <navigator url='../dynamic-cash-detail/index'>
-      <financing-mask />
-    </navigator>
-  </view>
-</scroll-view>
-<view class='footer-fixed'>
-  <view class='protocol-box'>
-    <check-box label='请您仔细阅读' color='#fff' />
-    <text class='protocol'>《润信保理融资协议》</text>
-  </view>
-  <view class='tip'>(当天超过保理商规定的复核时间，未复核单据将作废)</view>
-  <view class='bottom-box'>
-    <view class='check-box'>
-      <check-box label='全选' color='#fff' checked='true' />
+<view class='no-data-list' wx:if='{{showNoData}}'>暂无数据</view>
+<block wx:else>
+  <scroll-view class='body' scroll-y='true'>
+    <view class='article'>
+      <block wx:for='{{listData}}' wx:key='item'>
+        <financing-mask maskData='{{item}}' bindselect='selectListItem' link='../dynamic-cash-detail/index' />
+      </block>
     </view>
-    <view class='ok'>复核</view>
-    <view class='cancel'>驳回</view>
+  </scroll-view>
+  <view class='footer-fixed'>
+    <view class='protocol-box'>
+      <check-box label='请您仔细阅读' color='#fff' checked='{{protocolChecked}}' bindchange='agreeProtocol' />
+      <text class='protocol'>《润信保理融资协议》</text>
+    </view>
+    <view class='tip'>(当天超过保理商规定的复核时间，未复核单据将作废)</view>
+    <view class='bottom-box'>
+      <view class='check-box'>
+        <check-box id='allCheckBox' label='全选' color='#fff' checked='{{false}}' bindchange='checkAll' />
+      </view>
+      <view class='ok' bindtap='submitOk'>复核</view>
+      <view class='cancel' bindtap='submitCancel'>驳回</view>
+    </view>
   </view>
-</view>
+</block>
+<confirm icon='info' title='{{confirmTitle}}' showCancel='{{false}}' showConfirm='{{showConfirm}}' bindsubmit='gotoLoginPage' />
+
+<confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />

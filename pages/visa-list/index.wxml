@@ -3,7 +3,7 @@
   <scroll-view class='body' scroll-y='true' bindscrolltolower="scrollToLower">
     <view class='article'>
       <block wx:for='{{listData}}' wx:key='item'>
-        <master-mask status='{{item.status}}' showCheckBox='{{true}}' maskData='{{item}}' bindselect='selectListItem' link='../visa-detail/index?id={{item.xdNo}}' />
+        <master-mask showCheckBox='{{true}}' maskData='{{item}}' bindselect='selectListItem' link='../visa-detail/index' />
       </block>
       <view class='loading-list' wx:if='{{showPagesLoading}}'>{{pagesLoadingText}}</view>
     </view>

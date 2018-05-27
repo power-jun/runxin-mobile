@@ -1,8 +1,8 @@
 {
-  "navigationBarTitleText": "利率审核",
+  "navigationBarTitleText": "签收复核",
   "usingComponents": {
     "confirm": "../../components/confirm/index",
     "check-box": "../../components/check-box/index",
-    "rate-mask": "../../components/rate-mask/index"
+    "master-mask": "../../components/master-mask/index"
   }
 }

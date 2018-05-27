@@ -5,15 +5,15 @@
       <text class='name'>融资前</text>
     </view>
     <view class='master-box'>
-      <master-mask status='{{pageData.status1}}' maskData='{{pageData.maskData1}}' />
+      <master-mask maskData='{{pageData.maskData1}}' />
     </view>
     <view class='financing-status'>
       <view class='icon red'></view>
       <text class='name'>融资后</text>
-      <text class='tip'>(经办人：{{pageData.auditName}} {{pageData.openDate}} {{pageData.xdDesc}})</text>
+      <text class='tip'>({{pageData.auditName}} {{pageData.openDate}})</text>
     </view>
     <view class='master-box'>
-      <master-mask status='{{pageData.status2}}' maskData='{{pageData.maskData2}}' />
+      <master-mask maskData='{{pageData.maskData2}}' />
     </view>
     <view class='play-container'>
       <view class='items'>

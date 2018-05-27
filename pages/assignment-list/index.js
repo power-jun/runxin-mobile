@@ -188,13 +188,30 @@ Page({
 
   /* 处理列表数据 */
   dealListData: function (data) {
+    var listData = [];
     data && data.map(function (v, i) {
-      var xdAmount = v.xdAmount;
-      v.status = (i % 2) ? 'red' : 'green';
-      v.uppercase = util.convertCurrency(xdAmount);
-      v.xdAmount = util.formatNumberRgx(xdAmount);
+      var status = (i % 2) ? 'red' : 'green';
+      var uppercase = util.convertCurrency(v.xdAmount);
+      var xdAmount = util.formatNumberRgx(v.xdAmount);
+      var maskData = {
+        status: status, // 状态
+        xdNo: v.xdNo,  // 单号
+        xdAmount: xdAmount, // 金额
+        uppercase: uppercase, // 大写金额
+        xdDay: v.xdDay,  // 天数
+        openDate: v.openDate, // 开始时时
+        expireDate: v.expireDate, // 结束时间
+        openEntNo: v.openEntNo, // 签发人id
+        openEntName: v.openEntName, // 签发人
+        receEntNo: v.receEntNo, // 签收人id
+        receEntName: v.receEntName, // 签收人
+        guaranteeEntNo: v.guaranteeEntNo, // 担保人id
+        guaranteeEntName: v.guaranteeEntName, // 担保人
+        checked: false, // 是否选中
+      }
+      listData.push(maskData);
     });
-    return data;
+    return listData;
   },
 
   /* 下拉加载更新数据 */

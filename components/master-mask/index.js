@@ -5,10 +5,10 @@ Component({
   properties: {
 
     /* 状态 */
-    status: {
-      type: String,
-      value: 'red'
-    },
+    // status: {
+    //   type: String,
+    //   value: 'red'
+    // },
 
     /* 显示复选框 */
     showCheckBox: {
@@ -43,7 +43,7 @@ Component({
     openLink: function (e) {
       if (this.data.link) {
         wx.navigateTo({
-          url: this.data.link,
+          url: this.data.link + '?id=' + this.data.maskData.xdNo,
         });
       }
     },
