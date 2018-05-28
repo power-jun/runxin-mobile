@@ -9,8 +9,6 @@ Page({
    */
   data: {
     options: null, // 页面参数
-    showConfirm: false, // 显示提示层
-    confirmTitle: '登录超时，请重新登录！', // 提示文本
     showPrompt: false, // 显示成功提示
     promptTitle: '复核成功',
     promptMessage: '将复核成功的消息转发给收信人，让他快点签收润信！',
@@ -24,10 +22,6 @@ Page({
   onLoad: function (options) {
     if (options && options.id) {
       this.data.options = options;
-    } else {
-      wx.redirectTo({
-        url: '../financing-list/index',
-      });
     }
     this.init();
   },
@@ -91,42 +85,7 @@ Page({
   init: function () {
     this.userInfo = app.getUserInfo();
     this.companyInfo = app.getCompanyInfo();
-    var loginStatus = this.isLogin();
-    var companyStatus = this.isCompany();
-    if (loginStatus && companyStatus) {
-      this.requestPageData();
-    }
-  },
-
-  /* 是否已登录 */
-  isLogin: function () {
-    if (this.userInfo.phone) {
-      return true;
-    } else {
-      this.setData({
-        showConfirm: true
-      });
-      return false;
-    }
-  },
-
-  /* 是否选好了公司 */
-  isCompany: function () {
-    if (this.companyInfo.id) {
-      return true;
-    } else {
-      wx.redirectTo({
-        url: '../index/index'
-      });
-      return false;
-    }
-  },
-
-  /* 返回登录页面 */
-  gotoLoginPage: function () {
-    wx.redirectTo({
-      url: '../login/index',
-    });
+    this.requestPageData();
   },
 
   /* 获取页面数据 */
@@ -280,6 +239,9 @@ Page({
   /* 刷新页面 */
   reloadPage() {
     this.requestPageData();
+    this.setData({
+      protocolChecked: false,
+    });
   },
 
 })

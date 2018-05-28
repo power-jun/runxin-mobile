@@ -7,9 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navigatorArray: [],
-    showConfirm: false, // 显示提示层
-    confirmTitle: '登录超时，请重新登录！', // 提示文本
+    navigatorArray: [], // 公司数据
   },
 
   /**
@@ -74,29 +72,7 @@ Page({
   /* 初始化 */
   init: function () {
     this.userInfo = app.getUserInfo();
-    var loginStatus = this.isLogin();
-    if (loginStatus) {
-      this.requestCompanyData();
-    }
-  },
-
-  /* 是否已登录 */
-  isLogin: function () {
-    if (this.userInfo.phone) {
-      return true;
-    } else {
-      this.setData({
-        showConfirm: true
-      });
-      return false;
-    }
-  },
-
-  /* 返回登录页面 */
-  gotoLoginPage: function () {
-    wx.redirectTo({
-      url: '../login/index',
-    });
+    this.requestCompanyData();
   },
 
   /* 获取公司数据 */

@@ -51,8 +51,6 @@ Page({
         tip: 0
       }
     ],
-    showConfirm: false, // 显示提示层
-    confirmTitle: '登录超时，请重新登录！', // 提示文本
   },
 
   /**
@@ -121,42 +119,7 @@ Page({
   init: function () {
     this.userInfo = app.getUserInfo();
     this.companyInfo = app.getCompanyInfo();
-    var loginStatus = this.isLogin();
-    var companyStatus = this.isCompany();
-    if (loginStatus && companyStatus) {
-      this.requestCountData();
-    }
-  },
-
-  /* 是否已登录 */
-  isLogin: function () {
-    if (this.userInfo.phone) {
-      return true;
-    } else {
-      this.setData({
-        showConfirm: true
-      });
-      return false;
-    }
-  },
-
-  /* 是否选好了公司 */
-  isCompany: function () {
-    if (this.companyInfo.id) {
-      return true;
-    } else {
-      wx.redirectTo({
-        url: '../index/index'
-      });
-      return false;
-    }
-  },
-
-  /* 返回登录页面 */
-  gotoLoginPage: function () {
-    wx.redirectTo({
-      url: '../login/index',
-    });
+    this.requestCountData();
   },
 
   /* 获取待办事项的记录数据 */

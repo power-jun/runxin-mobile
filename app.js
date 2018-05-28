@@ -42,7 +42,7 @@ App({
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
-  onLaunch: function () {
+  onLaunch: function (options) {
 
   },
 
@@ -50,7 +50,34 @@ App({
    * 当小程序启动，或从后台进入前台显示，会触发 onShow
    */
   onShow: function (options) {
-
+    var userInfo = this.getUserInfo();
+    if (!userInfo.phone && options.path !== 'pages/login/index') {
+      wx.showModal({
+        title: '友情提醒',
+        content: '登录超时，请重新登录！',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/index',
+            });
+          }
+        }
+      });
+    } else if (!this.companyInfo.id && options.path !== 'pages/index/index') {
+      wx.showModal({
+        title: '友情提醒',
+        content: '你没有选择任何公司，请返回首页！',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/index/index',
+            });
+          }
+        }
+      });
+    }
   },
 
   /**

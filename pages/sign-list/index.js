@@ -8,8 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showConfirm: false, // 显示提示层
-    confirmTitle: '登录超时，请重新登录！', // 提示文本
     showPrompt: false, // 显示成功提示
     promptTitle: '复核成功',
     promptMessage: '将复核成功的消息转发给收信人，让他快点签收润信！',
@@ -88,42 +86,7 @@ Page({
   init: function () {
     this.userInfo = app.getUserInfo();
     this.companyInfo = app.getCompanyInfo();
-    var loginStatus = this.isLogin();
-    var companyStatus = this.isCompany();
-    if (loginStatus && companyStatus) {
-      this.requestListData(false);
-    }
-  },
-
-  /* 是否已登录 */
-  isLogin: function () {
-    if (this.userInfo.phone) {
-      return true;
-    } else {
-      this.setData({
-        showConfirm: true
-      });
-      return false;
-    }
-  },
-
-  /* 是否选好了公司 */
-  isCompany: function () {
-    if (this.companyInfo.id) {
-      return true;
-    } else {
-      wx.redirectTo({
-        url: '../index/index'
-      });
-      return false;
-    }
-  },
-
-  /* 返回登录页面 */
-  gotoLoginPage: function () {
-    wx.redirectTo({
-      url: '../login/index',
-    });
+    this.requestListData(false);
   },
 
   /* 参数 */
@@ -190,7 +153,7 @@ Page({
   dealListData: function (data) {
     var listData = [];
     data && data.map(function (v, i) {
-      var status = (i % 2) ? 'red' : 'green';
+      var status = 'red';
       var uppercase = util.convertCurrency(v.xdAmount);
       var xdAmount = util.formatNumberRgx(v.xdAmount);
       var maskData = {

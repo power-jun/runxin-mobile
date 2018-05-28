@@ -23,6 +23,5 @@
     </view>
   </view>
 </block>
-<confirm icon='info' title='{{confirmTitle}}' showCancel='{{false}}' showConfirm='{{showConfirm}}' bindsubmit='gotoLoginPage' />
 
 <confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />
