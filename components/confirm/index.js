@@ -8,6 +8,10 @@ Component({
       type: Boolean,
       value: false
     },
+    showShareButton: {
+      type: Boolean,
+      value: true
+    },
     icon: {
       type: String,
       value: ''

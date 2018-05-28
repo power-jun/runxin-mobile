@@ -63,4 +63,12 @@
   color: #cf4141;
   line-height: 1.2;
   text-align: center;
+  outline: none;
+  border: none;
+  list-style: none;
+  background-color: #fff;
+}
+
+.confirm-box .ok::after {
+  border: none;
 }

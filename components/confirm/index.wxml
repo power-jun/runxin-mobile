@@ -5,7 +5,8 @@
     <view class='message' wx:if='{{message}}'>{{message}}</view>
     <view class='btn-box'>
       <view class='cancel' bindtap='cancel' wx:if='{{showCancel}}'>{{cancelText}}</view>
-      <view class='ok' bindtap='submit'>{{okText}}</view>
+      <button class='ok' hover-class='none' open-type='share' bindtap='submit' wx:if='showShareButton'>{{okText}}</button>
+      <view class='ok' open-type='share' bindtap='submit' wx:else>{{okText}}</view>
     </view>
   </view>
 </view>
