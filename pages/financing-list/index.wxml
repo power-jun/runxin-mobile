@@ -5,6 +5,7 @@
       <block wx:for='{{listData}}' wx:key='item'>
         <financing-mask maskData='{{item}}' bindselect='selectListItem' link='../financing-detail/index' />
       </block>
+      <view class='loading-list' wx:if='{{showPagesLoading}}'>{{pagesLoadingText}}</view>
     </view>
   </scroll-view>
   <view class='footer-fixed'>

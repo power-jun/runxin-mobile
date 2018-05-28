@@ -36,7 +36,7 @@
     <view class='items'>
       <view class='label'>附件</view>
       <view class='text'>
-        <iconfont type='runxinlogo' color='#95999c' size='20' />
+        <iconfont type='tupian' color='#95999c' size='20' />
       </view>
     </view>
   </view>
