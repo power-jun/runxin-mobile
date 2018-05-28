@@ -117,7 +117,7 @@ Page({
 
   goDetail: function(data) {
     wx.navigateTo({
-      url: '/pages/runxin-distribute-detials/index?id=' + data.detail.id
+      url: '/pages/holding-list-details/index?id=' + data.detail.id
     });
   },
 

@@ -1,6 +1,6 @@
 <scroll-view class='body' scroll-y='true'>
   <view class="article">
-    <master-mask/>
+    <master-mask maskData="{{financingData}}"/>
     <view class='financing-list'>
       <view class='distribute-line'>
         <text class='head'>保理商</text>
@@ -26,9 +26,9 @@
         </view>
       </view>
       <view class='distribute-line'>
-        <text class='head'>交易日期</text>
+        <text class='head'>融资日期</text>
         <view class='val-input'>
-          <input type="text" disabled value="2018-5-15(已复核日期为准)" />
+          <input type="text" disabled value="{{financingData.tradeDate}}" />
         </view>
       </view>
       <view class='distribute-line'>
@@ -44,9 +44,9 @@
         </view>
       </view>
       <view class='distribute-line'>
-        <text class='head'>时间到账金额</text>
+        <text class='head'>实际到账金额</text>
         <view class='val-input'>
-          <input type="text" disabled value="9,900元" />
+          <input type="text" disabled value="{{financingData.xdAmount}}" />
         </view>
       </view>
     </view>

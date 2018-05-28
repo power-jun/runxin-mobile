@@ -51,6 +51,7 @@ App({
    */
   onShow: function (options) {
     var userInfo = this.getUserInfo();
+    return ;
     if (!userInfo.phone && options.path !== 'pages/login/index') {
       wx.showModal({
         title: '友情提醒',

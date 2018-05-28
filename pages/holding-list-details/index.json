@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "润信详情",
+  "usingComponents": {
+    "master-mask": "../../components/master-mask/index"
+  }
+}

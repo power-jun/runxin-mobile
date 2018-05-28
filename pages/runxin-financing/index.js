@@ -5,20 +5,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    financingData: {}  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let that = this;
+    wx.getStorage({
+      key: 'holdFinancingData',
+      success: function(res) {
+        that.setData({
+          financingData: res.data
+        });
+      },
+    })
   },
 
   selectFactoring: function() {
     wx.navigateTo({
       url: '/pages/runxin-factoring/index'
-    })
+    });
   },
 
   /**

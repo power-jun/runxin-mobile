@@ -1,0 +1,67 @@
+.credit-agency {
+  margin: 15px;
+  padding: 5px 15px;
+  background: #fff;
+  box-shadow: 0rpx 2rpx 10rpx #ccc;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+}
+
+.agency-company {
+  padding: 15px 0;
+  font-size: 14px;
+  color: #7b8389;
+  border-bottom: 1rpx solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+}
+
+.agency-company:last-child {
+  border: 0;
+}
+
+.agency-company text:first-child {
+  color: #7b8389;
+}
+
+.agency-company radio {
+  margin-left: 20rpx;
+}
+
+.footer-fixed {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 500;
+  padding: 10px 15px;
+  color: #fff;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.footer .ok {
+  margin: 0 60rpx;
+  padding: 20rpx 60rpx;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  border-radius: 3px;
+  background-color: #cf4141;
+}
+
+.footer .cancel {
+  margin: 0 60rpx;
+  padding: 20rpx 60rpx;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  border-radius: 3px;
+  background-color: #a1a1a1;
+}
