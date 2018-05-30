@@ -25,7 +25,9 @@
     "pages/interest-rate-list/index",
     "pages/quota-list/index",
     "pages/dynamic-cash-list/index",
-    "pages/dynamic-cash-detail/index"
+    "pages/dynamic-cash-detail/index",
+    "pages/payment-manage/index",
+    "pages/receivables-manage/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

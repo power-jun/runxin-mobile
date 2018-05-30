@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "签发"
+  "navigationBarTitleText": "管理中心",
+  "usingComponents": {
+    "iconfont": "../../components/iconfont/index"
+  }
 }

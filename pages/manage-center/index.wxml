@@ -1,3 +1,30 @@
-<view class="container">
-  <text>管理中心</text>
-</view>
+<scroll-view class='body' scroll-y='true'>
+  <view class='article'>
+    <view class='modules'>
+      <navigator class='items'>
+        <iconfont class='icon' type='tupian' color='#f67a54' size='20' />
+        <text class='text'>企业管理</text>
+      </navigator>
+      <navigator class='items'>
+        <iconfont class='icon' type='tupian' color='#8695f2' size='20' />
+        <text class='text'>系统管理</text>
+      </navigator>
+    </view>
+    <view class='modules'>
+      <navigator class='items' url='../receivables-manage/index'>
+        <iconfont class='icon' type='tupian' color='#1dd275' size='20' />
+        <text class='text'>额度管理</text>
+      </navigator>
+      <navigator class='items' url='../payment-manage/index'>
+        <iconfont class='icon' type='tupian' color='#ffc736' size='20' />
+        <text class='text'>收付款管理</text>
+      </navigator>
+    </view>
+    <view class='modules'>
+      <navigator class='items'>
+        <iconfont class='icon' type='tupian' color='#3b9eec' size='20' />
+        <text class='text'>机构管理</text>
+      </navigator>
+    </view>
+  </view>
+</scroll-view>

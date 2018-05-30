@@ -1,1 +1,32 @@
-/* runxin-manage/pages/issued/index.wxss */
+.article {
+  padding: 1px 0;
+}
+
+.modules {
+  margin: 20rpx 0;
+  background-color: #fff;
+  border-top: 1rpx solid #f1f1f1;
+  border-bottom: 1rpx solid #f1f1f1;
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  padding: 15px 0;
+  border-bottom: 1rpx solid #f1f1f1;
+}
+
+.items:last-child {
+  border: 0;
+}
+
+.items .icon {
+  margin-right: 10px;
+}
+
+.items .text {
+  font-size: 14px;
+  color: #0b080b;
+  line-height: 1.2;
+}
