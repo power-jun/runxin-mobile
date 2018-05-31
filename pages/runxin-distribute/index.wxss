@@ -53,6 +53,10 @@
   color: #e24c4c;
 }
 
+.available-amt-place {
+  font-size: 14px;
+}
+
 .distribute-line .unit {
   margin-left: 5px;
   font-size: 14px;
@@ -78,6 +82,17 @@
   margin-top: 8px;
   color: #7b8389;
   font-size: 12px;
+}
+
+.pic-shop {
+  display: inline-block;
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 10rpx;
+}
+
+.margin-l {
+  margin-left: 20rpx;
 }
 
 .protocol-box {

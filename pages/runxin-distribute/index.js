@@ -85,6 +85,8 @@ Page({
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
         var tempFilePaths = res.tempFilePaths;
+        that.data.imgArry.push(tempFilePaths);
+        
         //启动上传等待中...  
         wx.showToast({
           title: '正在上传...',
@@ -114,9 +116,10 @@ Page({
               var contractFileId = data.contractFileId;
               var imgArryId = that.data.imgArryId;
               imgArryId.push(contractFileId);
-
+debugger
               that.setData({
-                imgArryId: imgArryId
+                imgArryId: imgArryId,
+                imgArry: that.data.imgArry
               });
 
               //如果是最后一张,则隐藏等待中  
