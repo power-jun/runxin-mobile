@@ -1,4 +1,5 @@
 var config = require('../../utils/config.js');
+var util = require('../../utils/util.js');
 var app = getApp();
 
 Page({
@@ -32,10 +33,19 @@ Page({
       },
       success: function(res) {
         wx.hideLoading();
-        if (res.data.delayFlag == 1) {
+        
+        if (res.data.splitFlag == 1) {
           that.data.yesCheckboxFlag  = true;
         } else {
           that.data.checkboxFlag = true;
+        }
+
+        res.data.uppercase = util.convertCurrency(res.data.xdAmount);
+
+        if (res.data.terminalType === 1) {
+          res.data.terminalName = '电脑端WEB版';
+        } else if (res.data.terminalType === 2) {
+          res.data.terminalName = ' 移动端小程序';
         }
 
         wx.setStorage({

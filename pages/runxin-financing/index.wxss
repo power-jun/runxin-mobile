@@ -75,7 +75,7 @@
 .upload-icon {
   position: relative;
   width: 38rpx;
-  height: 35rpx;
+  height: 38rpx;
   background: #cf4141;
   border-radius: 50%;
 } 

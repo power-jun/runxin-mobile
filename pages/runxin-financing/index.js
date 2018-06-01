@@ -1,11 +1,15 @@
-// pages/runxin-financing/index.js
+var util = require('../../utils/util.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    financingData: {}  
+    financingData: {},
+    factoringName: '',
+    factoringRate: '',
+    interest: ''
   },
 
   /**
@@ -13,11 +17,22 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+
+    if (options.name) {
+      this.data.factoringName = options.name;
+      this.data.factoringRate = options.rate
+    }
     wx.getStorage({
       key: 'holdFinancingData',
       success: function(res) {
+        let nowDate = util.formatTime(new Date());
+        res.data.nowDate = nowDate;
+        res.data.financingDate = Math.floor((+new Date(res.data.expireDate) - +new Date(nowDate)) / (24 * 60 * 60 * 1000));
+
         that.setData({
-          financingData: res.data
+          financingData: res.data,
+          factoringName: that.data.factoringName,
+          factoringRate: that.data.factoringRate
         });
       },
     })
@@ -29,52 +44,23 @@ Page({
     });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  calculateInterest: function(e) {
+    let val = e.detail.value;
+    if (!this.data.factoringRate) {
+      setTimeout(() => {
+        wx.showToast({
+          title: '请选择保理商'
+        });
+      }, 500);
+      return;
+    }
+    
+    this.setData({
+      interest: val * this.data.factoringRate * this.data.financingData.financingDate
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  submitFinancing: function() {
+    
   }
 })

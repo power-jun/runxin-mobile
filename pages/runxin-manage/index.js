@@ -77,8 +77,8 @@ Page({
           }
 
           for (var i = 0, len = billList.length; i < billList.length; i++) {
-            billList[i].xdAmount = util.formatNumberRgx(billList[i].xdAmount);
             billList[i].caseAmount = util.convertCurrency(billList[i].xdAmount);
+            billList[i].xdAmount = util.formatNumberRgx(billList[i].xdAmount);
           }
 
           that.totalPage = res.data.totalPage;

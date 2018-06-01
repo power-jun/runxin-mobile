@@ -1,12 +1,11 @@
 {
   "pages": [
     "pages/runxin-manage/index",
-    "pages/runxin-distribute/index",
-    "pages/upcoming-task/index",
-    "pages/runxin-distribute/index",
-    "pages/advanced-search/index",
     "pages/login/index",
     "pages/index/index",
+    "pages/runxin-distribute/index",
+    "pages/upcoming-task/index",
+    "pages/advanced-search/index",
     "pages/manage-center/index",
     "pages/visa-list/index",
     "pages/visa-detail/index",

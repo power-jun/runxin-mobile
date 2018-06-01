@@ -10,11 +10,12 @@
     </view>
     <view class='agency-company'>
       <text>办理时间：</text>
-      <text>{{detailsData.auditTime}} 手机端</text>
+      <text>{{detailsData.auditTime}}{{detailsData.terminalName}}
+      </text>
     </view>
     <view class='agency-company no-border'>
       <text>是否为拆转或折融子信</text>
-      <radio-group class="radio-group" bindchange="radioChange">
+      <radio-group class="radio-group">
         <label class="radio">
           <radio value="1" checked="{{yesCheckboxFlag}}" />是
           <radio value="1" checked="{{checkboxFlag}}" />否

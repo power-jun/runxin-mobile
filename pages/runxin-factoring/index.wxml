@@ -1,27 +1,13 @@
 <scroll-view class='body' scroll-y='true'>
   <view class='article'>
-    <view class='article-item'>
+    <view class='article-item' wx:for="{{rateList}}" wx:key="{{index}}"  data-name="{{item.drawEntName}}" data-rate="{{item.rate}}" bindtap='factoringSelect'>
       <view class='select'>
-        <check-box color='#23303a'/>
-        <text class='company'>深圳市地球月球科技有限公司</text>
+        <!-- <check-box color='#23303a' data-name="{{item.drawEntName}}" data-rate="{{item.rate}}" bindchange="radioChange"/> -->
+        <text class='company'>{{item.drawEntName}}</text>
       </view>
-      <view><text>6%</text></view>
-    </view>
-    <view class='article-item'>
-      <view class='select'>
-        <check-box color='#23303a'/>
-        <text class='company'>深圳市地球月球科技有限公司</text>
-      </view>
-      <view><text>6%</text></view>
-    </view>
-    <view class='article-item'>
-      <view class='select'>
-        <check-box color='#23303a'/>
-        <text class='company'>深圳市地球月球科技有限公司</text>
-      </view>
-      <view class='price'><text>6%</text></view>
+      <view><text>{{item.rate}}%</text></view>
     </view>
   </view>
   <view class='tips'><text>提示：已为您选择报价最低的保理商</text></view>
-  <button form-type="submit" class='submit-btn' bindtap='goback'> 确定 </button>
+  <!-- <button form-type="submit" class='submit-btn' bindtap='goback'> 确定 </button> -->
 </scroll-view>

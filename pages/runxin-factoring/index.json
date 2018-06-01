@@ -1,6 +1,3 @@
 {
-  "navigationBarTitleText": "其他保理商牌价",
-  "usingComponents": {
-    "check-box": "../../components/check-box/index"
-  }
+  "navigationBarTitleText": "其他保理商牌价"
 }
