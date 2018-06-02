@@ -1,6 +1,6 @@
 <scroll-view class='body' scroll-y='true'>
   <view class='article'>
-    <view class='article-item'>
+    <!-- <view class='article-item'>
       <view class='item-head'>客户名称</view>
       <view class='list'>
         <view data-id='0' bindtap='transactionClick' class="list-item {{ transactionId == 0 ? 'list-item-on' : ''}}">最近十天</view>
@@ -8,7 +8,7 @@
         <view data-id='2' bindtap='transactionClick' class="list-item {{ transactionId == 2 ? 'list-item-on' : ''}}">最近三个月</view>
         <view data-id='3' bindtap='transactionClick' class="list-item {{ transactionId == 3 ? 'list-item-on' : ''}}">全部</view>
       </view>
-    </view>
+    </view> -->
     <view class='article-item'>
       <view class='item-head'>交易日期</view>
       <view class='list'>

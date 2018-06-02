@@ -1,0 +1,9 @@
+<scroll-view class='body' scroll-y='true'>
+  <view class='article'>
+    <view class='article-item' wx:for="{{receiverList}}" wx:key="{{index}}" data-index="{{index}}" bindtap='receiverSelect'>
+      <view class='select'>
+        <text class='company'>{{item.entName}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

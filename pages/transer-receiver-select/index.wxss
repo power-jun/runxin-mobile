@@ -1,0 +1,52 @@
+.article {
+  background: #fff;
+  margin-top: 30rpx;
+}
+
+.article-item {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  padding: 30rpx 15rpx 30rpx 0;
+  border-bottom: 1rpx solid #ebebeb;
+  color: #676767;
+  font-size: 14px;
+  justify-content: space-between
+}
+
+.article-item .select {
+  display: flex;
+  align-items:center;
+}
+
+.article-item .company {
+  margin-left: 10rpx;
+}
+
+.article-item:last-child {
+  border: 0;
+}
+
+
+.article-item .price {
+  justify-content: flex-end;
+}
+
+.body .tips {
+  padding-left: 25rpx;
+  color: #b7b7b7;
+  font-size: 12px;
+  margin-top: 20rpx;
+}
+
+.submit-btn {
+  width: 300rpx;
+  margin-top: 100px;
+  padding: 10px 30px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  border-radius: 3px;
+  background-color: #cf4141;
+  margin-bottom: 70rpx;
+}

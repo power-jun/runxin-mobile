@@ -2,6 +2,7 @@
   "navigationBarTitleText": "润信融资",
   "usingComponents": {
     "check-box": "../../components/check-box/index",
+    "confirm": "../../components/confirm/index",
     "bookmarks-item": "../../components/bookmarks-item/index",
     "master-mask": "../../components/master-mask/index"
   }

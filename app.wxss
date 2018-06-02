@@ -7,3 +7,15 @@ page {
   background-color: #f8f8f8;
   box-sizing: border-box;
 }
+
+.submit-btn {
+  width: 300rpx;
+  margin-top: 30px;
+  padding: 10px 30px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  border-radius: 3px;
+  background-color: #cf4141;
+  margin-bottom: 70rpx;
+}

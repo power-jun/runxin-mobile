@@ -51,9 +51,10 @@
       </view>
     </view>
     <view class='protocol-box'>
-      <check-box label='请您仔细阅读' color='#23303a' />
+      <check-box label='请您仔细阅读' color='#23303a' bindchange="checkboxchange"/>
       <text class='protocol'>《润信签发协议》</text>
     </view>
     <button form-type="submit" class='submit-btn' bindtap='submitFinancing'> 确认融资 </button>
   </view>
+  <confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />
 </scroll-view>

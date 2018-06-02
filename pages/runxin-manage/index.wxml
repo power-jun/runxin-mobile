@@ -20,6 +20,8 @@
     <view class="holding-list" wx:if="{{activeCategoryId==0}}">
       <bookmarks-item wx:for="{{holdingList}}" wx:key="index" itemData="{{item}}" bindchange="goDetail"/>
       <!-- <navigator url="/pages/runxin-transfer-detail/index"><bookmarks-item/></navigator> -->
+      <view class="no-more-goods" hidden='{{loadingMoreHidden}}'>更多记录,敬请期待</view>
+      <view class="no-more-goods no-datas" hidden='{{noDataHidden}}'>暂无记录</view>
     </view>
 
     <view class='transaction-inquiry-box' wx:elif="{{activeCategoryId==1}}">
@@ -54,17 +56,19 @@
           <text>{{item.expireDate}}</text>
         </view>
       </view>
+      <view class="no-more-goods" hidden='{{loadingMoreHidden}}'>更多记录,敬请期待</view>
+      <view class="no-more-goods no-datas" hidden='{{noDataHidden}}'>暂无记录</view>
       <view class='footer-fixed'>
         <view class='head'>累计</view>
         <view class='amount-detail'>
-          <text>签发：100</text>
-          <text>转让：454,301</text>
-          <text>融资：300,33</text>
+          <text>签发：{{countTrade.billSIgnAmountTotal}}</text>
+          <text>转让：{{countTrade.transferAmountTotal}}</text>
+          <text>融资：{{countTrade.financeAmountTotal}}</text>
         </view>
-        <view class='amount-detail'>
+        <!-- <view class='amount-detail'>
           <text>润信增加：100</text>
           <text>润信减少：454,301</text>
-        </view>
+        </view> -->
       </view>
     </view>
 
@@ -73,6 +77,5 @@
       <navigator url="/pages/runxin-distribute-detials/index"><master-mask/></navigator>
     </view> -->
   </view>
-  <view class="no-more-goods" hidden='{{loadingMoreHidden}}'>更多记录,敬请期待</view>
-  <view class="no-more-goods no-datas" hidden='{{noDataHidden}}'>暂无记录</view>
+  
 </scroll-view>

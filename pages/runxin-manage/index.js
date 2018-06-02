@@ -14,23 +14,35 @@ Page({
     distributeData: [], // 签发交易
     transactionData: [], // 交易查询
     loadingMoreHidden: true,
-    noDataHidden: true
+    noDataHidden: true,
+    countTrade: {}
+  },
+
+  /**
+  * 生命周期函数--监听页面显示
+  */
+  onShow: function (options) {
+    this.page = 1;
+    this.totalPage = 1;
+
+    let advanceParams = wx.getStorageSync('advanceParams');
+    if (advanceParams) {
+      this.requestData(this.serviceCode, JSON.parse(advanceParams));
+    } else {
+      this.serviceCode = 'BILL0017';
+      this.requestData(this.serviceCode);
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.page = 1;
-    this.totalPage = 1;
-    this.serviceCode = 'BILL0017';
-    this.requestData(this.serviceCode);
+    wx.setStorage({
+      key: 'advanceParams',
+      data: ''
+    });
   },
-
-  onTabItemTap: function() {
-    debugger
-  },
-
 
   tabClick: function (e) {
     let id = e.currentTarget.dataset.id;
@@ -47,22 +59,50 @@ Page({
       this.page = 1;
       this.totalPage = 1;
       this.serviceCode = e.currentTarget.dataset.servicecode;
-      this.requestData(this.serviceCode); 
+      this.requestData(this.serviceCode);
+      if (id === '1') {
+        this.countTrade();
+      }
     }
   },
 
-  requestData(serviceCode) {
+  countTrade: function() {
     let that = this;
-    wx.showLoading();
-
     wx.request({
       url: config.prefix,
       method: 'POST',
       data: {
-        serviceCode: serviceCode,
-        row: 10,
-        page: that.page
+        serviceCode: 'BASE0019'
       },
+      success: function(res) {
+        if (res.data.respCode == '0000') {
+          that.setData({
+            countTrade: {
+              billSIgnAmountTotal: util.formatNumberRgx(res.data.billSIgnAmountTotal),
+              transferAmountTotal: util.formatNumberRgx(res.data.transferAmountTotal),
+              financeAmountTotal: util.formatNumberRgx(res.data.financeAmountTotal),
+            }
+          })
+        }
+      }
+    })
+  },
+
+  requestData(serviceCode, advanceParams) {
+    let that = this;
+    let params = {};
+    wx.showLoading();
+
+    params = Object.assign({
+      serviceCode: serviceCode,
+      row: 10,
+      page: that.page
+    }, advanceParams || {})
+
+    wx.request({
+      url: config.prefix,
+      method: 'POST',
+      data: params,
       success: function (res) {
         wx.hideLoading();
         
@@ -119,34 +159,6 @@ Page({
     wx.navigateTo({
       url: '/pages/holding-list-details/index?id=' + data.detail.id
     });
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
   },
 
   /**

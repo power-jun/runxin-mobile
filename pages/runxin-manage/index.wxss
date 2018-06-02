@@ -45,7 +45,7 @@
 }
 
 .transaction-inquiry-box {
-  margin-bottom: 250rpx;
+  margin-bottom: 220rpx;
 }
 
 .transaction-inquiry {

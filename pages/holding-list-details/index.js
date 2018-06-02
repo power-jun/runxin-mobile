@@ -33,7 +33,6 @@ Page({
       },
       success: function(res) {
         wx.hideLoading();
-        
         if (res.data.splitFlag == 1) {
           that.data.yesCheckboxFlag  = true;
         } else {
@@ -41,6 +40,7 @@ Page({
         }
 
         res.data.uppercase = util.convertCurrency(res.data.xdAmount);
+        res.data.xdAmount = util.formatNumberRgx(res.data.xdAmount);
 
         if (res.data.terminalType === 1) {
           res.data.terminalName = '电脑端WEB版';
@@ -84,57 +84,28 @@ Page({
   },
 
   gotoTransfer: function () {
-    // wx.navigateTo({
-    //   url: '/pages/runxin-financing/index'
-    // });
-  },
+    wx.setStorage({
+      key: 'receiverData',
+      data: []
+    });
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
+    wx.setStorage({
+      key: 'transferCurrentIndex',
+      data: ''
+    });
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
+    wx.setStorage({
+      key: 'receiverAmountArry',
+      data: []
+    });
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
+    wx.setStorage({
+      key: 'receiverxdDescArry',
+      data: []
+    });
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    wx.navigateTo({
+      url: '/pages/runxin-transfer/index'
+    });
   }
 })

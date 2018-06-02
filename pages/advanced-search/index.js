@@ -104,11 +104,12 @@ Page({
       entno: this.data.entno,
       startDate: this.data.startDate,
       endOpenDate: this.endOpenDate,
+      xdStatus: this.data.xdStatus
     });
 
     wx.setStorage({
       key: 'advanceParams',
-      data: params,
+      data: params
     })
 
     wx.switchTab({

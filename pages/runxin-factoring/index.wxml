@@ -1,6 +1,6 @@
 <scroll-view class='body' scroll-y='true'>
   <view class='article'>
-    <view class='article-item' wx:for="{{rateList}}" wx:key="{{index}}"  data-name="{{item.drawEntName}}" data-rate="{{item.rate}}" bindtap='factoringSelect'>
+    <view class='article-item' wx:for="{{rateList}}" wx:key="{{index}}"  data-name="{{item.drawEntName}}" data-rate="{{item.rate}}" data-drawentno="{{item.drawEntNo}}" bindtap='factoringSelect'>
       <view class='select'>
         <!-- <check-box color='#23303a' data-name="{{item.drawEntName}}" data-rate="{{item.rate}}" bindchange="radioChange"/> -->
         <text class='company'>{{item.drawEntName}}</text>
