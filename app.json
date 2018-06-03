@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/runxin-manage/index",
+    "pages/runxin-distribute/index",
+    "pages/index/index",
     "pages/runxin-transfer/index",
     "pages/login/index",
-    "pages/index/index",
-    "pages/runxin-distribute/index",
+    "pages/dynamic-password/index",
     "pages/upcoming-task/index",
     "pages/advanced-search/index",
     "pages/manage-center/index",

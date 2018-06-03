@@ -14,10 +14,11 @@
       <view class='distribute-line' style='border: none;'>
         <text class='head'>可用额度</text>
         <view class='val-input'>
-          <input type="text" value="" placeholder='请输入额度' placeholder-class='available-amt-place' class="available-amt" />
+          <input type="digit" confirm-type="done" value="{{availableAmount}}" class="available-amt"/>
           <text class='unit'>元</text>
         </view>
       </view>
+
       <!-- <view class='distribute-line-gray'></view> -->
       <view class='distribute-line'>
         <text class='head'>收信企业</text>
@@ -27,6 +28,13 @@
               {{receivingName}}
             </view>
           </picker>
+        </view>
+      </view>
+      <view class='distribute-line'>
+        <text class='head'>签发金额</text>
+        <view class='val-input'>
+          <input type="digit" confirm-type="done" value="{{xdAmount}}" placeholder='请输入金额' placeholder-class='available-amt-place' class="available-amt" bindinput='keyInputAmt'/>
+          <text class='unit'>元</text>
         </view>
       </view>
       <view class='distribute-line'>
@@ -56,7 +64,7 @@
       <view class='distribute-line'>
         <text class='head'>到期日</text>
         <view class='val-input'>
-          <picker bindchange="bindDateChange" mode="date" fields="day" start="{{openDate}}" value="{{index}}">
+          <picker bindchange="bindDateChange" mode="date" fields="day" start="{{openDate}}">
             <view class="picker {{dateSelectV=='请选择'?'hui':''}}">
               {{dateSelectV}}
             </view>
@@ -66,13 +74,13 @@
       <view class='distribute-line' style='border: none'>
         <text class='head'>担保人</text>
         <view class='val-input'>
-          <input type="text" disabled class='gray' value="深圳市地球月球科技有限公司" />
+          <input type="text" disabled class='gray' value="{{guarantorName}}" />
         </view>
       </view>
       <view class='distribute-bottom-gary'>
-        <view class='distribute-pictrue'>
-          <view>
-            <view class="{{(imgArry.length && index ==0) ? 'margin-l': '' }}" wx:for="{{imgArry}}" wx:key="{{index}}" style='float: left'>
+        <view class='distribute-pictrue' style='display: block'>
+          <view class='picture-img'>
+            <view class="margin-r" wx:for="{{imgArry}}" wx:key="{{index}}">
               <image src='{{item}}' class='pic-shop' />
             </view>
           </view>
@@ -87,11 +95,12 @@
           </view>
         </view>
         <view class='protocol-box'>
-          <check-box label='请您仔细阅读' color='#23303a' />
+          <check-box label='请您仔细阅读' color='#23303a' bindchange="checkboxchange" />
           <text class='protocol'>《润信签发协议》</text>
         </view>
-        <button form-type="submit" class='submit-btn'> 确认融资 </button>
+        <button form-type="submit" class='submit-btn'> 确认签发 </button>
       </view>
     </form>
   </view>
+  <confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />
 </scroll-view>

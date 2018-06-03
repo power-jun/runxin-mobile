@@ -91,8 +91,8 @@
   margin-right: 10rpx;
 }
 
-.margin-l {
-  margin-left: 20rpx;
+.margin-r {
+  margin-right: 20rpx;
 }
 
 .protocol-box {
@@ -166,4 +166,8 @@
   flex: 1;
   padding: 15px 0;
   line-height: 1.2;
+}
+
+.picture-img {
+  display: flex;
 }

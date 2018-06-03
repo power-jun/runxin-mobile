@@ -16,16 +16,24 @@ Page({
     receivingName: '请选择',
     creditagency:[],
     creditagencyNameArry: [],
-    creditagencyCode: [],
+    creditagencyCodeArry: [],
+    creditagencyCode: '',
     creditagencyName: '请选择',
     dateSelectV: '请选择',
     receivingCode: '',
     accNo: '',
     bankName: '',
     branchName: '',
+    xdAmount: '', //签发金额
+    availableAmount: '', // 可用额度
     openDate: '',
     expireDate: '',
-    deadlineDate: 0
+    deadlineDate: 0,
+    guarantorName: '', //担保人
+    checkboxFlag: false,
+    showPrompt: false,
+    promptTitle: '签发成功',
+    promptMessage: '将签发成功的消息转发给收信人，让他快点签收润信！',
   },
 
   /**
@@ -63,12 +71,36 @@ Page({
 
     this.setData({
       expireDate: val,
+      dateSelectV: val,
       deadlineDate: deadline.getDate()
     });
   },
 
-  bindCreditChange: function() {
+  bindCreditChange: function (event) {
+    let index = event.detail.value;
+    let creditagencyName = this.data.creditagencyNameArry[index];
+    let creditagencyCode = this.data.creditagencyCodeArry[index];
 
+    let currentCreditagency = this.data.creditagency.filter(function (v, n) {
+      return v.entNo === creditagencyCode
+    });
+    console.log(app)
+
+    if (currentCreditagency[0].confirmFlag === '1') {
+      this.setData({
+        creditagencyName: creditagencyName,
+        creditagencyCode: creditagencyCode,
+        availableAmount: currentCreditagency[0].availableAmount,
+        guarantorName: currentCreditagency[0].entName
+      })
+    } else {
+      this.setData({
+        creditagencyName: creditagencyName,
+        creditagencyCode: creditagencyCode,
+        availableAmount: currentCreditagency[0].availableAmount,
+        guarantorName: app.companyInfo.name
+      })
+    }
   },
 
   uploadImg: function () {
@@ -116,7 +148,7 @@ Page({
               var contractFileId = data.contractFileId;
               var imgArryId = that.data.imgArryId;
               imgArryId.push(contractFileId);
-debugger
+
               that.setData({
                 imgArryId: imgArryId,
                 imgArry: that.data.imgArry
@@ -139,6 +171,18 @@ debugger
           });
         }
       }
+    });
+  },
+
+  submitPrompt: function () {
+    wx.switchTab({
+      url: '/pages/runxin-manage/index'
+    });
+  },
+
+  cancelPrompt: function () {
+    wx.switchTab({
+      url: '/pages/runxin-manage/index'
     });
   },
 
@@ -181,23 +225,100 @@ debugger
         bizType: '1'
       },
       success: function (res) {
-        if (res.data.respCode !== '0000') {
-          let datas = res.data.creditagency;
+        if (res.data.respCode === '0000') {
+          let datas = res.data.authEntList;
           let creditagencyNameArry = [];
-          let creditagencyCode = [];
+          let creditagencyCodeArry = [];
 
           for (let i = 0, len = datas.length; i < len; i++) {
             creditagencyNameArry.push(datas[i].entName);
-            creditagencyCode.push(datas[i].accNo);
+            creditagencyCodeArry.push(datas[i].entNo);
           }
 
           that.setData({
             creditagency: datas,
-            receivingNameArry: creditagencyNameArry,
-            creditagencyCode: creditagencyCode
+            creditagencyNameArry: creditagencyNameArry,
+            creditagencyCodeArry: creditagencyCodeArry
           });
         }
       }
     });
+  },
+
+  keyInputAmt: function(e) {
+    let val = e.detail.value;
+    this.setData({
+      xdAmount: val
+    });
+  },
+
+  checkboxchange: function (e) {
+    this.setData({
+      checkboxFlag: e.detail.checked
+    });
+  },
+
+  bindFormSubmit: function() {
+    let that = this;
+
+    if (!this.data.creditagencyCode) {
+      wx.showToast({
+        title: '请选择授信机构'
+      });
+      return;
+    }
+
+    if (!this.data.receivingCode) {
+      wx.showToast({
+        title: '请选择收信企业'
+      });
+      return;
+    }
+
+    if (!this.data.xdAmount) {
+      wx.showToast({
+        title: '请输入签发金额'
+      });
+      return;
+    }
+
+    if (!this.data.expireDate) {
+      wx.showToast({
+        title: '请输选择到期日'
+      });
+      return;
+    }
+
+    if (!this.data.checkboxFlag) {
+      wx.showToast({
+        title: '请阅读润信签发协议'
+      });
+      return;
+    }
+
+    let params = {
+      creditagencyCode: this.data.creditagencyCode,
+      receEntNo: this.data.receivingCode,
+      xdAmount: this.data.xdAmount,
+      openDate: this.data.openDate,
+      expireDate: this.data.expireDate,
+      contractFileId: this.data.imgArryId.join(','),
+      serviceCode: 'BILL0003'
+    }
+
+    wx.showLoading();
+    wx.request({
+      url: config.prefix,
+      method: 'POST',
+      data: params,
+      success: function(res){
+        wx.hideLoading()
+        if (res.data.respCode === '0000') {
+          that.setData({
+            showPrompt: true
+          });
+        }
+      }
+    })
   }
 })

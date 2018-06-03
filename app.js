@@ -1,3 +1,4 @@
+var config = require('./utils/config.js');
 App({
 
   /* 公司信息 */
@@ -37,13 +38,16 @@ App({
 
   globalData: {
     version: "1.0.0",
+    entInfo: {}, //企业信息
+    accInfo: {}, // 账号信息
+    userInfo: {} // 用户信息
   },
 
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function (options) {
-
+    
   },
 
   /**
@@ -51,6 +55,22 @@ App({
    */
   onShow: function (options) {
     var userInfo = this.getUserInfo();
+    var that = this;
+
+    //获取个人信息
+    // wx.request({
+    //   url: config.prefix,
+    //   data: {
+    //     serviceCode: 'BASE0003'
+    //   },
+    //   method: 'POST',
+    //   success: function (res) {
+    //     if (res.data.respCode === '0000'){
+    //       that.globalData.entInfo = res.data.entInfo;
+    //     }
+    //   }
+    // });
+
     return ;
     if (!userInfo.phone && options.path !== 'pages/login/index') {
       wx.showModal({
@@ -78,7 +98,7 @@ App({
           }
         }
       });
-    }
+    }  
   },
 
   /**
