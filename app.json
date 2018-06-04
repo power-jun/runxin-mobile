@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/runxin-manage/index",
-    "pages/runxin-distribute/index",
     "pages/index/index",
+    "pages/runxin-distribute/index",
     "pages/runxin-transfer/index",
     "pages/login/index",
     "pages/dynamic-password/index",

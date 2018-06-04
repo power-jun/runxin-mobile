@@ -69,7 +69,7 @@
   line-height: 1.2;
   border-radius: 3px;
   background-color: #cf4141;
-  margin-bottom: 70rpx;
+  margin-bottom: 100rpx;
 }
 
 .upload-icon {

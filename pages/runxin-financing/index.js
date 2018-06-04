@@ -63,9 +63,11 @@ Page({
       }, 500);
       return;
     }
+
+    let interest = (val * this.data.factoringRate * this.data.financingData.financingDate) / 360;
     
     this.setData({
-      interest: val * this.data.factoringRate * this.data.financingData.financingDate,
+      interest: interest.toFixed(2),
       financeAmount: val
     });
   },
@@ -77,12 +79,18 @@ Page({
   },
 
   submitPrompt: function() {
+    this.setData({
+      showPrompt: false
+    });
     wx.switchTab({
       url: '/pages/runxin-manage/index'
     });
   },
 
   cancelPrompt: function() {
+    this.setData({
+      showPrompt: false
+    });
     wx.switchTab({
       url: '/pages/runxin-manage/index'
     });

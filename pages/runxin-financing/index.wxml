@@ -22,7 +22,7 @@
         <text class='head'>申请金额</text>
         <view class='val-input'>
           <text class='char'>￥</text>
-          <input type="digit" value="" bindinput="calculateInterest"/>
+          <input type="digit" value="" bindblur="calculateInterest"/>
         </view>
       </view>
       <view class='distribute-line'>
