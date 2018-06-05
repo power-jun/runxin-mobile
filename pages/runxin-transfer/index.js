@@ -122,6 +122,7 @@ Page({
     if (this.data.availableCredits <= 0) {
       wx.showToast({
         title: '可用额度不够',
+        icon: 'none'
       });
       return;
     }
@@ -164,7 +165,8 @@ Page({
 
     if (resultAmt < 0) {
       wx.showToast({
-        title: '余额不够'
+        title: '余额不够',
+        icon: 'none'
       });
 
       this.data.transAmountArry[index] = 0;
@@ -219,13 +221,15 @@ Page({
     for (let i = 0; i < receiverData.length; i++) {
       if (!receiverData[i].entName) {
         wx.showToast({
-          title: '请选择收信人'
+          title: '请选择收信人',
+          icon: 'none'
         });
         flag = false;
         break;
       } else if (!transAmountArry[i]) {
         wx.showToast({
-          title: '请输入金额'
+          title: '请输入金额',
+          icon: 'none'
         });
         flag = false;
         break;

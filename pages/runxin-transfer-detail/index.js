@@ -9,8 +9,8 @@ Page({
    */
   data: {
     xdno: '',
-    beforeFinancingData: {},
-    afterFinancingData: {}
+    beforeTransferData: {},
+    afterTransferData: {}
   },
 
   /**
@@ -28,7 +28,7 @@ Page({
       url: config.prefix,
       method: 'POST',
       data: {
-        serviceCode: 'BILL0013', //润信融资详情
+        serviceCode: 'BILL0009', //润信转让后详情
         xdNo: id
       },
       success: function (res) {
@@ -37,12 +37,11 @@ Page({
           res.data.uppercase = util.convertCurrency(res.data.xdAmount);
           res.data.xdAmount = util.formatNumberRgx(res.data.xdAmount);
           res.data.status = 'green';
-          res.data.financeAmount = util.formatNumberRgx(res.data.financeAmount);
           res.data.actualAmount = util.formatNumberRgx(res.data.actualAmount);
           res.data.financeProfit = util.formatNumberRgx(res.data.financeProfit);
           
           that.setData({
-            beforeFinancingData: res.data,
+            beforeTransferData: res.data,
             xdno: id
           });
 
@@ -50,7 +49,7 @@ Page({
             url: config.prefix,
             method: 'POST',
             data: {
-              serviceCode: 'BILL0013', //润信融资详情
+              serviceCode: 'BILL0009', //润信转让前详情
               xdNo: res.data.mXdNo
             },
             success: function(data) {
@@ -61,7 +60,7 @@ Page({
                 data.data.status = 'red';
 
                 that.setData({
-                  afterFinancingData: data.data
+                  afterTransferData: data.data
                 });
               }
             }

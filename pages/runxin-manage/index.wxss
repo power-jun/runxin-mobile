@@ -186,3 +186,7 @@
 .no-datas {
   background: #fff;
 }
+
+.hover-style {
+  background: #fafafa;
+}

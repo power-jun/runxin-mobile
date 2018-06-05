@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "润信签发",
+  "navigationBarTitleText": "润信签发详情",
   "usingComponents": {
     "confirm": "../../components/confirm/index",
     "check-box": "../../components/check-box/index",

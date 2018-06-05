@@ -1,0 +1,87 @@
+.article {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10000;
+  background: #f8f8f8;
+}
+
+.dynamic-line {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  padding-right: 15px;
+  border-bottom: 1rpx solid #ebebeb;
+}
+
+.dynamic-line:last-child {
+  border: 0;
+}
+
+.dynamic-line .head {
+  font-size: 14px;
+  color: #676767;
+  line-height: 1.2;
+}
+
+.dynamic-line .val-input {
+    flex: 1;
+  padding: 15px 0;
+  font-size: 14px;
+  color: #676767;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.dynamic-line .val-input .red {
+  color: red;
+}
+
+.operating-step {
+  margin: 0 15px;
+  font-size: 14px;
+  color: #676767;
+}
+
+.operating-step .head {
+  font-size: 16px;
+}
+
+.operating-step view {
+  margin-bottom: 20rpx;
+}
+
+.submit-btn {
+  width: 300rpx;
+  margin-top: 30px;
+  padding: 10px 30px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.2;
+  border-radius: 3px;
+  background-color: #cf4141;
+  margin-bottom: 70rpx;
+}
+
+.password-input {
+  display: flex;
+  margin: 60rpx 0;
+  justify-content: center;
+}
+
+.password-input input {
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ccc;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+}
+
+.password-input input:focus {
+  border: 1px solid #cf4141;
+}

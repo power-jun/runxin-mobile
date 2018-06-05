@@ -1,0 +1,33 @@
+<scroll-view class='body' scroll-y='true'>
+  <view class="article">
+    <master-mask maskData="{{beforeTransferData}}"/>
+    <master-mask maskData="{{afterTransferData}}"/>
+
+    <view class='money-detail'>
+      <!-- <view class='item'>
+        <view class='select'>
+          <text class='company'>转让笔数</text>
+        </view>
+        <view>
+          <text>{{beforeTransferData.financeRate}}%</text>
+        </view>
+      </view> -->
+      <view class='item'>
+        <view class='select'>
+          <text class='company'>转让金额</text>
+        </view>
+        <view>
+          <text>{{beforeTransferData.xdAmount}}元</text>
+        </view>
+      </view>
+       <!-- <view class='item'>
+        <view class='select'>
+          <text class='company'>余额</text>
+        </view>
+        <view>
+          <text>{{beforeTransferData.financeProfit}}元</text>
+        </view>
+      </view> -->
+    </view>
+  </view>
+</scroll-view>

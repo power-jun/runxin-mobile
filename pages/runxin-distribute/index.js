@@ -105,7 +105,10 @@ Page({
 
   uploadImg: function () {
     if (this.data.imgArry.length == 5) {
-      wx.showToast({ title: '最多只可以上传5张' });
+      wx.showToast({
+        title: '最多只可以上传5张', 
+        icon: 'none'
+      });
       return;
     }
 
@@ -263,35 +266,40 @@ Page({
 
     if (!this.data.creditagencyCode) {
       wx.showToast({
-        title: '请选择授信机构'
+        title: '请选择授信机构',
+        icon: 'none'
       });
       return;
     }
 
     if (!this.data.receivingCode) {
       wx.showToast({
-        title: '请选择收信企业'
+        title: '请选择收信企业',
+        icon: 'none'
       });
       return;
     }
 
     if (!this.data.xdAmount) {
       wx.showToast({
-        title: '请输入签发金额'
+        title: '请输入签发金额',
+        icon: 'none'
       });
       return;
     }
 
     if (!this.data.expireDate) {
       wx.showToast({
-        title: '请输选择到期日'
+        title: '请输选择到期日',
+        icon: 'none'
       });
       return;
     }
 
     if (!this.data.checkboxFlag) {
       wx.showToast({
-        title: '请阅读润信签发协议'
+        title: '请阅读润信签发协议',
+        icon: 'none'
       });
       return;
     }

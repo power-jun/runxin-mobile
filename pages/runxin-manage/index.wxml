@@ -38,7 +38,7 @@
         <view class='icon'></view>
       </navigator>
 
-      <view class='credit-agency' wx:for="{{transactionData}}" wx:key="{{key}}">
+      <view class='credit-agency' hover-class="hover-style" bindtap='listDetails' data-xdno='{{item.xdNo}}' wx:for="{{transactionData}}" wx:key="{{key}}">
         <view class='agency-company'>
           <text>交易对手：</text>
           <text>{{item.receEntName}}</text>

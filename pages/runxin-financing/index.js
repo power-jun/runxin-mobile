@@ -14,6 +14,7 @@ Page({
     interest: '',
     financeAmount: '',
     checkboxFlag: false,
+    showDynamic: false, //显示动态密码框
     showPrompt: false, // 显示成功提示
     promptTitle: '融资成功',
     promptMessage: '将融资成功的消息转发给收信人，让他快点签收润信！',
@@ -58,7 +59,8 @@ Page({
     if (!this.data.factoringRate) {
       setTimeout(() => {
         wx.showToast({
-          title: '请选择保理商'
+          title: '请选择保理商',
+          icon: 'none'
         });
       }, 500);
       return;
@@ -79,6 +81,9 @@ Page({
   },
 
   submitPrompt: function() {
+    wx.showToast({
+      title: 'erro',
+    })
     this.setData({
       showPrompt: false
     });
@@ -88,6 +93,16 @@ Page({
   },
 
   cancelPrompt: function() {
+    try {
+      wx.showToast({
+        title: 'erro',
+      })
+    } catch(erro) {
+      wx.showToast({
+        title: erro,
+      })
+    }
+   
     this.setData({
       showPrompt: false
     });
@@ -96,9 +111,21 @@ Page({
     });
   },
 
+  passwordSubmit: function() { //动态码提交验证
+    this.setData({
+      showDynamic: false
+    })
+  },
+
   submitFinancing: function() {
     let that = this;
     let params = {};
+    
+    this.setData({
+      showDynamic: true
+    });
+    return;
+
     params.receEntNo = this.data.drawentno;
     params.xdNo = this.data.financingData.xdNo;
     params.financeAmount = this.data.financeAmount;
@@ -106,21 +133,24 @@ Page({
     params.serviceCode = 'BILL0014';
     if (!params.receEntNo) {
       wx.showToast({
-        title: '请选择保理商'
+        title: '请选择保理商',
+        icon: 'none'
       });
       return;
     }
 
     if (!params.financeAmount) {
       wx.showToast({
-        title: '请输入申请金额'
+        title: '请输入申请金额',
+        icon: 'none'
       });
       return;
     }
 
     if (!this.data.checkboxFlag) {
       wx.showToast({
-        title: '请阅读润信签发协议'
+        title: '请阅读润信签发协议',
+        icon: 'none'
       });
       return;
     }

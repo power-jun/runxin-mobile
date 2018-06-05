@@ -1,0 +1,48 @@
+<view class="article" wx:if="{{showDynamic}}">
+  <view style='background: #fff;'>
+    <view class='dynamic-line'>
+      <view class='head'>
+        <text>交易时间</text>
+      </view>
+      <view class='val-input'>
+        <text>2018-05-25</text>
+      </view>
+    </view>
+    <view class='dynamic-line'>
+      <view class='head'>
+        <text>交易内容</text>
+      </view>
+      <view class='val-input'>
+        1000076755655
+        <text class='red'>45</text>0076755
+        <text class='red'>4995</text>
+      </view>
+    </view>
+  </view>
+  <view class='password-input'>
+    <input type='number' maxlength='1'/>
+    <input type='number' maxlength='1'/>
+    <input type='number' maxlength='1'/>
+    <input type='number' maxlength='1'/>
+    <input type='number' maxlength='1'/>
+    <input type='number' maxlength='1'/>
+  </view>
+  <button form-type="submit" class='submit-btn' bindtap='submit'> 提交校验 </button>
+  <view class='operating-step'>
+    <view>
+      <text class='head'>操作步骤：</text>
+    </view>
+    <view>
+      <text>1、请打开动态密码器并输入开机密码；</text>
+    </view>
+    <view>
+      <text>2、将以上红色部分的数据输入动态密码器；</text>
+    </view>
+    <view>
+      <text>3、动态密码器会返回6位数的密码；</text>
+    </view>
+    <view>
+      <text>4、输入6位数的密码验证；</text>
+    </view>
+  </view>
+</view>
