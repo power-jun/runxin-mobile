@@ -15,6 +15,7 @@ Page({
     showNoData: false, // 显示没有数据
     showPagesLoading: false, // 显示分页加载
     pagesLoadingText: '数据加载中...', // 分页加载文本
+    filterStatus: 1, //  筛选状态
   },
 
   /* 全选组件 */
@@ -93,6 +94,7 @@ Page({
   params: {
     serviceCode: 'BASE0012',
     sessionToken: '',
+    status: '',  // 状态
     page: 1,
     row: 10,
   },
@@ -105,6 +107,7 @@ Page({
     } else {
       _this.params.page = 1;
       _this.params.sessionToken = _this.userInfo.sessionToken;
+      _this.params.status = _this.data.filterStatus;
     }
     wx.request({
       url: config.prefix,
@@ -280,6 +283,14 @@ Page({
   reloadPage() {
     this.requestListData(false);
     this.allCheckBox.select(false);
+  },
+
+  /* 切换筛选条件 */
+  switchFilterCondition: function (e) {
+    this.setData({
+      filterStatus: +e.currentTarget.dataset.value
+    });
+    this.reloadPage();
   },
 
 })

@@ -15,6 +15,7 @@ Page({
     showNoData: false, // 显示没有数据
     showPagesLoading: false, // 显示分页加载
     pagesLoadingText: '数据加载中...', // 分页加载文本
+    filterStatus: 1, //  筛选状态
   },
 
   /* 全选组件 */
@@ -91,8 +92,11 @@ Page({
 
   /* 参数 */
   params: {
-    serviceCode: 'BILL0001',
+    serviceCode: 'BASE0016',
     sessionToken: '',
+    payeeEntNo: '', // 收款企业编号
+    payEntNo: '', // 付款企业编号
+    payStatus: '', // 状态
     page: 1,
     row: 10,
   },
@@ -105,6 +109,8 @@ Page({
     } else {
       _this.params.page = 1;
       _this.params.sessionToken = _this.userInfo.sessionToken;
+      _this.params.payEntNo = _this.companyInfo.id;
+      _this.params.payStatus = _this.data.filterStatus;
     }
     wx.request({
       url: config.prefix,
@@ -113,16 +119,16 @@ Page({
       success: function (res) {
         if (res.statusCode === 200 && res.data.respCode === '0000') {
           if (flag) {
-            if (res.data.billList && res.data.billList.length) {
-              _this.data.listData = _this.data.listData.concat(_this.dealListData(res.data.billList));
+            if (res.data.orderList && res.data.orderList.length) {
+              _this.data.listData = _this.data.listData.concat(_this.dealListData(res.data.orderList));
               _this.data.showPagesLoading = false;
             } else {
               _this.data.showPagesLoading = true;
               _this.data.pagesLoadingText = '没有更多数据了';
             }
           } else {
-            if (res.data.billList && res.data.billList.length) {
-              _this.data.listData = _this.dealListData(res.data.billList);
+            if (res.data.orderList && res.data.orderList.length) {
+              _this.data.listData = _this.dealListData(res.data.orderList);
               _this.data.showNoData = false;
             } else {
               _this.data.showNoData = true;
@@ -154,20 +160,24 @@ Page({
     var listData = [];
     data && data.map(function (v, i) {
       var status = 'red';
-      var uppercase = util.convertCurrency(v.xdAmount);
-      var xdAmount = util.formatNumberRgx(v.xdAmount);
+      var uppercase = util.convertCurrency(v.tradeAmount);
+      var xdAmount = util.formatNumberRgx(v.tradeAmount);
+      var actualAmount = util.formatNumberRgx(v.actualAmount);
       var maskData = {
         status: status, // 状态
-        xdNo: v.xdNo,  // 单号
+        xdNo: v.payNo,  // 单号
+        busNo: v.busNo, // 业务号
+        busType: v.busType, // 业务类型
+        actualAmount: actualAmount, // 实付金额
         xdAmount: xdAmount, // 金额
         uppercase: uppercase, // 大写金额
-        xdDay: v.xdDay,  // 天数
-        openDate: v.openDate, // 开始时时
-        expireDate: v.expireDate, // 结束时间
-        openEntNo: v.openEntNo, // 签发人id
-        openEntName: v.openEntName, // 签发人
-        receEntNo: v.receEntNo, // 签收人id
-        receEntName: v.receEntName, // 签收人
+        xdDay: v.overdueDay,  // 天数
+        openDate: v.operTime, // 开始时时
+        expireDate: v.payDate, // 结束时间
+        openEntNo: v.payEntNo, // 签发人id
+        openEntName: v.payEntName, // 签发人
+        receEntNo: v.payeeEntNo, // 签收人id
+        receEntName: v.payeeEntName, // 签收人
         guaranteeEntNo: v.guaranteeEntNo, // 担保人id
         guaranteeEntName: v.guaranteeEntName, // 担保人
         checked: false, // 是否选中
@@ -192,6 +202,7 @@ Page({
   selectListItem: function (e) {
     var status = true;
     this.data.listData && this.data.listData.map(function (v, i) {
+      console.log(e.detail.id, v.xdNo)
       if (e.detail.id === v.xdNo) {
         v.checked = e.detail.checked;
       }
@@ -243,7 +254,7 @@ Page({
       url: config.prefix,
       method: 'POST',
       data: {
-        serviceCode: 'BILL0004',
+        serviceCode: 'BASE0018',
         sessionToken: _this.userInfo.sessionToken,
         xdNo: xdNo,
         checkStatus: status,
@@ -286,6 +297,14 @@ Page({
   reloadPage() {
     this.requestListData(false);
     this.allCheckBox.select(false);
+  },
+
+  /* 切换筛选条件 */
+  switchFilterCondition: function (e) {
+    this.setData({
+      filterStatus: +e.currentTarget.dataset.value
+    });
+    this.reloadPage();
   },
 
 })

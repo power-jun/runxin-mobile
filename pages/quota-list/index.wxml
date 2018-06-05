@@ -1,9 +1,9 @@
 <view class='no-data-list' wx:if='{{showNoData}}'>暂无数据</view>
 <block wx:else>
   <view class='tabs-box'>
-    <view class='items current'>分配</view>
-    <view class='items'>调整</view>
-    <view class='items'>新增</view>
+    <view class='items{{filterStatus===1?" current":""}}' data-value='1' bindtap='switchFilterCondition'>分配</view>
+    <view class='items{{filterStatus===2?" current":""}}' data-value='2' bindtap='switchFilterCondition'>调整</view>
+    <view class='items{{filterStatus===3?" current":""}}' data-value='3' bindtap='switchFilterCondition'>新增</view>
   </view>
   <scroll-view class='body' scroll-y='true'>
     <view class='article'>
