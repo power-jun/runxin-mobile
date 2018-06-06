@@ -21,6 +21,7 @@ Page({
       bankName: '', //银行名称
       branchName: '' //银行支行
     },
+    showDynamic: false, //显示动态密码框
     showPrompt: false, // 显示成功提示
     promptTitle: '转让成功',
     promptMessage: '将转让成功的消息转发给收信人，让他快点签收润信！',
@@ -210,13 +211,66 @@ Page({
     });
   },
 
+  passwordSubmit: function (datas) { //动态码提交验证
+    let that = this;
+    if (!datas.detail.inputV) {
+      wx.showToast({
+        title: '请输入动态码',
+        icon: 'none'
+      });
+      return;
+    }
+
+    let paramArry = this.paramArry;
+
+    wx.showLoading();
+    wx.request({
+      url: config.prefix,
+      data: {
+        xdNo: that.submitParams.xdNo,
+        bizType: '2',
+        dyCode: datas.detail.randomMathVal,
+        dyPasswd: datas.detail.inputV,
+        serviceCode: 'BILL0016'
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res.data.respCode === '0000') {
+
+          wx.request({
+            url: config.prefix,
+            data: { paramArry, serviceCode: 'BILL0010' },
+            method: 'POST',
+            success: function (res) {
+              wx.hideLoading();
+              if (res.data.respCode === '0000') {
+                that.setData({
+                  showPrompt: true
+                });
+              }
+            }
+          });
+
+        } else {
+          wx.showToast({
+            title: res.data.respDesc,
+            icon: 'none'
+          });
+
+          wx.hideLoading();
+        }
+      }
+    });
+  },
+
   submitTransfer: function () {
     let receiverData = this.data.receiverData;
     let transAmountArry = this.data.transAmountArry;
     let xdDescArry = this.data.xdDescArry;
     let flag = true;
-    let paramArry = [];
     let that = this;
+
+    this.paramArry = [];
 
     for (let i = 0; i < receiverData.length; i++) {
       if (!receiverData[i].entName) {
@@ -235,7 +289,7 @@ Page({
         break;
       }
 
-      paramArry.push({
+      this.paramArry.push({
         xdNo: that.xdNo,
         receEntNo: receiverData[i].accNo,
         transAmount: transAmountArry[i],
@@ -247,20 +301,9 @@ Page({
       return;
     }
 
-    wx.showLoading();
-    wx.request({
-      url: config.prefix,
-      data: { paramArry, serviceCode: 'BILL0010' },
-      method: 'POST',
-      success: function (res) {
-        wx.hideLoading();
-        if (res.data.respCode === '0000') {
-          that.setData({
-            showPrompt: true
-          });
-        }
-      }
-    })
+    this.setData({
+      showDynamic: true
+    });
   },
 
   submitPrompt: function () {

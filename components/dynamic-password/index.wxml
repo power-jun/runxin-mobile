@@ -13,20 +13,17 @@
         <text>交易内容</text>
       </view>
       <view class='val-input'>
-        1000076755655
-        <text class='red'>45</text>0076755
-        <text class='red'>4995</text>
+        <text class='red'>{{randomMathRedArry[0]}}</text>{{randomMathArry[0]}}<text class='red'>{{randomMathRedArry[1]}}</text>{{randomMathArry[1]}}<text class='red'>{{randomMathRedArry[2]}}</text>{{randomMathArry[2]}}<text class='red'>{{randomMathRedArry[3]}}</text>{{randomMathArry[3]}}
       </view>
     </view>
   </view>
+
   <view class='password-input'>
-    <input type='number' maxlength='1'/>
-    <input type='number' maxlength='1'/>
-    <input type='number' maxlength='1'/>
-    <input type='number' maxlength='1'/>
-    <input type='number' maxlength='1'/>
-    <input type='number' maxlength='1'/>
+    <input type='number' maxlength='1' wx:for="{{inputLength}}" wx:key="{{index}}" catchtap='focusInput' value="{{inputV.length>=index+1?inputV[index]:''}}"/>
   </view>
+  
+  <input name="password" type='number' password="{{true}}" class='hidden-input' maxlength="6" focus="{{isFocus}}" bindinput="passwordInput"/>
+
   <button form-type="submit" class='submit-btn' bindtap='submit'> 提交校验 </button>
   <view class='operating-step'>
     <view>

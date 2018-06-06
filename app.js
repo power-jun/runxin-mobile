@@ -56,7 +56,7 @@ App({
   onShow: function (options) {
     var userInfo = this.getUserInfo();
     var that = this;
-
+return;
     //获取个人信息
     // wx.request({
     //   url: config.prefix,
@@ -71,7 +71,6 @@ App({
     //   }
     // });
 
-    return ;
     if (!userInfo.phone && options.path !== 'pages/login/index') {
       wx.showModal({
         title: '友情提醒',

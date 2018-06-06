@@ -31,6 +31,7 @@ Page({
     deadlineDate: 0,
     guarantorName: '', //担保人
     checkboxFlag: false,
+    showDynamic: false, //显示动态密码框
     showPrompt: false,
     promptTitle: '签发成功',
     promptMessage: '将签发成功的消息转发给收信人，让他快点签收润信！',
@@ -261,6 +262,58 @@ Page({
     });
   },
 
+  passwordSubmit: function (datas) { //动态码提交验证
+    let that = this;
+    if (!datas.detail.inputV) {
+      wx.showToast({
+        title: '请输入动态码',
+        icon: 'none'
+      });
+      return;
+    }
+
+    let paramArry = this.paramArry;
+
+    wx.showLoading();
+    wx.request({
+      url: config.prefix,
+      data: {
+        xdNo: that.submitParams.xdNo,
+        bizType: '1',
+        dyCode: datas.detail.randomMathVal,
+        dyPasswd: datas.detail.inputV,
+        serviceCode: 'BILL0016'
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res.data.respCode === '0000') {
+
+          wx.request({
+            url: config.prefix,
+            method: 'POST',
+            data: that.params,
+            success: function (res) {
+              wx.hideLoading()
+              if (res.data.respCode === '0000') {
+                that.setData({
+                  showPrompt: true
+                });
+              }
+            }
+          })
+
+        } else {
+          wx.showToast({
+            title: res.data.respDesc,
+            icon: 'none'
+          });
+
+          wx.hideLoading();
+        }
+      }
+    });
+  },
+
   bindFormSubmit: function() {
     let that = this;
 
@@ -304,7 +357,7 @@ Page({
       return;
     }
 
-    let params = {
+    this.params = {
       creditagencyCode: this.data.creditagencyCode,
       receEntNo: this.data.receivingCode,
       xdAmount: this.data.xdAmount,
@@ -314,19 +367,8 @@ Page({
       serviceCode: 'BILL0003'
     }
 
-    wx.showLoading();
-    wx.request({
-      url: config.prefix,
-      method: 'POST',
-      data: params,
-      success: function(res){
-        wx.hideLoading()
-        if (res.data.respCode === '0000') {
-          that.setData({
-            showPrompt: true
-          });
-        }
-      }
-    })
+    this.setData({
+      showDynamic: true
+    });
   }
 })

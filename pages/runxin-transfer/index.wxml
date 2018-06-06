@@ -64,4 +64,5 @@
     <button form-type="submit" class='submit-btn' bindtap='submitTransfer'> 确认转让 </button>
   </view>
   <confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />
+  <dynamic-password showDynamic="{{showDynamic}}" bindsubmit="passwordSubmit"/>
 </scroll-view>

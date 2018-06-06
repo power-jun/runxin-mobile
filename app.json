@@ -2,9 +2,9 @@
   "pages": [
     "pages/runxin-manage/index",
     "pages/runxin-financing/index",
+    "pages/index/index",
     "pages/dynamic-password/index",
     "pages/runxin-distribute-detials/index",
-    "pages/index/index",
     "pages/runxin-distribute/index",
     "pages/runxin-transfer/index",
     "pages/runxin-transfer-detail/index",

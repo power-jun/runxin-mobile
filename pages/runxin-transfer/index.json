@@ -2,6 +2,7 @@
   "navigationBarTitleText": "润信转让",
   "usingComponents": {
     "master-mask": "../../components/master-mask/index",
+    "dynamic-password": "../../components/dynamic-password/index",
     "confirm": "../../components/confirm/index"
   }
 }

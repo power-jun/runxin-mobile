@@ -111,27 +111,65 @@ Page({
     });
   },
 
-  passwordSubmit: function() { //动态码提交验证
-    this.setData({
-      showDynamic: false
-    })
+  passwordSubmit: function(datas) { //动态码提交验证
+    let that = this;
+    if (!datas.detail.inputV) {
+      wx.showToast({
+        title: '请输入动态码',
+        icon: 'none'
+      });
+      return;
+    }
+
+    wx.showLoading();
+    wx.request({
+      url: config.prefix,
+      data: {
+        xdNo: that.submitParams.xdNo,
+        bizType: '3',
+        dyCode: datas.detail.randomMathVal,
+        dyPasswd: datas.detail.inputV,
+        serviceCode: 'BILL0016'
+      },
+      method: 'POST',
+      success: function(res) {
+        if (res.data.respCode === '0000') {
+          wx.request({
+            url: config.prefix,
+            data: that.submitParams,
+            method: 'POST',
+            success: function (res) {
+              wx.hideLoading();
+              if (res.data.respCode === '0000') {
+                that.setData({
+                  showPrompt: true,
+                  showDynamic: false
+                });
+              }
+            }
+          });
+        } else {
+          wx.showToast({
+            title: res.data.respDesc,
+            icon: 'none'
+          });
+
+          wx.hideLoading();
+        }
+      }
+    });
   },
 
   submitFinancing: function() {
     let that = this;
-    let params = {};
+    this.submitParams = {};
     
-    this.setData({
-      showDynamic: true
-    });
-    return;
-
-    params.receEntNo = this.data.drawentno;
-    params.xdNo = this.data.financingData.xdNo;
-    params.financeAmount = this.data.financeAmount;
-    params.expireDate = this.data.financingData.expireDate;
-    params.serviceCode = 'BILL0014';
-    if (!params.receEntNo) {
+    this.submitParams.receEntNo = this.data.drawentno;
+    this.submitParams.xdNo = this.data.financingData.xdNo;
+    this.submitParams.financeAmount = this.data.financeAmount;
+    this.submitParams.expireDate = this.data.financingData.expireDate;
+    this.submitParams.serviceCode = 'BILL0014';
+    if (!this.submitParams.receEntNo) {
       wx.showToast({
         title: '请选择保理商',
         icon: 'none'
@@ -139,7 +177,7 @@ Page({
       return;
     }
 
-    if (!params.financeAmount) {
+    if (!this.submitParams.financeAmount) {
       wx.showToast({
         title: '请输入申请金额',
         icon: 'none'
@@ -155,19 +193,8 @@ Page({
       return;
     }
 
-    wx.showLoading();
-    wx.request({
-      url: config.prefix,
-      data: params,
-      method: 'POST',
-      success: function(res){
-        wx.hideLoading();
-        if (res.data.respCode === '0000') {
-          that.setData({
-            showPrompt: true
-          });
-        }
-      }
-    })
+    this.setData({
+      showDynamic: true
+    });
   }
 })

@@ -2,6 +2,7 @@
   "navigationBarTitleText": "润信签发",
   "usingComponents": {
     "confirm": "../../components/confirm/index",
-    "check-box": "../../components/check-box/index"
+    "check-box": "../../components/check-box/index",
+    "dynamic-password": "../../components/dynamic-password/index"
   }
 }

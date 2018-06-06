@@ -103,4 +103,5 @@
     </form>
   </view>
   <confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />
+  <dynamic-password showDynamic="{{showDynamic}}" bindsubmit="passwordSubmit"/>
 </scroll-view>
