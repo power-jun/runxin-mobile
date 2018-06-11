@@ -10,11 +10,17 @@
     </view>
   </scroll-view>
   <view class='footer-fixed'>
-    <view class='check-box'>
-      <check-box id='allCheckBox' label='全选' color='#fff' checked='{{false}}' bindchange='checkAll' />
+    <view class='protocol-box'>
+      <check-box label='请您仔细阅读' color='#fff' checked='{{protocolChecked}}' bindchange='agreeProtocol' />
+      <text class='protocol'>《润信转让协议》</text>
     </view>
-    <view class='ok' bindtap='submitOk'>复核</view>
-    <view class='cancel' bindtap='submitCancel'>驳回</view>
+    <view class='bottom-box'>
+      <view class='check-box'>
+        <check-box id='allCheckBox' label='全选' color='#fff' checked='{{false}}' bindchange='checkAll' />
+      </view>
+      <view class='ok' bindtap='submitOk'>复核</view>
+      <view class='cancel' bindtap='submitCancel'>驳回</view>
+    </view>
   </view>
 </block>
 

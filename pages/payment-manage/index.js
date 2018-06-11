@@ -172,8 +172,9 @@ Page({
         xdAmount: xdAmount, // 金额
         uppercase: uppercase, // 大写金额
         xdDay: v.overdueDay,  // 天数
-        openDate: v.operTime, // 开始时时
-        expireDate: v.payDate, // 结束时间
+        tradeDate: v.tradeDate, // 交易时间
+        openDate: v.operTime, // 开始时间
+        expireDate: v.payTime, // 结束时间
         openEntNo: v.payEntNo, // 签发人id
         openEntName: v.payEntName, // 签发人
         receEntNo: v.payeeEntNo, // 签收人id

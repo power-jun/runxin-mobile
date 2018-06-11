@@ -19,7 +19,7 @@
     </view>
     <view class='items'>
       <view class='label'>企业名称</view>
-      <view class='text'>{{maskData.limitEntName}}</view>
+      <view class='text'>{{maskData.drawEntName}}</view>
     </view>
     <view class='items'>
       <view class='label'>原利率</view>

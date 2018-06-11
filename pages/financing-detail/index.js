@@ -102,6 +102,36 @@ Page({
       success: function (res) {
         if (res.statusCode === 200 && res.data.respCode === '0000') {
           _this.data.pageData = _this.dealPageData(res.data);
+          _this.requestTradeBeforeData(res.data.mXdNo);
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '网络异常，请检查网络是否连接',
+          icon: 'none',
+          mask: true
+        });
+      },
+      complete: function () {
+        _this.setData(_this.data);
+      }
+    })
+  },
+
+  /* 获取交易之前数据 */
+  requestTradeBeforeData: function (id) {
+    var _this = this;
+    wx.request({
+      url: config.prefix,
+      method: 'POST',
+      data: {
+        serviceCode: 'BILL0018',
+        sessionToken: _this.userInfo.sessionToken,
+        xdNo: id,
+      },
+      success: function (res) {
+        if (res.statusCode === 200 && res.data.respCode === '0000') {
+          _this.data.pageData.maskData1 = _this.dealTradeBeforeData(res.data);
         }
       },
       fail: function () {
@@ -119,41 +149,26 @@ Page({
 
   /* 处理列表数据 */
   dealPageData: function (data) {
-    var uppercase1 = util.convertCurrency(data.xdAmount);
-    var uppercase2 = util.convertCurrency(data.xdAmount - data.financeAmount);
-    var xdAmount1 = util.formatNumberRgx(data.xdAmount);
-    var xdAmount2 = util.formatNumberRgx(data.xdAmount - data.financeAmount);
+    var uppercase2 = util.convertCurrency(data.financeAmount);
+    var xdAmount2 = util.formatNumberRgx(data.financeAmount);
     return {
-      financeAmount: data.financeAmount, // 融资金额
-      financeDate: data.financeDate, // 融资时间
-      financeProfit: data.financeProfit, // 融资成本
       financeRate: data.financeRate, // 融资利率
-      actualAmount: data.actualAmount, // 实收金额
+      financeAmount: data.financeAmount, // 申请融资金额
+      financeProfit: data.financeProfit, // 支付利息
+      actualAmount: data.actualAmount, // 实际到账金额
+      financeDate: data.financeDate, // 融资时间
       auditName: data.auditName, // 经办人
-      openDate: data.openDate, // 办理时间
-      xdDesc: data.xdDesc, // 描述
-      maskData1: {
-        status: 'green', // 状态
-        xdNo: data.xdNo,  // 单号
-        xdAmount: xdAmount1, // 金额
-        uppercase: uppercase1, // 大写金额
-        xdDay: data.xdDay,  // 天数
-        openDate: data.openDate, // 开始时时
-        expireDate: data.expireDate, // 结束时间
-        openEntNo: data.openEntNo, // 签发人id
-        openEntName: data.openEntName, // 签发人
-        receEntNo: data.receEntNo, // 签收人id
-        receEntName: data.receEntName, // 签收人
-        guaranteeEntNo: data.guaranteeEntNo, // 担保人id
-        guaranteeEntName: data.guaranteeEntName, // 担保人
-      },
+      auditTime: data.auditTime, // 办理时间
+      terminal: data.terminalType == 1 ? '电脑端' : '移动端', // 终端类型
+      maskData1: null, // 交易前的数据
       maskData2: {
         status: 'red', // 状态
         xdNo: data.xdNo,  // 单号
         xdAmount: xdAmount2, // 金额
         uppercase: uppercase2, // 大写金额
         xdDay: data.xdDay,  // 天数
-        openDate: data.openDate, // 开始时时
+        tradeDate: data.tradeDate, // 交易时间
+        openDate: data.openDate, // 开始时间
         expireDate: data.expireDate, // 结束时间
         openEntNo: data.openEntNo, // 签发人id
         openEntName: data.openEntName, // 签发人
@@ -163,6 +178,28 @@ Page({
         guaranteeEntName: data.guaranteeEntName, // 担保人
       }
     };
+  },
+
+  /* 处理交易之前的数据 */
+  dealTradeBeforeData: function (data) {
+    var uppercase1 = util.convertCurrency(data.xdAmount);
+    var xdAmount1 = util.formatNumberRgx(data.xdAmount);
+    return {
+      status: 'green', // 状态
+      xdNo: data.xdNo,  // 单号
+      xdAmount: xdAmount1, // 金额
+      uppercase: uppercase1, // 大写金额
+      xdDay: data.xdDay,  // 天数
+      tradeDate: data.tradeDate, // 交易时间
+      openDate: data.openDate, // 开始时间
+      expireDate: data.expireDate, // 结束时间
+      openEntNo: data.openEntNo, // 签发人id
+      openEntName: data.openEntName, // 签发人
+      receEntNo: data.receEntNo, // 签收人id
+      receEntName: data.receEntName, // 签收人
+      guaranteeEntNo: data.guaranteeEntNo, // 担保人id
+      guaranteeEntName: data.guaranteeEntName, // 担保人
+    }
   },
 
   /* 同意\取消（协议） */

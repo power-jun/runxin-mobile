@@ -3,7 +3,7 @@
     <view class='header'>
       <view class='title'>授信机构：{{pageData.credEntName}}</view>
       <view class='items'>本笔使用额度：{{pageData.xdAmount}}元</view>
-      <view class='items'>成功后可用额度：15,000.00元</view>
+      <!-- <view class='items'>成功后可用额度：15,000.00元</view> -->
     </view>
     <master-mask maskData='{{pageData.maskData}}' />
     <view class='picture-box'>
@@ -17,8 +17,8 @@
     </view>
     <view class='generic'>
       <text class='text'>经办人：{{pageData.auditName}}</text>
-      <text class='text'>{{pageData.openDate}}</text>
-      <text class='text'>{{pageData.xdDesc}}</text>
+      <text class='text'>{{pageData.auditTime}}</text>
+      <text class='text'>{{pageData.terminal}}</text>
     </view>
     <view class='protocol-box'>
       <check-box label='请您仔细阅读' color='#23303a' checked='{{protocolChecked}}' bindchange='agreeProtocol' />

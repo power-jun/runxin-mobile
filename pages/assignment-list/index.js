@@ -13,6 +13,7 @@ Page({
     promptMessage: '将复核成功的消息转发给收信人，让他快点签收润信！',
     listData: null, // 列表数据
     showNoData: false, // 显示没有数据
+    protocolChecked: false, // 协议状态
     showPagesLoading: false, // 显示分页加载
     pagesLoadingText: '数据加载中...', // 分页加载文本
   },
@@ -162,7 +163,8 @@ Page({
         xdAmount: xdAmount, // 金额
         uppercase: uppercase, // 大写金额
         xdDay: v.xdDay,  // 天数
-        openDate: v.openDate, // 开始时时
+        tradeDate: v.tradeDate, // 交易时间
+        openDate: v.openDate, // 开始时间
         expireDate: v.expireDate, // 结束时间
         openEntNo: v.openEntNo, // 签发人id
         openEntName: v.openEntName, // 签发人
@@ -203,6 +205,13 @@ Page({
     this.setData(this.data);
   },
 
+  /* 同意\取消（协议） */
+  agreeProtocol: function (e) {
+    this.setData({
+      protocolChecked: e.detail.checked
+    });
+  },
+
   /* 全选 */
   checkAll: function (e) {
     this.data.listData && this.data.listData.map(function (v, i) {
@@ -224,6 +233,14 @@ Page({
   /* 复核数据 */
   submitData: function (status) {
     var _this = this;
+    if (!_this.data.protocolChecked) {
+      wx.showToast({
+        title: '请先阅读协议',
+        icon: 'none',
+        mask: true
+      });
+      return false;
+    }
     var xdNo = '';
     _this.data.listData && _this.data.listData.map(function (v, i) {
       if (v.checked) {
@@ -286,6 +303,9 @@ Page({
   reloadPage() {
     this.requestListData(false);
     this.allCheckBox.select(false);
+    this.setData({
+      protocolChecked: false,
+    });
   },
 
 })

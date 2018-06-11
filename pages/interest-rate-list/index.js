@@ -8,8 +8,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showConfirm: false, // 显示提示层
-    confirmTitle: '登录超时，请重新登录！', // 提示文本
     showPrompt: false, // 显示成功提示
     promptTitle: '复核成功',
     promptMessage: '将复核成功的消息转发给收信人，让他快点签收润信！',
@@ -88,42 +86,7 @@ Page({
   init: function () {
     this.userInfo = app.getUserInfo();
     this.companyInfo = app.getCompanyInfo();
-    var loginStatus = this.isLogin();
-    var companyStatus = this.isCompany();
-    if (loginStatus && companyStatus) {
-      this.requestListData(false);
-    }
-  },
-
-  /* 是否已登录 */
-  isLogin: function () {
-    if (this.userInfo.phone) {
-      return true;
-    } else {
-      this.setData({
-        showConfirm: true
-      });
-      return false;
-    }
-  },
-
-  /* 是否选好了公司 */
-  isCompany: function () {
-    if (this.companyInfo.id) {
-      return true;
-    } else {
-      wx.redirectTo({
-        url: '../index/index'
-      });
-      return false;
-    }
-  },
-
-  /* 返回登录页面 */
-  gotoLoginPage: function () {
-    wx.redirectTo({
-      url: '../login/index',
-    });
+    this.requestListData(false);
   },
 
   /* 参数 */
@@ -190,12 +153,13 @@ Page({
   dealListData: function (data) {
     var listData = [];
     data && data.map(function (v, i) {
-      var status = (i % 2) ? 'red' : 'green';
+      var status = v.rateType == 1 ? 'red' : 'green';
+      var statusText = v.rateType == 1 ? '融资' : '贴现';
       var maskData = {
         status: status, // 状态
         seqNo: v.seqNo,  // 流水号
         operTime: v.operTime, // 经办时间
-        rateType: v.rateType, // 类型
+        rateType: statusText, // 类型
         drawEntNo: v.drawEntNo, // 企业id
         drawEntName: v.drawEntName,  // 企业名称
         rateOld: v.rateOld, // 旧利率

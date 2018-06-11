@@ -3,7 +3,7 @@
   <view class='header'>
     <check-box class="checkbox" checked='{{maskData.checked}}' bindchange='selectCheckBox' wx:if='{{showCheckBox}}' />
     <view class='order'>润信编号：{{maskData.xdNo}}</view>
-    <view class='date'>交易日期：{{maskData.openDate}}</view>
+    <view class='date'>交易日期：{{maskData.tradeDate}}</view>
   </view>
   <view class='content' bindtap='openLink'>
     <view class='price'>

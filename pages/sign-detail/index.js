@@ -122,20 +122,17 @@ Page({
     var uppercase = util.convertCurrency(data.xdAmount);
     var xdAmount = util.formatNumberRgx(data.xdAmount);
     return {
-      credEntNo: data.credEntNo, // 授信机构id
-      credEntName: data.credEntName, // 授信机构
-      contractFsskey: data.contractFsskey, // 图片
-      xdAmount: xdAmount, // 使用额度
-      auditName: data.auditName, // 经办人
-      openDate: data.openDate, // 办理时间
-      xdDesc: data.xdDesc, // 描述
+      openEntNo: data.openEntNo, // 签发人id
+      openEntName: data.openEntName, // 签发人
+      reviewTime: data.reviewTime, // 办理时间
       maskData: {
         status: 'red', // 状态
         xdNo: data.xdNo,  // 单号
         xdAmount: xdAmount, // 金额
         uppercase: uppercase, // 大写金额
         xdDay: data.xdDay,  // 天数
-        openDate: data.openDate, // 开始时时
+        tradeDate: data.tradeDate, // 交易时间
+        openDate: data.openDate, // 开始时间
         expireDate: data.expireDate, // 结束时间
         openEntNo: data.openEntNo, // 签发人id
         openEntName: data.openEntName, // 签发人

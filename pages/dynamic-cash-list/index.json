@@ -3,6 +3,6 @@
   "usingComponents": {
     "confirm": "../../components/confirm/index",
     "check-box": "../../components/check-box/index",
-    "financing-mask": "../../components/financing-mask/index"
+    "dynamic-mask": "../../components/dynamic-mask/index"
   }
 }

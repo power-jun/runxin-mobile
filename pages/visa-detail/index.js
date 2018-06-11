@@ -13,7 +13,7 @@ Page({
     promptTitle: '复核成功',
     promptMessage: '将复核成功的消息转发给收信人，让他快点签收润信！',
     pageData: null, // 页面数据
-    protocolChecked: false, // 是否同意协议
+    protocolChecked: false, // 协议状态
   },
 
   /**
@@ -127,15 +127,16 @@ Page({
       contractFsskey: data.contractFsskey, // 图片
       xdAmount: xdAmount, // 使用额度
       auditName: data.auditName, // 经办人
-      openDate: data.openDate, // 办理时间
-      xdDesc: data.xdDesc, // 描述
+      auditTime: data.auditTime, // 办理时间
+      terminal: data.terminalType == 1 ? '电脑端' : '移动端', // 终端类型
       maskData: {
         status: 'red', // 状态
         xdNo: data.xdNo,  // 单号
         xdAmount: xdAmount, // 金额
         uppercase: uppercase, // 大写金额
         xdDay: data.xdDay,  // 天数
-        openDate: data.openDate, // 开始时时
+        tradeDate: data.tradeDate, // 交易时间
+        openDate: data.openDate, // 开始时间
         expireDate: data.expireDate, // 结束时间
         openEntNo: data.openEntNo, // 签发人id
         openEntName: data.openEntName, // 签发人
@@ -169,7 +170,7 @@ Page({
     var _this = this;
     if (!_this.data.protocolChecked) {
       wx.showToast({
-        title: '未同意润信协议',
+        title: '请先阅读协议',
         icon: 'none',
         mask: true
       });

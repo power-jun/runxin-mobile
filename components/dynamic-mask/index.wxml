@@ -11,23 +11,23 @@
   <view bindtap='openLink'>
     <view class='items'>
       <view class='label'>金额</view>
-      <view class='text'>{{maskData.financeAmount}}元</view>
+      <view class='text'>{{maskData.discountAmount}}元</view>
     </view>
     <view class='items'>
       <view class='label'>签发人</view>
       <view class='text'>{{maskData.openEntName}}</view>
     </view>
     <view class='items'>
-      <view class='label'>保理商</view>
-      <view class='text'>{{maskData.holdEntName}}</view>
+      <view class='label'>提前兑付人</view>
+      <view class='text'>{{maskData.discountEntName}}</view>
     </view>
     <view class='items'>
       <view class='label'>提前天数</view>
-      <view class='text'>{{maskData.xdDay}}天</view>
+      <view class='text'>{{maskData.discountDay}}天</view>
     </view>
     <view class='items'>
       <view class='label'>利率</view>
-      <view class='text'>{{maskData.financeRate}}%</view>
+      <view class='text'>{{maskData.discountRate}}%</view>
     </view>
   </view>
 </view>

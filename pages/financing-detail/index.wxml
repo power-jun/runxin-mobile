@@ -10,7 +10,7 @@
     <view class='financing-status'>
       <view class='icon red'></view>
       <text class='name'>融资后</text>
-      <text class='tip'>({{pageData.auditName}} {{pageData.openDate}})</text>
+      <text class='tip'>({{pageData.auditName}} {{pageData.auditTime}} {{pageData.terminal}})</text>
     </view>
     <view class='master-box'>
       <master-mask maskData='{{pageData.maskData2}}' />

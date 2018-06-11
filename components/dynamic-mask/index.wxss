@@ -1,0 +1,97 @@
+.financing-mask {
+  margin: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 15px;
+  padding: 20px 0 15px;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.title .checkbox {
+  margin-right: 10px;
+}
+
+.title .link {
+  display: flex;
+  align-items: center;
+}
+
+.title .link .text {
+  font-size: 14px;
+  color: #cd3a3a;
+  line-height: 1.2;
+}
+
+.title .link .icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.title .link .icon::before {
+  position: absolute;
+  top: 5px;
+  left: 2px;
+  z-index: 10;
+  display: block;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-width: 2px 2px 0 0;
+  border-style: solid;
+  border-color: #cd3a3a;
+  transform: rotate(45deg);
+}
+
+.title .circle {
+  position: absolute;
+  top: 46px;
+  z-index: 10;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(#f8f8f8, #f0f0f0, #ebebeb, #e5e5e5);
+}
+
+.title .circle.left {
+  left: -25px;
+}
+
+.title .circle.right {
+  right: -25px;
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 15px;
+  padding: 15px 0;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.items:last-child {
+  border: 0;
+}
+
+.items .label {
+  font-size: 14px;
+  color: #95999c;
+  line-height: 1.2;
+}
+
+.items .text {
+  font-size: 14px;
+  color: #23303a;
+  line-height: 1.2;
+}
