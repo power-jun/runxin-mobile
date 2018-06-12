@@ -1,0 +1,5 @@
+<scroll-view class='body' scroll-y='true'>
+  <view class='article'>
+    <bookmarks-item wx:for="{{holdingList}}" wx:key="index" itemData="{{item}}"/>
+  </view>
+</scroll-view>

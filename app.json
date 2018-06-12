@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/runxin-distribute/index",
     "pages/runxin-manage/index",
+    "pages/runxin-distribute/index",
     "pages/runxin-financing/index",
     "pages/runxin-transfer/index",
     "pages/index/index",
@@ -30,7 +30,8 @@
     "pages/dynamic-cash-detail/index",
     "pages/payment-manage/index",
     "pages/receivables-manage/index",
-    "pages/transer-receiver-select/index"
+    "pages/transer-receiver-select/index",
+    "pages/runxin-honour/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

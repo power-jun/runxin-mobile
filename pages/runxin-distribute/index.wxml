@@ -103,4 +103,11 @@
   </view>
   <confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />
   <dynamic-password showDynamic="{{showDynamic}}" bindsubmit="passwordSubmit"/>
+    <scroll-view wx:if="{{distributeConfirm}}">
+    <view class="distribute-confirm">
+      <master-mask maskData="{{distributeData}}" />
+      <button form-type="submit" class='submit-btn' bindtap='distributeConfirm'> 确认无误</button>
+    </view>
+  </scroll-view>
+
 </scroll-view>

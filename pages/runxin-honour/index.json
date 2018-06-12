@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "润信兑付",
+  "usingComponents": {
+    "bookmarks-item": "../../components/bookmarks-item/index"
+  }
+}

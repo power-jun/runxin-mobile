@@ -30,6 +30,7 @@
     <view class='footer'>
       <button class='ok' bindtap='gotoFinancing' data-id=''>融资</button>
       <button class='cancel' bindtap='gotoTransfer'>转让</button>
+      <button class='ok' bindtap='gotoHonour' data-id=''>兑付</button>
     </view>
   </view>
 </scroll-view>

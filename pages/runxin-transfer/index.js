@@ -17,6 +17,11 @@ Page({
     receiverData: [],
     transAmountArry: [],
     xdDescArry: [],
+    profitMask: {},
+    transferAmount: '', //转让金额
+    transferNumber: '', // 转让笔数
+    transferProfit: '', // 余额
+    afterTransferDataArry:  [], //转让后的笔数
     windowWidth: windowWidth,
     windowHeight: windowHeight,
     receiverSingle: {
@@ -43,6 +48,8 @@ Page({
       key: 'holdFinancingData',
       success: function (res) {
         that.xdNo = res.data.xdNo;
+        res.data.status = 'green';
+        
         that.setData({
           financingData: res.data,
           expireDate: res.data.expireDate,
@@ -306,8 +313,47 @@ Page({
       return;
     }
 
+    let nowDate = util.formatTime(new Date());
+    let transferAmount = 0;
+
+    for (let i = 0, len = this.paramArry.length; i < len; i++) {
+      transferAmount += this.paramArry[i].transAmount;
+
+      afterTransferDataArry.push({
+        status: 'red',
+        xdNo: this.paramArry[i].xdNo,
+        xdAmount: this.paramArry[i].transAmount,
+        tradeDate: this.data.financingData.tradeDate,
+        xdDay: '',
+        uppercase: util.convertCurrency(this.paramArry[i].transAmount),
+        openDate: nowDate,
+        expireDate: '',
+        openEntName: this.data.financingData.openEntName,
+        receEntName: receiverData[i].entName,
+        guaranteeEntName: this.data.financingData.guaranteeEntName
+      });
+
+      this.paramArry[i];
+    }
+
+    debugger
+    let transferProfit = this.data.financingData - transferAmount;
+
+    if(transferProfit > 0) {
+      this.data.profitMask = this.data.financingDatal;
+      this.data.profitMask.xdAmount = transferProfit;
+      this.data.profitMask.uppercase = util.convertCurrency(transferProfit);
+
+      this.setData({
+        profitMask: this.data.profitMask
+      })
+    }
+
     this.setData({
-      transferConfirm: true
+      transferConfirm: true,
+      transferAmount: transferAmount,
+      transferProfit: transferProfit,
+      transferNumber: this.paramArry.length
     });
   },
 

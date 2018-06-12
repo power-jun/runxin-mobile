@@ -30,6 +30,8 @@ Page({
     expireDate: '',
     deadlineDate: '',
     guarantorName: '', //担保人
+    distributeConfirm: false,
+    distributeData: {},
     checkboxFlag: false,
     showDynamic: false, //显示动态密码框
     showPrompt: false,
@@ -195,7 +197,8 @@ Page({
     let nowDate = openDateTime.getDate();
     openDateTime.setDate(Number(nowDate) + Number(val));
     this.setData({
-      dateSelectV: util.formatTime(openDateTime)
+      dateSelectV: util.formatTime(openDateTime),
+      expireDate: util.formatTime(openDateTime)
     });
   },
 
@@ -323,6 +326,10 @@ Page({
     });
   },
 
+  distributeConfirm: function() {
+    
+  },
+
   bindFormSubmit: function() {
     let that = this;
 
@@ -358,15 +365,7 @@ Page({
       return;
     }
 
-    if (!this.data.checkboxFlag) {
-      wx.showToast({
-        title: '请阅读润信签发协议',
-        icon: 'none'
-      });
-      return;
-    }
-
-    if (!this.data.this.data.imgArryId.length) {
+    if (!this.data.imgArryId.length) {
       wx.showToast({
         title: '请上传合同与发票',
         icon: 'none'
@@ -374,6 +373,14 @@ Page({
       return;
     }
 
+    if (!this.data.checkboxFlag) {
+      wx.showToast({
+        title: '请阅读润信签发协议',
+        icon: 'none'
+      });
+      return;
+    }
+  
     this.params = {
       creditagencyCode: this.data.creditagencyCode,
       receEntNo: this.data.receivingCode,
@@ -385,7 +392,7 @@ Page({
     }
 
     this.setData({
-      showDynamic: true
+      distributeConfirm: true
     });
   }
 })

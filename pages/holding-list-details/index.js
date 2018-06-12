@@ -77,6 +77,12 @@ Page({
     })
   },
 
+  gotoHonour: function() {
+    wx.navigateTo({
+      url: '/pages/runxin-honour/index'
+    });
+  },
+
   gotoFinancing: function(data) {
     wx.navigateTo({
       url: '/pages/runxin-financing/index'
