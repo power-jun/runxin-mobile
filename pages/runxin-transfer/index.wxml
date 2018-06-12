@@ -48,7 +48,7 @@
       <view class='distribute-line'>
         <text class='head'>备注</text>
         <view class='val-input'>
-          <input type="text" style='text-align:left;padding-left: 20rpx' value="{{xdDescArry[index]}}" data-index="{{index}}" bindblur="inputDesc"/>
+          <input type="text" style='text-align:left;padding-left: 20rpx' value="{{xdDescArry[index]}}" data-index="{{index}}" bindblur="inputDesc" />
         </view>
       </view>
     </view>
@@ -58,11 +58,50 @@
         <view class='upload-icon-line'></view>
         <view class='upload-icon-vertical'></view>
       </view>
-      <view><text>增加收单企业</text></view>
+      <view>
+        <text>增加收单企业</text>
+      </view>
     </view>
 
     <button form-type="submit" class='submit-btn' bindtap='submitTransfer'> 确认转让 </button>
   </view>
   <confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />
-  <dynamic-password showDynamic="{{showDynamic}}" bindsubmit="passwordSubmit"/>
+  <dynamic-password showDynamic="{{showDynamic}}" bindsubmit="passwordSubmit" />
+
+  <scroll-view wx:if="{{transferConfirm}}">
+    <view class="transfer-confirm">
+      <master-mask maskData="{{beforeTransferData}}" />
+      <master-mask maskData="{{afterTransferData}}" />
+
+      <view class='money-detail'>
+        <view class='item'>
+          <view class='select'>
+            <text class='company'>转让笔数</text>
+          </view>
+          <view>
+            <text>{{beforeTransferData.financeRate}}%</text>
+          </view>
+        </view>
+        <view class='item'>
+          <view class='select'>
+            <text class='company'>转让金额</text>
+          </view>
+          <view>
+            <text>{{beforeTransferData.xdAmount}}元</text>
+          </view>
+        </view>
+        <view class='item'>
+          <view class='select'>
+            <text class='company'>余额</text>
+          </view>
+          <view>
+            <text>{{beforeTransferData.financeProfit}}元</text>
+          </view>
+        </view>
+      </view>
+      <button form-type="submit" class='submit-btn' bindtap='transferConfirm'> 确认无误 </button>
+    </view>
+  </scroll-view>
+
+
 </scroll-view>

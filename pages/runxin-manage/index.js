@@ -162,15 +162,15 @@ Page({
   },
 
   listDetails: function(e) {
-    if (this.data.typeId === '0') { // 签发详情
+    if (this.data.typeId == '0') { // 签发详情
       wx.navigateTo({
         url: '/pages/runxin-distribute-detials/index?xdno=' + e.currentTarget.dataset.xdno
       });
-    } else if (this.data.typeId === '1') {
+    } else if (this.data.typeId == '1') {
       wx.navigateTo({
         url: '/pages/runxin-transfer-detail/index?xdno=' + e.currentTarget.dataset.xdno
       });
-    } else if (this.data.typeId === '2') {
+    } else if (this.data.typeId == '2') {
       wx.navigateTo({
         url: '/pages/runxin-financing-detail/index?xdno=' + e.currentTarget.dataset.xdno
       });

@@ -19,3 +19,36 @@ page {
   background-color: #cf4141;
   margin-bottom: 70rpx;
 }
+
+.arrow-icon {
+  display: flex;
+  align-items: center;
+}
+
+.arrow-icon .text {
+  font-size: 14px;
+  color: #cd3a3a;
+  line-height: 1.2;
+}
+
+.arrow-icon .icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.arrow-icon .icon::before {
+  position: absolute;
+  top: 5px;
+  left: 2px;
+  z-index: 10;
+  display: block;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-width: 2px 2px 0 0;
+  border-style: solid;
+  border-color: #cd3a3a;
+  transform: rotate(45deg);
+}

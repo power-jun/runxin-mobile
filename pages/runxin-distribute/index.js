@@ -28,7 +28,7 @@ Page({
     availableAmount: '', // 可用额度
     openDate: '',
     expireDate: '',
-    deadlineDate: 0,
+    deadlineDate: '',
     guarantorName: '', //担保人
     checkboxFlag: false,
     showDynamic: false, //显示动态密码框
@@ -73,7 +73,7 @@ Page({
     this.setData({
       expireDate: val,
       dateSelectV: val,
-      deadlineDate: deadline.getDate()
+      deadlineDate: (deadline.getDate()-1)
     });
   },
 
@@ -85,7 +85,6 @@ Page({
     let currentCreditagency = this.data.creditagency.filter(function (v, n) {
       return v.entNo === creditagencyCode
     });
-    console.log(app)
 
     if (currentCreditagency[0].confirmFlag === '1') {
       this.setData({
@@ -187,6 +186,16 @@ Page({
   cancelPrompt: function () {
     wx.switchTab({
       url: '/pages/runxin-manage/index'
+    });
+  },
+
+  deadlineDateBlur: function(e){
+    let val = e.detail.value;
+    let openDateTime = new Date(this.data.openDate);
+    let nowDate = openDateTime.getDate();
+    openDateTime.setDate(Number(nowDate) + Number(val));
+    this.setData({
+      dateSelectV: util.formatTime(openDateTime)
     });
   },
 
@@ -352,6 +361,14 @@ Page({
     if (!this.data.checkboxFlag) {
       wx.showToast({
         title: '请阅读润信签发协议',
+        icon: 'none'
+      });
+      return;
+    }
+
+    if (!this.data.this.data.imgArryId.length) {
+      wx.showToast({
+        title: '请上传合同与发票',
         icon: 'none'
       });
       return;

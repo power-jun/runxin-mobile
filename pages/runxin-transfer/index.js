@@ -2,6 +2,8 @@ var config = require('../../utils/config.js');
 var util = require('../../utils/util.js');
 var app = getApp();
 var timer = null;
+var windowWidth = wx.getSystemInfoSync().windowWidth;
+var windowHeight = wx.getSystemInfoSync().windowHeight;
 
 Page({
 
@@ -15,12 +17,15 @@ Page({
     receiverData: [],
     transAmountArry: [],
     xdDescArry: [],
+    windowWidth: windowWidth,
+    windowHeight: windowHeight,
     receiverSingle: {
       entName: '', //收信人
       accNo: '', // 银行账户
       bankName: '', //银行名称
       branchName: '' //银行支行
     },
+    transferConfirm: false,
     showDynamic: false, //显示动态密码框
     showPrompt: false, // 显示成功提示
     promptTitle: '转让成功',
@@ -302,6 +307,13 @@ Page({
     }
 
     this.setData({
+      transferConfirm: true
+    });
+  },
+
+  transferConfirm: function(){
+    this.setData({
+      transferConfirm: false,
       showDynamic: true
     });
   },

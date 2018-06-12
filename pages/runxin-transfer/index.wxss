@@ -110,3 +110,39 @@
   margin-right: 20rpx;
   vertical-align: middle;
 }
+
+.transfer-confirm {
+  width: 100%;
+  height: 100%;
+   position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10000; 
+  background: #f8f8f8;
+  overflow-y:scroll;
+  padding: 0 15px;
+}
+
+.money-detail {
+  background: #fff;
+  margin: 30rpx 25rpx 80rpx;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.money-detail .item {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  padding: 30rpx 15rpx 30rpx 0;
+  border-bottom: 1rpx solid #ebebeb;
+  color: #676767;
+  font-size: 14px;
+  justify-content: space-between
+}
+
+.money-detail .item .select {
+  display: flex;
+  align-items:center;
+}

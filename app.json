@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/runxin-distribute/index",
     "pages/runxin-manage/index",
     "pages/runxin-financing/index",
+    "pages/runxin-transfer/index",
     "pages/index/index",
     "pages/dynamic-password/index",
     "pages/runxin-distribute-detials/index",
-    "pages/runxin-distribute/index",
-    "pages/runxin-transfer/index",
     "pages/runxin-transfer-detail/index",
     "pages/login/index",
     "pages/upcoming-task/index",
