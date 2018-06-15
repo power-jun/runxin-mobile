@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "动态兑付详情",
+  "usingComponents": {
+    "master-mask": "../../components/master-mask/index"
+  }
+}

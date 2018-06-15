@@ -1,7 +1,7 @@
 <view class="holding-list-item" bindtap='goItemDetails' data-id='{{itemData.xdNo}}'>
   <view class="percentage">
     <text>最低牌价</text>
-    <text>8%</text>
+    <text>{{itemData.bidPriceRate}}%</text>
   </view>
   <view class='items'>
     <view class='status green'></view>

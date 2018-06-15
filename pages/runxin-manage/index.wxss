@@ -171,6 +171,8 @@
 .amount-detail text {
   display: inline-block;
   min-width: 220rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
 }
 
 .no-more-goods {

@@ -56,7 +56,7 @@ App({
   onShow: function (options) {
     var userInfo = this.getUserInfo();
     var that = this;
-return;
+    return;
     //获取个人信息
     // wx.request({
     //   url: config.prefix,

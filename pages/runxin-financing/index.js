@@ -103,9 +103,6 @@ Page({
   },
 
   submitPrompt: function () {
-    wx.showToast({
-      title: 'erro',
-    })
     this.setData({
       showPrompt: false
     });
@@ -115,16 +112,6 @@ Page({
   },
 
   cancelPrompt: function () {
-    try {
-      wx.showToast({
-        title: 'erro',
-      })
-    } catch (erro) {
-      wx.showToast({
-        title: erro,
-      })
-    }
-
     this.setData({
       showPrompt: false
     });

@@ -1,5 +1,6 @@
 var config = require('../../utils/config.js');
 var util = require('../../utils/util.js');
+var constant = require('../../utils/constant.js');
 var app = getApp();
 
 Page({
@@ -78,9 +79,9 @@ Page({
         if (res.data.respCode == '0000') {
           that.setData({
             countTrade: {
-              billSIgnAmountTotal: util.formatNumberRgx(res.data.billSIgnAmountTotal),
-              transferAmountTotal: util.formatNumberRgx(res.data.transferAmountTotal),
-              financeAmountTotal: util.formatNumberRgx(res.data.financeAmountTotal),
+              increaseAmountTotal: util.formatNumberRgx(res.data.increaseAmountTotal),
+              reduceAmountTotal: util.formatNumberRgx(res.data.reduceAmountTotal),
+              holdAmountTotal: util.formatNumberRgx(res.data.holdAmountTotal),
             }
           })
         }
@@ -119,6 +120,9 @@ Page({
           for (var i = 0, len = billList.length; i < billList.length; i++) {
             billList[i].caseAmount = util.convertCurrency(billList[i].xdAmount);
             billList[i].xdAmount = util.formatNumberRgx(billList[i].xdAmount);
+            billList[i].discountAmount = util.formatNumberRgx(billList[i].discountAmount);
+            billList[i].discountProfit = util.formatNumberRgx(billList[i].discountProfit);
+            billList[i].xdStatus = constant.constantTranslation.getXdStatus(billList[i].xdStatus);
           }
 
           that.totalPage = res.data.totalPage;
@@ -174,7 +178,11 @@ Page({
       wx.navigateTo({
         url: '/pages/runxin-financing-detail/index?xdno=' + e.currentTarget.dataset.xdno
       });
-    }
+    } else if (this.data.typeId == '3') {
+      wx.navigateTo({
+        url: '/pages/runxin-honour-detail/index?xdno=' + e.currentTarget.dataset.xdno
+      });
+    } 
   },
 
   /**

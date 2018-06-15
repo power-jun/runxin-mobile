@@ -1,6 +1,6 @@
 <view class="type-navbar">
   <view class="type-box">
-    <view data-id='0' data-servicecode='BILL0017'  class="type-navbar-item {{activeCategoryId == 0 ? 'type-item-on' : ''}}"  bindtap="tabClick">
+    <view data-id='0' data-servicecode='BILL0017' class="type-navbar-item {{activeCategoryId == 0 ? 'type-item-on' : ''}}" bindtap="tabClick">
       持有列表
     </view>
   </view>
@@ -9,7 +9,7 @@
       交易查询
     </view>
   </view>
-     <view class="type-box">
+  <view class="type-box">
     <view data-id='2' data-servicecode='BILL0001' class="type-navbar-item {{activeCategoryId == 2 ? 'type-item-on' : ''}}" bindtap="tabClick">
       润信签发
     </view>
@@ -18,7 +18,7 @@
 <scroll-view class='body' scroll-y='true' bindscrolltolower="onReachBottom">
   <view class='article'>
     <view class="holding-list" wx:if="{{activeCategoryId==0}}">
-      <bookmarks-item wx:for="{{holdingList}}" wx:key="index" itemData="{{item}}" bindchange="goDetail"/>
+      <bookmarks-item wx:for="{{holdingList}}" wx:key="index" itemData="{{item}}" bindchange="goDetail" />
       <!-- <navigator url="/pages/runxin-transfer-detail/index"><bookmarks-item/></navigator> -->
       <view class="no-more-goods" hidden='{{loadingMoreHidden}}'>更多记录,敬请期待</view>
       <view class="no-more-goods no-datas" hidden='{{noDataHidden}}'>暂无记录</view>
@@ -37,33 +37,63 @@
         <view>高级查询</view>
         <view class='icon'></view>
       </navigator>
+      <block wx:if="{{typeId == 3}}">
+        <view class='credit-agency' hover-class="hover-style" bindtap='listDetails' data-xdno='{{item.xdNo}}' wx:for="{{transactionData}}" wx:key="{{key}}">
+          <view class='agency-company'>
+            <text>编号：</text>
+            <text>{{item.xdNo}}</text>
+          </view>
+          <view class='agency-company'>
+            <text>润信金额：</text>
+            <text>{{item.xdAmount}}元</text>
+          </view>
+          <view class='agency-company'>
+            <text>兑付金额：</text>
+            <text>{{item.discountAmount}}</text>
+          </view>
+          <view class='agency-company'>
+            <text>手续费：</text>
+            <text>{{item.discountProfit}}</text>
+          </view>
+          <view class='agency-company no-border'>
+            <text>兑付日期：</text>
+            <text>{{item.discountDate}}</text>
+          </view>
+          <view class='agency-company no-border'>
+            <text>润信状态：</text>
+            <text>{{item.xdStatus}}</text>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='credit-agency' hover-class="hover-style" bindtap='listDetails' data-xdno='{{item.xdNo}}' wx:for="{{transactionData}}" wx:key="{{key}}">
+          <view class='agency-company'>
+            <text>交易对手：</text>
+            <text>{{item.receEntName}}</text>
+          </view>
+          <view class='agency-company'>
+            <text>额度：</text>
+            <text>{{item.xdAmount}}元</text>
+          </view>
+          <view class='agency-company'>
+            <text>签发时间：</text>
+            <text>{{item.openDate}}</text>
+          </view>
+          <view class='agency-company no-border'>
+            <text>到期时间：</text>
+            <text>{{item.expireDate}}</text>
+          </view>
+        </view>
+      </block>
 
-      <view class='credit-agency' hover-class="hover-style" bindtap='listDetails' data-xdno='{{item.xdNo}}' wx:for="{{transactionData}}" wx:key="{{key}}">
-        <view class='agency-company'>
-          <text>交易对手：</text>
-          <text>{{item.receEntName}}</text>
-        </view>
-        <view class='agency-company'>
-          <text>额度：</text>
-          <text>{{item.xdAmount}}元</text>
-        </view>
-        <view class='agency-company'>
-          <text>签发时间：</text>
-          <text>{{item.openDate}}</text>
-        </view>
-        <view class='agency-company no-border'>
-          <text>到期时间：</text>
-          <text>{{item.expireDate}}</text>
-        </view>
-      </view>
       <view class="no-more-goods" hidden='{{loadingMoreHidden}}'>更多记录,敬请期待</view>
       <view class="no-more-goods no-datas" hidden='{{noDataHidden}}'>暂无记录</view>
       <view class='footer-fixed'>
         <view class='head'>累计</view>
         <view class='amount-detail'>
-          <text>签发：{{countTrade.billSIgnAmountTotal}}</text>
-          <text>转让：{{countTrade.transferAmountTotal}}</text>
-          <text>融资：{{countTrade.financeAmountTotal}}</text>
+          <text>增加金额：{{countTrade.increaseAmountTotal}}</text>
+          <text>减少金额：{{countTrade.reduceAmountTotal}}</text>
+          <text>持有金额：{{countTrade.holdAmountTotal}}</text>
         </view>
         <!-- <view class='amount-detail'>
           <text>润信增加：100</text>
@@ -77,5 +107,5 @@
       <navigator url="/pages/runxin-distribute-detials/index"><master-mask/></navigator>
     </view> -->
   </view>
-  
+
 </scroll-view>

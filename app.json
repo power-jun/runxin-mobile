@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/runxin-manage/index",
+    "pages/login/index",
     "pages/runxin-distribute/index",
     "pages/runxin-financing/index",
     "pages/runxin-transfer/index",
@@ -8,7 +9,6 @@
     "pages/dynamic-password/index",
     "pages/runxin-distribute-detials/index",
     "pages/runxin-transfer-detail/index",
-    "pages/login/index",
     "pages/upcoming-task/index",
     "pages/advanced-search/index",
     "pages/manage-center/index",
@@ -31,7 +31,8 @@
     "pages/payment-manage/index",
     "pages/receivables-manage/index",
     "pages/transer-receiver-select/index",
-    "pages/runxin-honour/index"
+    "pages/runxin-honour/index",
+    "pages/runxin-honour-detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

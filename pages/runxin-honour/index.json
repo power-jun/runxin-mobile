@@ -1,6 +1,9 @@
 {
   "navigationBarTitleText": "润信兑付",
   "usingComponents": {
-    "bookmarks-item": "../../components/bookmarks-item/index"
+    "bookmarks-item": "../../components/bookmarks-item/index",
+    "check-box": "../../components/check-box/index",
+    "confirm": "../../components/confirm/index",
+    "dynamic-password": "../../components/dynamic-password/index"
   }
 }

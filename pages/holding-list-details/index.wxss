@@ -47,7 +47,7 @@
 }
 
 .footer .ok {
-  margin: 0 60rpx;
+  /* margin: 0 60rpx; */
   padding: 20rpx 60rpx;
   font-size: 14px;
   color: #fff;

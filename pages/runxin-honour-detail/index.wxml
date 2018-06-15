@@ -1,0 +1,37 @@
+<scroll-view class='body' scroll-y='true'>
+  <view class='article'>
+    <view class='financing-status'>
+      <view class='icon green'></view>
+      <text class='name'>兑付前</text>
+    </view>
+    <view class='master-box'>
+      <master-mask maskData='{{pageData.maskData1}}' />
+    </view>
+    <view class='financing-status'>
+      <view class='icon red'></view>
+      <text class='name'>兑付后</text>
+      <text class='tip'>({{pageData.auditName}} {{pageData.openDate}})</text>
+    </view>
+    <view class='master-box'>
+      <master-mask maskData='{{pageData.maskData2}}' />
+    </view>
+    <view class='play-container'>
+      <view class='items'>
+        <text class='label'>该笔兑付利率</text>
+        <text class='text'>{{pageData.discountRate}}%</text>
+      </view>
+      <view class='items'>
+        <text class='label'>申请兑付金额</text>
+        <text class='text'>{{pageData.discountAmount}}元</text>
+      </view>
+      <view class='items'>
+        <text class='label'>支付利息</text>
+        <text class='text'>{{pageData.discountProfit}}元</text>
+      </view>
+      <view class='items'>
+        <text class='label'>实际到账金额</text>
+        <text class='text'>{{pageData.actualAmount}}元</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
