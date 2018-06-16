@@ -14,7 +14,7 @@ Page({
     receivingNameArry: [],
     receivingCodeArry: [],
     receivingName: '请选择',
-    creditagency:[],
+    creditagency: [],
     creditagencyNameArry: [],
     creditagencyCodeArry: [],
     creditagencyCode: '',
@@ -70,13 +70,22 @@ Page({
     let val = event.detail.value;
     let openDateTime = +(new Date(this.data.openDate));
     let expireDateTime = +(new Date(val));
-    let deadline = new Date(expireDateTime - openDateTime);
+    let deadTime = expireDateTime - openDateTime;
+    let deadline = new Date(deadTime);
 
-    this.setData({
-      expireDate: val,
-      dateSelectV: val,
-      deadlineDate: (deadline.getDate()-1)
-    });
+    if (deadTime > 0) {
+      this.setData({
+        expireDate: val,
+        dateSelectV: val,
+        deadlineDate: (deadline.getDate() - 1)
+      });
+    } else {
+      this.setData({
+        expireDate: val,
+        dateSelectV: val,
+        deadlineDate: 0
+      });
+    }
   },
 
   bindCreditChange: function (event) {
@@ -108,7 +117,7 @@ Page({
   uploadImg: function () {
     if (this.data.imgArry.length == 5) {
       wx.showToast({
-        title: '最多只可以上传5张', 
+        title: '最多只可以上传5张',
         icon: 'none'
       });
       return;
@@ -123,7 +132,7 @@ Page({
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
         var tempFilePaths = res.tempFilePaths;
         that.data.imgArry.push(tempFilePaths);
-        
+
         //启动上传等待中...  
         wx.showToast({
           title: '正在上传...',
@@ -191,7 +200,7 @@ Page({
     });
   },
 
-  deadlineDateBlur: function(e){
+  deadlineDateBlur: function (e) {
     let val = e.detail.value;
     let openDateTime = new Date(this.data.openDate);
     let nowDate = openDateTime.getDate();
@@ -261,7 +270,7 @@ Page({
     });
   },
 
-  keyInputAmt: function(e) {
+  keyInputAmt: function (e) {
     let val = e.detail.value;
     this.setData({
       xdAmount: val
@@ -290,7 +299,7 @@ Page({
     wx.request({
       url: config.prefix,
       data: {
-        xdNo: that.submitParams.xdNo,
+        xdNo: that.params.receEntNo,
         bizType: '1',
         dyCode: datas.detail.randomMathVal,
         dyPasswd: datas.detail.inputV,
@@ -308,6 +317,7 @@ Page({
               wx.hideLoading()
               if (res.data.respCode === '0000') {
                 that.setData({
+                  showDynamic: false,
                   showPrompt: true
                 });
               }
@@ -326,11 +336,14 @@ Page({
     });
   },
 
-  distributeConfirm: function() {
-    
+  distributeConfirm: function () {
+    this.setData({
+      distributeConfirm: false,
+      showDynamic: true
+    });
   },
 
-  bindFormSubmit: function() {
+  bindFormSubmit: function () {
     let that = this;
 
     if (!this.data.creditagencyCode) {
@@ -380,7 +393,7 @@ Page({
       });
       return;
     }
-  
+
     this.params = {
       creditagencyCode: this.data.creditagencyCode,
       receEntNo: this.data.receivingCode,
@@ -391,8 +404,22 @@ Page({
       serviceCode: 'BILL0003'
     }
 
+    let distributeData = {
+      xdNo: this.data.receivingCode,
+      tradeDate: '',
+      openDate: this.data.openDate,
+      expireDate: this.data.expireDate,
+      uppercase: util.convertCurrency(this.data.xdAmount),
+      xdAmount: util.formatNumberRgx(this.data.xdAmount),
+      xdDay: this.data.deadlineDate,
+      openEntName: this.data.creditagencyName,
+      receEntName: this.data.receivingName,
+      guaranteeEntName: this.data.guarantorName
+    };
+
     this.setData({
-      distributeConfirm: true
+      distributeConfirm: true,
+      distributeData: distributeData
     });
   }
 })

@@ -1,18 +1,23 @@
-// pages/runxin-honour/index.js
+var util = require('../../utils/util.js');
+var config = require('../../utils/config.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    honourAmt: 100,
     receiveAmt: 89,
-    feesAmt: 10,
-    honourAmt: 0, //兑付金额
+    feesAmt: '',
+    interestRate: 0.6,
+    honourDate: '',
+    honourDay: '',
+    actualAmount: '',
+    honourAmt: '', //兑付金额
     afterHonourData: {},
     overHonourData: {},
     checkboxFlag: false,
-    honourConfirm: false,
+    honourConfirmFlag: false,
     showDynamic: false, //显示动态密码框
     showPrompt: false, // 显示成功提示
   },
@@ -21,17 +26,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this;
+    let newDate = new Date();
+    
     wx.getStorage({
       key: 'holdFinancingData',
       success: function (res) {
         that.xdNo = res.data.xdNo;
         res.data.status = 'green';
+        res.data.caseAmount = res.data.uppercase;
         
+        let honourDayTime = new Date(res.data.expireDate) - +newDate;
+        let honourDay = Math.round(honourDayTime / (1000 * 3600 * 24));
+
         that.setData({
-          honourData: res.data
+          honourData: res.data,
+          honourDate: util.formatTime(newDate),
+          honourDay: honourDay
         });
-      },
-    });  
+      }
+    });
   },
 
   checkboxchange: function (e) {
@@ -40,23 +54,16 @@ Page({
     });
   },
 
-  honourAmtInput: function(e){
-    let val = e.detail.value;
-    this.setData({
-      honourAmt: val
-    });
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
-  submitHonour: function() {
+  submitHonour: function () {
     let that = this;
-    if (!datas.detail.honourAmt) {
+    if (!this.data.honourAmt) {
       wx.showToast({
         title: '请输入兑付金额',
         icon: 'none'
@@ -64,12 +71,19 @@ Page({
       return;
     }
 
+    if (!this.data.checkboxFlag) {
+      wx.showToast({
+        title: '润信提前兑付协议',
+        icon: 'none'
+      });
+      return;
+    }    
 
     this.submitParams = {};
 
-    this.submitParams.receEntNo = this.data.drawentno;
+    this.submitParams.receEntNo = this.data.honourData.receEntNo;
     this.submitParams.xdNo = this.data.honourData.xdNo;
-    this.submitParams.discountEntNo = this.data.financeAmount;
+    this.submitParams.discountEntNo = '';
     this.submitParams.discountAmount = this.data.honourAmt;
     this.submitParams.expireDate = this.data.honourData.expireDate;
     this.submitParams.serviceCode = 'BILL0021';
@@ -80,26 +94,47 @@ Page({
     this.data.afterHonourData.xdAmount = util.formatNumberRgx(this.data.honourAmt);
     this.data.afterHonourData.status = 'red';
 
-    let overAmt = this.data.honourData.xdAmount - this.data.honourAmt;
+    let overAmt = Number(this.data.honourData.xdAmount.replace(',', '')) - this.data.honourAmt;
 
-    if(overAmt > 0) {
+    if (overAmt < 0) {
+      wx.showToast({
+        title: '兑付金额不能大于总金额',
+        icon: 'none'
+      });
+      return;
+    }
+
+    if (overAmt > 0) {
       this.data.overHonourData = JSON.stringify(this.data.honourData);
+      this.data.overHonourData = JSON.parse(this.data.overHonourData);
       this.data.overHonourData.uppercase = util.convertCurrency(overAmt);
       this.data.overHonourData.xdAmount = util.formatNumberRgx(overAmt);
-      this.data.overHonourData.status = 'red';
+      this.data.overHonourData.status = 'green';
     }
 
     this.setData({
-      honourConfirm: true,
+      honourConfirmFlag: true,
       afterHonourData: this.data.afterHonourData,
       overHonourData: this.data.overHonourData
     });
 
   },
 
-  honourConfirm: function() {
+  calculateInterest: function(e) {
+    let val = e.detail.value;
+    let feesAmt = Math.round((val * this.data.interestRate * this.data.honourDay)/360);
+    let actualAmount = val - feesAmt
+
     this.setData({
-      honourConfirm: false,
+      honourAmt: val,
+      feesAmt: feesAmt,
+      actualAmount: actualAmount
+    });
+  },
+
+  honourConfirm: function () {
+    this.setData({
+      honourConfirmFlag: false,
       showDynamic: true
     });
   },

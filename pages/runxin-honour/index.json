@@ -4,6 +4,7 @@
     "bookmarks-item": "../../components/bookmarks-item/index",
     "check-box": "../../components/check-box/index",
     "confirm": "../../components/confirm/index",
+    "master-mask": "../../components/master-mask/index",
     "dynamic-password": "../../components/dynamic-password/index"
   }
 }

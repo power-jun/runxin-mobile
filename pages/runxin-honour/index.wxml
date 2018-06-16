@@ -1,60 +1,51 @@
 <scroll-view class='body' scroll-y='true'>
   <view class='article'>
-    <bookmarks-item itemData="{{honourData}}"/>
-    <view class="amount-input">
-      <view class="head"><text>请输入兑付金额：</text></view>
-      <input type="number" value="{{honourAmt}}" bindblur="honourAmtInput"/>
-    </view>
-   
-    <view class="honour-amount">
-      <text>您提前兑付80天，兑付金额{{honourAmount}}万,您将收到{{receiveAmt}}万,手续费{{feesAmt}}万</text>
-    </view>
-
+    <bookmarks-item itemData="{{honourData}}" />
     <view class='financing-list'>
-    <view class='distribute-line amount'>
+      <view class='distribute-line amount'>
         <text class='head'>申请金额</text>
         <view class='val-input'>
           <text class='char'>￥</text>
-          <input type="digit" value="{{applicationAmount}}" bindblur="calculateInterest" />
+          <input type="digit" value="{{honourAmt}}" bindblur="calculateInterest" />
         </view>
       </view>
       <view class='distribute-line'>
-        <text class='head'>融资日期</text>
+        <text class='head'>兑付日期</text>
         <view class='val-input'>
-          <input type="text" disabled value="{{financingData.nowDate}}" />
+          <input type="text" disabled value="{{honourDate}}" />
         </view>
       </view>
       <view class='distribute-line'>
-        <text class='head'>融资天数</text>
+        <text class='head'>兑付天数</text>
         <view class='val-input'>
-          <input type="text" disabled value="{{financingData.financingDate}}" />
+          <input type="text" disabled value="{{honourDay}}" />
         </view>
       </view>
       <view class='distribute-line'>
         <text class='head'>手续费</text>
         <view class='val-input'>
-          <input type="text" disabled value="{{interest}}元" />
+          <input type="text" disabled value="{{feesAmt}}元" />
         </view>
       </view>
       <view class='distribute-line'>
         <text class='head'>实际到账金额</text>
         <view class='val-input'>
-          <input type="text" disabled value="{{actualAmount}}" />
+          <input type="text" disabled value="{{actualAmount}}元" />
         </view>
       </view>
 
-    <view class='protocol-box'>
-      <check-box label='请您仔细阅读' color='#23303a' bindchange="checkboxchange" />
-      <text class='protocol'>《润信提前兑付协议》</text>
+      <view class='protocol-box'>
+        <check-box label='请您仔细阅读' color='#23303a' bindchange="checkboxchange" />
+        <text class='protocol'>《润信提前兑付协议》</text>
+      </view>
+      <button form-type="submit" class='submit-btn' bindtap='submitHonour'> 确认兑付 </button>
     </view>
-    <button form-type="submit" class='submit-btn' bindtap='submitHonour'> 确认兑付 </button>
   </view>
-</view>
   <confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />
   <dynamic-password showDynamic="{{showDynamic}}" bindsubmit="passwordSubmit" />
 
-  <scroll-view wx:if="{{honourConfirm}}">
-    <view class="financing-confirm">
+  <scroll-view wx:if="{{honourConfirmFlag}}">
+    <view class="honour-confirm">
       <view class='article-head'>
         <text class='dot'></text>
         <text>兑付前</text>
@@ -66,7 +57,7 @@
       </view>
       <master-mask maskData="{{afterHonourData}}" />
 
-      <master-mask maskData="{{overHonourData}}" wx:if="{{overHonourData.status}}"/>
+      <master-mask maskData="{{overHonourData}}" wx:if="{{overHonourData.status}}" />
 
       <view class='money-detail'>
         <view class='item'>
@@ -74,7 +65,7 @@
             <text class='company'>该笔兑付利率</text>
           </view>
           <view>
-            <text>{{factoringRate}}%</text>
+            <text>{{interestRate}}%</text>
           </view>
         </view>
         <view class='item'>
@@ -82,7 +73,7 @@
             <text class='company'>申请兑付金额</text>
           </view>
           <view>
-            <text>{{applicationAmount}}元</text>
+            <text>{{honourAmt}}元</text>
           </view>
         </view>
         <view class='item'>
@@ -90,7 +81,7 @@
             <text class='company'>支付利息</text>
           </view>
           <view>
-            <text>{{interest}}元</text>
+            <text>{{feesAmt}}元</text>
           </view>
         </view>
         <view class='item'>

@@ -3,6 +3,7 @@
   "usingComponents": {
     "confirm": "../../components/confirm/index",
     "check-box": "../../components/check-box/index",
+    "master-mask": "../../components/master-mask/index",
     "dynamic-password": "../../components/dynamic-password/index"
   }
 }

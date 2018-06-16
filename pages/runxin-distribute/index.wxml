@@ -14,7 +14,7 @@
       <view class='distribute-line' style='border: none;'>
         <text class='head'>可用额度</text>
         <view class='val-input'>
-          <input type="digit" disabled confirm-type="done" value="{{availableAmount}}" class="available-amt"/>
+          <input type="digit" disabled confirm-type="done" value="{{availableAmount}}" class="available-amt" />
           <text class='unit'>元</text>
         </view>
       </view>
@@ -33,7 +33,7 @@
       <view class='distribute-line'>
         <text class='head'>签发金额</text>
         <view class='val-input'>
-          <input type="digit" confirm-type="done" value="{{xdAmount}}" placeholder='请输入金额' placeholder-class='available-amt-place' class="available-amt" bindinput='keyInputAmt'/>
+          <input type="digit" confirm-type="done" value="{{xdAmount}}" placeholder='请输入金额' placeholder-class='available-amt-place' class="available-amt" bindinput='keyInputAmt' />
           <text class='unit'>元</text>
         </view>
       </view>
@@ -58,7 +58,7 @@
       <view class='distribute-line'>
         <text class='head'>润信期限</text>
         <view class='val-input'>
-          <input type="text" value="{{deadlineDate}}" bindblur='deadlineDateBlur'/>
+          <input type="text" value="{{deadlineDate}}" bindblur='deadlineDateBlur' />
           <text style='font-size: 14px;color: #676767;'>天</text>
         </view>
       </view>
@@ -85,13 +85,13 @@
               <image src='{{item}}' class='pic-shop' />
             </view>
           </view>
-            <view class="upload-img" bindtap="uploadImg">
-              <view class="upload-icon" >
-                <view class='upload-icon-line'></view>
-                <view class='upload-icon-vertical'></view>
-              </view>
+          <view class="upload-img" bindtap="uploadImg">
+            <view class="upload-icon">
+              <view class='upload-icon-line'></view>
+              <view class='upload-icon-vertical'></view>
             </view>
-            <text class='upload-tips'>（点击上传合同与发票，最多5张，总计10M）</text>
+          </view>
+          <text class='upload-tips'>（点击上传合同与发票，最多5张，总计10M）</text>
         </view>
         <view class='protocol-box'>
           <check-box label='请您仔细阅读' color='#23303a' bindchange="checkboxchange" />
@@ -102,8 +102,8 @@
     </form>
   </view>
   <confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />
-  <dynamic-password showDynamic="{{showDynamic}}" bindsubmit="passwordSubmit"/>
-    <scroll-view wx:if="{{distributeConfirm}}">
+  <dynamic-password showDynamic="{{showDynamic}}" bindsubmit="passwordSubmit" />
+  <scroll-view wx:if="{{distributeConfirm}}">
     <view class="distribute-confirm">
       <master-mask maskData="{{distributeData}}" />
       <button form-type="submit" class='submit-btn' bindtap='distributeConfirm'> 确认无误</button>
