@@ -62,7 +62,7 @@ Page({
 
   selectFactoring: function () {
     wx.navigateTo({
-      url: '/pages/runxin-factoring/index'
+      url: '/pages/runxin-factoring/index?bizType=3'
     });
   },
 

@@ -1,3 +1,7 @@
+.body {
+  height: 100%;
+}
+
 .amount-input {
   margin: 40rpx 0;
 }
@@ -73,7 +77,6 @@
   padding: 15px 0;
   font-size: 14px;
   color: #676767;
-  line-height: 1.2;
   text-align: right;
 }
 

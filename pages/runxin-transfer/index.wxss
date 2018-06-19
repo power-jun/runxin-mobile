@@ -114,13 +114,13 @@
 .transfer-confirm {
   width: 100%;
   height: 100%;
-   position: fixed;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: 10000; 
   background: #f8f8f8;
   overflow-y:scroll;
-  padding: 0 15px;
+  padding: 40rpx 0;
 }
 
 .money-detail {
@@ -145,4 +145,8 @@
 .money-detail .item .select {
   display: flex;
   align-items:center;
+}
+
+.article-head {
+  padding: 0 15px;
 }

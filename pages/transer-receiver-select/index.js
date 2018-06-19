@@ -29,5 +29,11 @@ Page({
     wx.navigateTo({
       url: '/pages/runxin-transfer/index?index=' + datas.index
     })
+  },
+
+  onUnload: function () {
+    wx.switchTab({
+      url: '/pages/runxin-manage/index'
+    });
   }
 })

@@ -18,6 +18,9 @@
         <text class='head'>收信人</text>
         <view class='val-input company'>
           <input type="text" disabled value="{{item.entName}}" />
+          <view class='arrow-icon'>
+            <view class='icon'></view>
+          </view>
         </view>
       </view>
       <view class='distribute-line'>
@@ -70,7 +73,15 @@
 
   <scroll-view wx:if="{{transferConfirm}}">
     <view class="transfer-confirm">
+    <view class='article-head'>
+        <text class='dot'></text>
+        <text>转让前</text>
+      </view>
       <master-mask maskData="{{financingData}}" />
+      <view class='article-head'>
+        <text class='dot'></text>
+        <text>转让后</text>
+      </view>
       <master-mask wx:for="{{afterTransferDataArry}}"  maskData="{{item}}" wx:key="{{index}}" />
       <master-mask maskData="{{profitMask}}" wx:if="{{profitMask.xdAmount}}"/>
 

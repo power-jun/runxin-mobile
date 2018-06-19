@@ -41,6 +41,7 @@
 }
 
 .article {
+  height: 100%;
   padding: 51px 0 1px;
 }
 

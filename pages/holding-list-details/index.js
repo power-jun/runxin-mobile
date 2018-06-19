@@ -23,7 +23,6 @@ Page({
   requestData: function(id) {
     let that = this;
     wx.showLoading();
-
     wx.request({
       url: config.prefix,
       method: 'POST',

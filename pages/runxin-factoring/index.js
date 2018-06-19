@@ -13,6 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.bizType = options.bizType;
     this.requestData();
   },
 
@@ -24,7 +25,7 @@ Page({
       method: 'POST',
       data: {
         serviceCode: 'BASE0015',
-       bizType: '3'
+        bizType: that.bizType
       },
       success: function(res) {
         wx.hideLoading();

@@ -2,6 +2,21 @@
   <view class='article'>
     <bookmarks-item itemData="{{honourData}}" />
     <view class='financing-list'>
+          <view class='distribute-line'>
+        <text class='head'>兑付企业</text>
+        <view class='val-input company' bindtap='selectFactoring'>
+          <input type="text" disabled value="{{honourName}}" />
+          <view class='arrow-icon'>
+            <view class='icon'></view>
+          </view>
+        </view>
+      </view>
+      <view class='distribute-line'>
+        <text class='head'>利率</text>
+        <view class='val-input'>
+          <input type="text" disabled value="{{interestRate}}%" />
+        </view>
+      </view>
       <view class='distribute-line amount'>
         <text class='head'>申请金额</text>
         <view class='val-input'>

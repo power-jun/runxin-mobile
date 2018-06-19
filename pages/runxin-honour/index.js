@@ -9,10 +9,11 @@ Page({
   data: {
     receiveAmt: 89,
     feesAmt: '',
-    interestRate: 0.6,
+    interestRate: '',
     honourDate: '',
     honourDay: '',
     actualAmount: '',
+    honourName: '',
     honourAmt: '', //兑付金额
     afterHonourData: {},
     overHonourData: {},
@@ -46,6 +47,11 @@ Page({
         });
       }
     });
+
+    if (options.rate) {
+      this.data.honourName = options.name;
+      this.data.interestRate = options.rate;
+    }
   },
 
   checkboxchange: function (e) {
@@ -54,11 +60,23 @@ Page({
     });
   },
 
+  selectFactoring: function () {
+    wx.navigateTo({
+      url: '/pages/runxin-factoring/index?bizType=4'
+    });
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
 
+  },
+
+  onUnload: function () {
+    wx.switchTab({
+      url: '/pages/holding-list-details/index'
+    });
   },
 
   submitHonour: function () {
@@ -121,6 +139,18 @@ Page({
   },
 
   calculateInterest: function(e) {
+    if(!this.data.interestRate) {
+      wx.showToast({
+        title: '请选择兑付企业',
+        icon: 'none'
+      });
+
+      this.setData({
+        honourAmt: ''
+      });
+      return;
+    }
+
     let val = e.detail.value;
     let feesAmt = Math.round((val * this.data.interestRate * this.data.honourDay)/360);
     let actualAmount = val - feesAmt

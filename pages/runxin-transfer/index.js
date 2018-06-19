@@ -119,6 +119,12 @@ Page({
     })
   },
 
+  onUnload: function () {
+    wx.switchTab({
+      url: '/pages/runxin-manage/index'
+    });
+  },
+
   selectTransfer: function (e) {
     this.currentIndex = e.currentTarget.dataset.currentindex; // 收信人数组下标
     wx.navigateTo({
@@ -239,7 +245,7 @@ Page({
     wx.request({
       url: config.prefix,
       data: {
-        xdNo: that.submitParams.xdNo,
+        xdNo: that.data.financingData.xdNo,
         bizType: '2',
         dyCode: datas.detail.randomMathVal,
         dyPasswd: datas.detail.inputV,
@@ -257,7 +263,8 @@ Page({
               wx.hideLoading();
               if (res.data.respCode === '0000') {
                 that.setData({
-                  showPrompt: true
+                  showPrompt: true,
+                  showDynamic: false
                 });
               }
             }
@@ -317,9 +324,9 @@ Page({
     let transferAmount = 0;
 
     for (let i = 0, len = this.paramArry.length; i < len; i++) {
-      transferAmount += this.paramArry[i].transAmount;
+      transferAmount += Number(this.paramArry[i].transAmount);
 
-      afterTransferDataArry.push({
+      this.data.afterTransferDataArry.push({
         status: 'red',
         xdNo: this.paramArry[i].xdNo,
         xdAmount: this.paramArry[i].transAmount,
@@ -332,17 +339,15 @@ Page({
         receEntName: receiverData[i].entName,
         guaranteeEntName: this.data.financingData.guaranteeEntName
       });
-
-      this.paramArry[i];
     }
 
-    debugger
-    let transferProfit = this.data.financingData - transferAmount;
+    let transferProfit = Number(this.data.financingData.xdAmount.replace(',', '')) - transferAmount;
 
     if(transferProfit > 0) {
-      this.data.profitMask = this.data.financingDatal;
-      this.data.profitMask.xdAmount = transferProfit;
+      this.data.profitMask = this.data.financingData;
+      this.data.profitMask.xdAmount = util.formatNumberRgx(transferProfit);
       this.data.profitMask.uppercase = util.convertCurrency(transferProfit);
+      this.data.profitMask.status = 'green';
 
       this.setData({
         profitMask: this.data.profitMask
@@ -353,7 +358,8 @@ Page({
       transferConfirm: true,
       transferAmount: transferAmount,
       transferProfit: transferProfit,
-      transferNumber: this.paramArry.length
+      transferNumber: this.paramArry.length,
+      afterTransferDataArry: this.data.afterTransferDataArry
     });
   },
 
