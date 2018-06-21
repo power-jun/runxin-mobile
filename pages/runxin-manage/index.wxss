@@ -46,7 +46,7 @@
 }
 
 .transaction-inquiry-box {
-  margin-bottom: 220rpx;
+  margin-bottom: 320rpx;
 }
 
 .transaction-inquiry {
@@ -166,7 +166,7 @@
 }
 
 .footer-fixed .amount-detail {
-  margin-bottom: 30rpx;
+  /* margin-bottom: 30rpx; */
 }
 
 .amount-detail text {

@@ -13,10 +13,13 @@ Page({
     afterFinancingData: {}
   },
 
+  userInfo: null,
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.userInfo = app.getUserInfo();
     this.requestData(options.xdno)
   },
 
@@ -29,7 +32,8 @@ Page({
       method: 'POST',
       data: {
         serviceCode: 'BILL0013', //润信融资详情
-        xdNo: id
+        xdNo: id,
+        sessionToken: that.userInfo.sessionToken
       },
       success: function (res) {
         if (res.data.respCode == '0000') {
@@ -51,7 +55,8 @@ Page({
             method: 'POST',
             data: {
               serviceCode: 'BILL0013', //润信融资详情
-              xdNo: res.data.mXdNo
+              xdNo: res.data.mXdNo,
+              sessionToken: that.userInfo.sessionToken
             },
             success: function(data) {
               wx.hideLoading();

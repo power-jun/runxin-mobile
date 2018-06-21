@@ -37,12 +37,16 @@ Page({
     promptMessage: '将转让成功的消息转发给收信人，让他快点签收润信！',
   },
 
+  userInfo: null,
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     let that = this;
     this.xdNo = '';
+
+    this.userInfo = app.getUserInfo();
 
     wx.getStorage({
       key: 'holdFinancingData',
@@ -91,7 +95,8 @@ Page({
       method: 'POST',
       data: {
         serviceCode: 'BASE0008',
-        bizType: '2'
+        bizType: '2',
+        sessionToken: that.userInfo.sessionToken
       },
       success: function (res) {
         wx.hideLoading();
@@ -121,7 +126,7 @@ Page({
 
   onUnload: function () {
     wx.switchTab({
-      url: '/pages/runxin-manage/index'
+      url: '/pages/holding-list-details/index'
     });
   },
 
@@ -249,7 +254,8 @@ Page({
         bizType: '2',
         dyCode: datas.detail.randomMathVal,
         dyPasswd: datas.detail.inputV,
-        serviceCode: 'BILL0016'
+        serviceCode: 'BILL0016',
+        sessionToken: that.userInfo.sessionToken
       },
       method: 'POST',
       success: function (res) {
@@ -257,7 +263,7 @@ Page({
 
           wx.request({
             url: config.prefix,
-            data: { paramArry, serviceCode: 'BILL0010' },
+            data: { paramArry, serviceCode: 'BILL0010', sessionToken: that.userInfo.sessionToken },
             method: 'POST',
             success: function (res) {
               wx.hideLoading();
@@ -370,15 +376,23 @@ Page({
     });
   },
 
-  submitPrompt: function () {
-    wx.switchTab({
-      url: '/pages/runxin-manage/index'
+  submitPrompt: function (e) {
+    this.setData({
+      showPrompt: false
     });
+
+    // wx.switchTab({
+    //   url: '/pages/runxin-manage/index'
+    // });
   },
 
-  cancelPrompt: function () {
-    wx.switchTab({
-      url: '/pages/runxin-manage/index'
+  cancelPrompt: function (e) {
+    this.setData({
+      showPrompt: false
     });
+    
+    // wx.switchTab({
+    //   url: '/pages/runxin-manage/index'
+    // });
   },
 })

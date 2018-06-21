@@ -39,10 +39,13 @@ Page({
     promptMessage: '将签发成功的消息转发给收信人，让他快点签收润信！',
   },
 
+  userInfo: null,
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.userInfo = app.getUserInfo();
     let nowDate = new Date();
     this.openDate = util.formatTime(nowDate);
     this.requestData();
@@ -188,16 +191,22 @@ Page({
     });
   },
 
-  submitPrompt: function () {
-    wx.switchTab({
-      url: '/pages/runxin-manage/index'
+  submitPrompt: function (e) {
+    this.setData({
+      showPrompt: false
     });
+    // wx.switchTab({
+    //   url: '/pages/runxin-manage/index'
+    // });
   },
 
-  cancelPrompt: function () {
-    wx.switchTab({
-      url: '/pages/runxin-manage/index'
+  cancelPrompt: function (e) {
+    this.setData({
+      showPrompt: false
     });
+    // wx.switchTab({
+    //   url: '/pages/runxin-manage/index'
+    // });
   },
 
   deadlineDateBlur: function (e) {
@@ -219,7 +228,8 @@ Page({
       method: 'POST',
       data: {
         serviceCode: 'BASE0008',
-        bizType: '1'
+        bizType: '1',
+        sessionToken: that.userInfo.sessionToken
       },
       success: function (res) {
         if (res.data.respCode === '0000') {
@@ -247,7 +257,8 @@ Page({
       method: 'POST',
       data: {
         serviceCode: 'BASE0005',
-        bizType: '1'
+        bizType: '1',
+        sessionToken: that.userInfo.sessionToken
       },
       success: function (res) {
         if (res.data.respCode === '0000') {
@@ -303,7 +314,8 @@ Page({
         bizType: '1',
         dyCode: datas.detail.randomMathVal,
         dyPasswd: datas.detail.inputV,
-        serviceCode: 'BILL0016'
+        serviceCode: 'BILL0016',
+        sessionToken: userInfo.sessionToken
       },
       method: 'POST',
       success: function (res) {
@@ -401,7 +413,8 @@ Page({
       openDate: this.data.openDate,
       expireDate: this.data.expireDate,
       contractFileId: this.data.imgArryId.join(','),
-      serviceCode: 'BILL0003'
+      serviceCode: 'BILL0003',
+      sessionToken: this.userInfo.sessionToken
     }
 
     let distributeData = {

@@ -1,5 +1,6 @@
 var util = require('../../utils/util.js');
 var config = require('../../utils/config.js');
+var app = getApp();
 
 Page({
 
@@ -21,7 +22,11 @@ Page({
     honourConfirmFlag: false,
     showDynamic: false, //显示动态密码框
     showPrompt: false, // 显示成功提示
+    promptTitle: '兑付成功',
+    promptMessage: '将兑付成功的消息转发给收信人，让他快点签收润信！'
   },
+
+  userInfo: null,
 
   /**
    * 生命周期函数--监听页面加载
@@ -29,6 +34,13 @@ Page({
   onLoad: function (options) {
     let that = this;
     let newDate = new Date();
+
+    this.userInfo = app.getUserInfo();
+
+    if (options.rate) {
+      this.data.honourName = options.name;
+      this.data.interestRate = options.rate;
+    }
     
     wx.getStorage({
       key: 'holdFinancingData',
@@ -41,17 +53,14 @@ Page({
         let honourDay = Math.round(honourDayTime / (1000 * 3600 * 24));
 
         that.setData({
+          honourName: that.data.honourName,
+          interestRate: that.data.interestRate,
           honourData: res.data,
           honourDate: util.formatTime(newDate),
           honourDay: honourDay
         });
       }
     });
-
-    if (options.rate) {
-      this.data.honourName = options.name;
-      this.data.interestRate = options.rate;
-    }
   },
 
   checkboxchange: function (e) {
@@ -105,6 +114,7 @@ Page({
     this.submitParams.discountAmount = this.data.honourAmt;
     this.submitParams.expireDate = this.data.honourData.expireDate;
     this.submitParams.serviceCode = 'BILL0021';
+    this.submitParams.sessionToken = this.userInfo.sessionToken;
 
     this.data.afterHonourData = JSON.stringify(this.data.honourData);
     this.data.afterHonourData = JSON.parse(this.data.afterHonourData);
@@ -169,22 +179,22 @@ Page({
     });
   },
 
-  submitPrompt: function () {
+  submitPrompt: function (e) {
     this.setData({
       showPrompt: false
     });
-    wx.switchTab({
-      url: '/pages/runxin-manage/index'
-    });
+    // wx.switchTab({
+    //   url: '/pages/runxin-manage/index'
+    // });
   },
 
-  cancelPrompt: function () {
+  cancelPrompt: function (e) {
     this.setData({
       showPrompt: false
     });
-    wx.switchTab({
-      url: '/pages/runxin-manage/index'
-    });
+    // wx.switchTab({
+    //   url: '/pages/runxin-manage/index'
+    // });
   },
 
   passwordSubmit: function (datas) { //动态码提交验证
@@ -205,7 +215,8 @@ Page({
         bizType: '4',
         dyCode: datas.detail.randomMathVal,
         dyPasswd: datas.detail.inputV,
-        serviceCode: 'BILL0016'
+        serviceCode: 'BILL0016',
+        sessionToken: that.userInfo.sessionToken
       },
       method: 'POST',
       success: function (res) {

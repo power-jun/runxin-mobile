@@ -19,10 +19,13 @@ Page({
     entno: '',//授信机构ID
   },
 
+  userInfo: null,
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.userInfo = app.getUserInfo();
     this.requestData();
 
     this.setData({
@@ -65,7 +68,8 @@ Page({
       url: config.prefix,
       method: 'POST',
       data: {
-        serviceCode: 'BASE0005' // 授信机构
+        serviceCode: 'BASE0005', // 授信机构
+        sessionToken: that.userInfo.sessionToken
       },
       success: function (res) {
         wx.hideLoading();

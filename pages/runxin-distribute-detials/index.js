@@ -15,11 +15,14 @@ Page({
     showPrompt: false
   },
 
+  userInfo: null,
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.requestData(options.xdno)
+    this.userInfo = app.getUserInfo();
+    this.requestData(options.xdno);
   },
 
   requestData: function (id) {
@@ -31,7 +34,8 @@ Page({
       method: 'POST',
       data: {
         serviceCode: 'BILL0002', //润信签发详情
-        xdNo: id
+        xdNo: id,
+        sessionToken: that.userInfo.sessionToken
       },
       success: function (res) {
         wx.hideLoading();
@@ -79,7 +83,8 @@ Page({
       data: {
         serviceCode: 'BILL0004',
         checkStatus: '1',
-        xdno: that.data.xdno
+        xdno: that.data.xdno,
+        sessionToken: that.userInfo.sessionToken
       },
       success: function(res) {
         wx.hideLoading();
@@ -123,7 +128,8 @@ Page({
       data: {
         serviceCode: 'BILL0004',
         checkStatus: '2',
-        xdno: that.data.xdno
+        xdno: that.data.xdno,
+        sessionToken: userInfo.sessionToken
       },
       success: function (res) {
         wx.hideLoading();

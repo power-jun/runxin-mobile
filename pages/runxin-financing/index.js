@@ -1,5 +1,6 @@
 var util = require('../../utils/util.js');
 var config = require('../../utils/config.js');
+var app = getApp();
 
 Page({
 
@@ -24,11 +25,15 @@ Page({
     promptMessage: '将融资成功的消息转发给收信人，让他快点签收润信！',
   },
 
+  userInfo: null,
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     let that = this;
+
+    this.userInfo = app.getUserInfo();
 
     if (options.name) {
       this.data.factoringName = options.name;
@@ -56,7 +61,7 @@ Page({
 
   onUnload: function () {
     wx.switchTab({
-      url: '/pages/runxin-manage/index'
+      url: '/pages/holding-list-details/index'
     });
   },
 
@@ -102,22 +107,22 @@ Page({
     });
   },
 
-  submitPrompt: function () {
+  submitPrompt: function (e) {
     this.setData({
       showPrompt: false
     });
-    wx.switchTab({
-      url: '/pages/runxin-manage/index'
-    });
+    // wx.switchTab({
+    //   url: '/pages/runxin-manage/index'
+    // });
   },
 
-  cancelPrompt: function () {
+  cancelPrompt: function (e) {
     this.setData({
       showPrompt: false
     });
-    wx.switchTab({
-      url: '/pages/runxin-manage/index'
-    });
+    // wx.switchTab({
+    //   url: '/pages/runxin-manage/index'
+    // });
   },
 
   passwordSubmit: function (datas) { //动态码提交验证
@@ -138,7 +143,8 @@ Page({
         bizType: '3',
         dyCode: datas.detail.randomMathVal,
         dyPasswd: datas.detail.inputV,
-        serviceCode: 'BILL0016'
+        serviceCode: 'BILL0016',
+        sessionToken: that.userInfo.sessionToken
       },
       method: 'POST',
       success: function (res) {
@@ -178,6 +184,7 @@ Page({
     this.submitParams.financeAmount = this.data.financeAmount;
     this.submitParams.expireDate = this.data.financingData.expireDate;
     this.submitParams.serviceCode = 'BILL0014';
+    this.submitParams.sessionToken = this.userInfo.sessionToken;
     if (!this.submitParams.receEntNo) {
       wx.showToast({
         title: '请选择保理商',

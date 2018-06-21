@@ -4,7 +4,7 @@
 
 .financing-list {
   background-color: #fff;
-  margin-bottom: 30rpx;
+  padding-bottom: 30rpx;
 }
 
 .distribute-line {

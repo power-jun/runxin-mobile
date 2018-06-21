@@ -1,7 +1,3 @@
-.article {
-  padding: 1px 0;
-}
-
 .distribute-form {
   display: block;
   margin-top: 15px;

@@ -19,6 +19,8 @@ Page({
     countTrade: {}
   },
 
+  userInfo: null,
+
   /**
   * 生命周期函数--监听页面显示
   */
@@ -39,6 +41,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.userInfo = app.getUserInfo();
     wx.setStorage({
       key: 'advanceParams',
       data: ''
@@ -73,7 +76,8 @@ Page({
       url: config.prefix,
       method: 'POST',
       data: {
-        serviceCode: 'BASE0019'
+        serviceCode: 'BASE0019',
+        sessionToken: that.userInfo.sessionToken
       },
       success: function(res) {
         if (res.data.respCode == '0000') {
@@ -97,7 +101,8 @@ Page({
     params = Object.assign({
       serviceCode: serviceCode,
       row: 10,
-      page: that.page
+      page: that.page,
+      sessionToken: that.userInfo.sessionToken
     }, advanceParams || {})
 
     wx.request({

@@ -1,4 +1,5 @@
 var config = require('../../utils/config.js');
+var app = getApp();
 
 Page({
 
@@ -6,14 +7,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    bizType: ''
   },
+
+  userInfo: null,
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     this.bizType = options.bizType;
+    this.userInfo = app.getUserInfo();
+    if(this.bizType == 4) {
+      wx.setNavigationBarTitle({
+        title: '兑付企业'
+      });
+    }
+
+    this.setData({
+      bizType: this.bizType
+    });
+
     this.requestData();
   },
 
@@ -25,7 +39,8 @@ Page({
       method: 'POST',
       data: {
         serviceCode: 'BASE0015',
-        bizType: that.bizType
+        bizType: that.bizType,
+        sessionToken: that.userInfo.sessionToken
       },
       success: function(res) {
         wx.hideLoading();
@@ -40,8 +55,15 @@ Page({
 
   factoringSelect: function(e) {
     let datas = e.currentTarget.dataset;
-    wx.navigateTo({
-      url: '/pages/runxin-financing/index?name=' + datas.name + '&rate=' + datas.rate + '&drawentno=' + datas.drawentno
-    })
+    if (this.bizType == 4) {
+      wx.navigateTo({
+        url: '/pages/runxin-honour/index?name=' + datas.name + '&rate=' + datas.rate + '&drawentno=' + datas.drawentno
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/runxin-financing/index?name=' + datas.name + '&rate=' + datas.rate + '&drawentno=' + datas.drawentno
+      })
+    }
+    
   }
 })

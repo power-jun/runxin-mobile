@@ -86,7 +86,7 @@
         </view>
       </block>
 
-      <view class="no-more-goods" hidden='{{loadingMoreHidden}}'>更多记录,敬请期待</view>
+      <view class="no-more-goods" hidden='{{loadingMoreHidden}}'>更多记录,敬请期</view>
       <view class="no-more-goods no-datas" hidden='{{noDataHidden}}'>暂无记录</view>
       <view class='footer-fixed'>
         <view class='head'>累计</view>

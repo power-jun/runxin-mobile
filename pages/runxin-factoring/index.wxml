@@ -8,6 +8,6 @@
       <view><text>{{item.rate}}%</text></view>
     </view>
   </view>
-  <view class='tips'><text>提示：已为您选择报价最低的保理商</text></view>
+  <view class='tips' wx:if="{{bizType == 3}}"><text>提示：已为您选择报价最低的保理商</text></view>
   <!-- <button form-type="submit" class='submit-btn' bindtap='goback'> 确定 </button> -->
 </scroll-view>

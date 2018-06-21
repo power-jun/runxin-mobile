@@ -44,6 +44,10 @@
   margin-bottom: 100rpx;
 }
 
+.article {
+  padding-bottom: 30rpx;
+}
+
 .financing-list {
   background-color: #fff;
 }
@@ -102,7 +106,6 @@
   overflow-y: scroll;
   padding: 30rpx 0;
 }
-
 
 .article-head {
   padding: 0 15px;

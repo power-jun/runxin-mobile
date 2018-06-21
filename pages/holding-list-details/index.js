@@ -13,10 +13,13 @@ Page({
     yesCheckboxFlag: false
   },
 
+  userInfo: null,
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.userInfo = app.getUserInfo();
     this.requestData(options.id)
   },
 
@@ -28,7 +31,8 @@ Page({
       method: 'POST',
       data: {
         serviceCode: 'BILL0018',
-        xdNo: id
+        xdNo: id,
+        sessionToken: that.userInfo.sessionToken
       },
       success: function(res) {
         wx.hideLoading();

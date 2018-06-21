@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/runxin-manage/index",
+    "pages/runxin-honour/index",
     "pages/login/index",
     "pages/runxin-distribute/index",
     "pages/runxin-financing/index",
@@ -31,7 +32,6 @@
     "pages/payment-manage/index",
     "pages/receivables-manage/index",
     "pages/transer-receiver-select/index",
-    "pages/runxin-honour/index",
     "pages/runxin-honour-detail/index"
   ],
   "window": {

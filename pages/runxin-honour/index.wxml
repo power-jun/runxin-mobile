@@ -48,15 +48,15 @@
           <input type="text" disabled value="{{actualAmount}}元" />
         </view>
       </view>
-
-      <view class='protocol-box'>
+    </view>
+    <view class='protocol-box'>
         <check-box label='请您仔细阅读' color='#23303a' bindchange="checkboxchange" />
         <text class='protocol'>《润信提前兑付协议》</text>
       </view>
       <button form-type="submit" class='submit-btn' bindtap='submitHonour'> 确认兑付 </button>
-    </view>
   </view>
   <confirm icon='success' title="{{promptTitle}}" message='{{promptMessage}}' showConfirm='{{showPrompt}}' bindsubmit='submitPrompt' bindcancel='cancelPrompt' />
+
   <dynamic-password showDynamic="{{showDynamic}}" bindsubmit="passwordSubmit" />
 
   <scroll-view wx:if="{{honourConfirmFlag}}">
